@@ -16,7 +16,8 @@ For automation, I am using <a title="SMA" href="http://technet.microsoft.com/en-
 
 First things first, I need to declare my workflow and stick a Try Catch block in it:
 
-```workflow ExchangeMailboxDBList
+```
+workflow ExchangeMailboxDBList
 {
     try
     {
@@ -30,13 +31,15 @@ First things first, I need to declare my workflow and stick a Try Catch block in
         $body = "Could not connect to my server"
         send-mailmessage -to $emailaddress -From "your_service_account@domain.com" -Subject $smtpSubject -SMTPServer $smtpserver -body $body
     }
-}```
+}
+```
 
 We're already running into something funny. What is <strong>Get-AutomationVariable -Name 'SMTPServer'</strong>? In SMA, you can store variables for any of your runbooks to use. This cmdlet is retrieving the previously stored value for my SMTP server. This is nice because if I change SMTP servers, I can update the single SMA asset instead of updating all my scripts individually.
 
 Great! Now let's actually write the part of the script that does something useful. Let's start by initializing some variables:
 
-```workflow ExchangeMailboxDBList
+```
+workflow ExchangeMailboxDBList
 {
     try
     {
@@ -53,7 +56,8 @@ Great! Now let's actually write the part of the script that does something usefu
         $body = "Could not connect to my server"
         send-mailmessage -to $emailaddress -From "your_service_account@domain.com" -Subject $smtpSubject -SMTPServer $smtpserver -body $body
     }
-}```
+}
+```
 
 A couple new lines in the Try block! $connectionURI is pretty straight forward. You're going to make a remote session to the Exchange Management Shell on your Exchange Server so your script needs to know where that is. $getMBXconn is a new PSSession to the URI you specified. Notice that I'm not passing any credentials specifically to this one. The service account that's running this SMA runbook has the rights it needs to do this. You can either do the same or you can pass specific credentials from an SMA asset or stored elsewhere.
 
@@ -61,7 +65,8 @@ What is it all wrapped in, though? Some inlinescript block? Like I mentioned abo
 
 We have our connection, now we need to actually go get some data:
 
-```workflow ExchangeMailboxDBList
+```
+workflow ExchangeMailboxDBList
 {
     try
     {
