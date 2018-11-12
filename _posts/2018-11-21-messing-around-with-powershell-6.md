@@ -18,7 +18,8 @@ So, let's get at it. First, clone the repository with <code>git clone https://gi
 Then, open the PowerShell.sln file in Visual Studio, or open up the project in VS Code. I tend to prefer "full blown" Visual Studio for writing C#, because it's what I'm used to, but VS Code is perfectly fine, with a couple extensions added on (which are recommended as soon as you start looking at C# stuff).
 
 So, now, what do you want to do? I like to start simple. When you first launch <code>pwsh.exe</code> there's a banner message that is displayed, which at the time of this writing reads something like:
-<pre>PowerShell {0}
+```
+PowerShell {0}
 Copyright (c) Microsoft Corporation. All rights reserved.
 
 https://aka.ms/pscore6-docs
@@ -36,7 +37,8 @@ Aha! Looks like maybe we found it. There's a <code>ShellBannerNonWindowsPowerShe
 
 Save everything, follow the above linked directions to build PowerShell, and launch the <code>pwsh.exe</code> that it created. You should see your new message. Mine looks like this.
 <div>
-<pre>PowerShell {0}
+```
+PowerShell {0}
 Copyright (c) Microsoft Corporation. All rights reserved.
 
 https://aka.ms/pscore6-docs
