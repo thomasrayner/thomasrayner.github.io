@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Re-Run The Last Command
+title: Quick Tip - Re-Run The Last Command
 date: 2018-04-11 08:30
 author: thmsrynr
 comments: true
