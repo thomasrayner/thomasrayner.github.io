@@ -11,7 +11,8 @@ Did you know that you can use <strong>Where-Object</strong> to split a collecti
 <!--more--><img class="alignnone size-full wp-image-770" src="/wp-content/uploads/2018/06/2018-06-07-07_27_11-Blog-post-topics-OneNote.png" alt="" width="626" height="332" />
 
 As you can tell from Herb's comment in this screenshot, it's actually the .where() method that is relatively new that we're using to split collections this way. The syntax is kind of atypical, so let's break it down.
-<pre class="lang:default decode:true">$a, $b = (1..5).where({$_ % 2}, 'split')</pre>
+```
+$a, $b = (1..5).where({$_ % 2}, 'split')\n```
 <ul>
  	<li><strong>$a, $b = </strong>
 <ul>

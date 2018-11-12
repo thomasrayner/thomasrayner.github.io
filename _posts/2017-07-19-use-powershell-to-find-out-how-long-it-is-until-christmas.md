@@ -10,7 +10,8 @@ It's July at the time of this post, which means Christmas is right around the co
 
 <!--more-->
 
-<pre class="lang:ps decode:true ">PS&gt; (Get-Date 'December 25') - (Get-Date)
+```
+PS&gt; (Get-Date 'December 25') - (Get-Date)
 
 
 Days              : 202
@@ -23,6 +24,6 @@ TotalDays         : 202.628632043564
 TotalHours        : 4863.08716904553
 TotalMinutes      : 291785.230142732
 TotalSeconds      : 17507113.8085639
-TotalMilliseconds : 17507113808.5639</pre>
+TotalMilliseconds : 17507113808.5639\n```
 
 Only 17507113808.5639 more milliseconds until Christmas!

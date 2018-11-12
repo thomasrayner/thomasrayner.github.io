@@ -12,7 +12,8 @@ There's lots of fun things you can do with datetime objects in PowerShell, and u
 
 Say you want to know what day of the week it will be some arbitrary number of days from now. It's pretty easy.
 
-<pre class="lang:ps decode:true ">PS&gt; (Get-Date).AddDays(39).DayOfWeek
-Friday</pre>
+```
+PS&gt; (Get-Date).AddDays(39).DayOfWeek
+Friday\n```
 
 At the time I write this, it looks like in 39 days, it'll be Friday.

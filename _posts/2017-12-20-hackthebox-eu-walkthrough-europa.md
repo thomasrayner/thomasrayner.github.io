@@ -15,7 +15,8 @@ HackTheBox.eu offers a cool variety of vulnerable by design virtual machines for
 I am not a professional penetration tester or red teamer, nor is this meant to be the type of write up that I'd provide to a client if I was doing this for money. This is just a summary of what I did to get the user and root flags on the box. I'm not going to get into any of the rabbit holes or areas that didn't lead to a solution<strong> (because this isn't a real write up)</strong>.
 
 First things first, I ran <em>nmap</em> to see what might be up and running on the box. I ran safe scripts, enumerated versions, and saved all output with the file basename "nmap".
-<pre class="lang:ps highlight:0 decode:true">nmap -sC -sV -oA nmap 10.10.10.22</pre>
+```
+nmap -sC -sV -oA nmap 10.10.10.22\n```
 Among other things, one of the items that is immediately revealed is that Europa is running a web server, and has an SSL certificate protecting the HTTPS part. Right there in the <em>nmap</em> output, you can see that the certificate has a subject alternative name for an "admin-portal" subdomain.
 
 Obviously with a name as juicy as "admin-portal", that's where I'm going to start. You can find the login.php page there. As with any login form, I tried a couple manual SQL injection techniques but wasn't immediately granted access, so I used Burpsuite to capture a post request to login.php and sent it over to <em>sqlmap</em>. Eventually <em>sqlmap</em> will pop that login form open for you and get you redirected to dashboard.php.

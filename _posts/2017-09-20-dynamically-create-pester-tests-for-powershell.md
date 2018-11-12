@@ -12,17 +12,19 @@ The Pester people don't <em>really</em> recommend this, but, I find it can be r
 
 Say you had a requirement to make sure that a function you wrote performed math, correctly. Maybe it looks like this.
 
-<pre class="lang:ps decode:true">function Get-Square {
+```
+function Get-Square {
     param (
         [int]$Number
     )
     $result = $Number * $Number
     $result
-}</pre>
+}\n```
 
 This will just get the square of the number we pass it. Your test might look like this.
 
-<pre class="lang:ps decode:true">describe 'Get-Square' {
+```
+describe 'Get-Square' {
     it 'squares 1' {
         Get-Square 1 | Should Be 1
     }
@@ -34,11 +36,12 @@ This will just get the square of the number we pass it. Your test might look lik
     it 'squares 3' {
         Get-Square 3 | Should Be 9
     }
-}</pre>
+}\n```
 
 This would work. It would test your function correctly, and give you all the feedback you expect. There's another way to do this, though. Check out this next example.
 
-<pre class="lang:ps decode:true ">describe 'Get-Square' {
+```
+describe 'Get-Square' {
     $tests = @(
         @(1,1),
         @(2,4),
@@ -49,7 +52,7 @@ This would work. It would test your function correctly, and give you all the fee
             Get-Square $test[0] | Should Be $test[1]
         }
     }
-}</pre>
+}\n```
 
 This particular example gets more complicated, but shows you what I'm talking about. $tests is an array of smaller arrays where the first number is the number to be squared, and the second number is the answer we expect. Then for each test (array in $tests), I'm generating a new <strong>it</strong> assertion. Neat, right?
 

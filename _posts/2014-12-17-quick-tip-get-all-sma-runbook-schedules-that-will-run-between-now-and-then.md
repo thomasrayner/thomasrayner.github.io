@@ -8,11 +8,13 @@ categories: [Automation, automation, PowerShell, powershell, SMA, sma]
 ---
 I wanted to do some maintenance on my SMA runbook servers but couldn't remember which jobs were going to run in the next 12 hours (if any). Luckily there's a quick way of getting that information! This work assumes that you have the <a title="SMA Tools" href="http://blogs.technet.com/b/orchestrator/archive/2014/03/11/sma-capabilities-in-depth-the-sma-powershell-module.aspx" target="_blank">SMA tools installed</a> and that you ran the below command or have it as part of your profile.
 
-<pre class="lang:ps decode:true">import-module Microsoft.SystemCenter.ServiceManagementAutomation</pre>
+```
+import-module Microsoft.SystemCenter.ServiceManagementAutomation\n```
 
 Behold!
 
-<pre class="lang:ps decode:true ">get-smaschedule -WebServiceEndpoint "https://your-server" | ? { $_.NextRun -gt (get-date).date -and $_.NextRun -lt (get-date).addhours(12)}</pre>
+```
+get-smaschedule -WebServiceEndpoint "https://your-server" | ? { $_.NextRun -gt (get-date).date -and $_.NextRun -lt (get-date).addhours(12)}\n```
 
 This isn't a very crazy command. "your-server" is the server where you have the SMA management items installed, not an individual runbook server.
 

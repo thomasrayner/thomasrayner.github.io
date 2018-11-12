@@ -12,7 +12,8 @@ Most of the time, a PowerShell cmdlet will return all the information you need t
 
 Say you ran <strong>Get-ChildItem</strong> to get some items in a directory, and you get something like the following.
 
-<pre class="lang:ps decode:true ">PS&gt; Get-ChildItem c:\temp\demo
+```
+PS&gt; Get-ChildItem c:\temp\demo
 
 
     Directory: C:\temp\demo
@@ -20,15 +21,16 @@ Say you ran <strong>Get-ChildItem</strong> to get some items in a directory, and
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
--a----         6/5/2017   8:40 AM        1519200 thing.txt</pre>
+-a----         6/5/2017   8:40 AM        1519200 thing.txt\n```
 
 One of the items is Length, which tells you the size of the file in bytes. What if I wanted that in kilobytes, though? Well, it's not too hard. We're going to use a calculated property, using <strong>Select-Object</strong>.
 
-<pre class="lang:ps decode:true ">PS&gt; Get-ChildItem c:\temp\demo | Select-Object -Property Name, @{label = 'FileSize'; expression = { $_.Length/1KB }}
+```
+PS&gt; Get-ChildItem c:\temp\demo | Select-Object -Property Name, @{label = 'FileSize'; expression = { $_.Length/1KB }}
 
 Name        FileSize
 ----        --------
-thing.txt 1483.59375</pre>
+thing.txt 1483.59375\n```
 
 So I'm selecting two properties. One is Name, and the other is a calculated property. A calculated property is basically a hashtable with two items in it: a label, which is the name of our calculated property, and expression, which is the scriptblock that defines our calculation.
 

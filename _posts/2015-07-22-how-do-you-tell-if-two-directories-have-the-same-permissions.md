@@ -12,7 +12,8 @@ In this example, I have three subdirectories in my c:\temp folder. They're named
 
 The first command to get familiar with is the <strong>Get-ACL</strong> command. ACL stands for Access Control List. This command may take different objects as parameters but one type of object is a path to a directory. Do a <strong>Get-ACL <em>someDirectory</em> | Get-Member</strong> and you'll see the huge number of methods and properties that get returned. We're only really interested in one property though, the <em>Access</em> property.
 
-<pre class="lang:ps decode:true">(Get-Acl c:\temp\test1).Access
+```
+(Get-Acl c:\temp\test1).Access
 
 #returns
 FileSystemRights  : FullControl
@@ -41,17 +42,18 @@ AccessControlType : Allow
 IdentityReference : NT AUTHORITY\Authenticated Users
 IsInherited       : True
 InheritanceFlags  : None
-PropagationFlags  : None</pre>
+PropagationFlags  : None\n```
 
 Look at that. A list of all the different permissions on the folder we care about! Now all we have to do is compare this ACL to the ACLs of other directories. For this, why not simply use the <strong>Compare-Object</strong> cmdlet? Here's the full script to compare three folders and commands. I'll break it all down.
 
-<pre class="lang:ps decode:true">$ACLone = get-acl "C:\temp\test1"
+```
+$ACLone = get-acl "C:\temp\test1"
 $ACLtwo = get-acl "C:\temp\test2"
 $ACLthree = get-acl "C:\temp\test3"
 write-host "Compare 1 and 2 ----------------------"
 Compare-Object -referenceobject $ACLone -differenceobject $ACLtwo -Property access | select sideindicator -ExpandProperty access | ft
 write-host "Compare 1 and 3 ----------------------"
-Compare-Object -referenceobject $ACLone -differenceobject $ACLthree -Property access | select sideindicator -ExpandProperty access | ft</pre>
+Compare-Object -referenceobject $ACLone -differenceobject $ACLthree -Property access | select sideindicator -ExpandProperty access | ft\n```
 
 The first three lines are just getting the ACLs for the three directories I care about and storing the values in variables. There's tons of better ways to get and organize that information but this way lays it out nicely for this example.
 

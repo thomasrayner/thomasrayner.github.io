@@ -11,9 +11,11 @@ Did you know that PowerShell supports the usage of partial parameter names? This
 Here are some examples.
 
 <!--more-->
-<pre class="lang:default decode:true ">Get-ChildItem -Pa c:\temp
+```
+Get-ChildItem -Pa c:\temp
 # Pa is matching the Path parameter
-# Note if you just do P, you'll be told that the parameter can't be processed and a list of possible matches</pre>
-<pre class="lang:default decode:true ">Get-CimInstance -Clas win32_operatingsystem
-# Clas is part of the ClassName parameter</pre>
+# Note if you just do P, you'll be told that the parameter can't be processed and a list of possible matches\n```
+```
+Get-CimInstance -Clas win32_operatingsystem
+# Clas is part of the ClassName parameter\n```
 Obviously this isn't something that you should be running wild with and using in all your production code, but maybe it'll explain how some random code you found on the internet works.

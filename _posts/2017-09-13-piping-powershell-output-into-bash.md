@@ -12,6 +12,7 @@ With Windows 10, you can<a href="https://msdn.microsoft.com/en-us/commandline/ws
 
 If you've been around PowerShell, you're used to seeing the pipe character ( | ) used to pass the output from one command into the input of another. What you can do now, kind of, is pass the output of a PowerShell command into the input of a Bash command. Here's an example. Get ready for this biz.
 
-<pre class="lang:ps decode:true ">Get-ChildItem c:\temp\demo | foreach-object { bash -c "echo $($_.Name) | awk /\.csv/" }</pre>
+```
+Get-ChildItem c:\temp\demo | foreach-object { bash -c "echo $($_.Name) | awk /\.csv/" }\n```
 
 In my c:\temp\demo folder, I have three files, two of which are CSVs. In an attempt to be super inefficient, I am piping the files in that directory into a <strong>foreach-object</strong> loop and using Bash to tell me which ones end in .csv, using <strong>awk</strong>. This is hardly the best way to do this, but it gives you an idea of how you can start to intermingle these two shells.

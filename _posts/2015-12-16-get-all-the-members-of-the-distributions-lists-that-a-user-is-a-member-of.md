@@ -10,14 +10,16 @@ This is kind of a weird script tip but I bumped into a need for this kind of scr
 
 Here's the code I came up with.
 
-<pre class="lang:ps decode:true ">$DN = 'CN=ThmsRynr,OU=BestUsers,DC=lab,DC=workingsysadmin,DC=com'
-Get-DistributionGroup -filter "members -eq '$DN'" | Select-Object Name,@{l='Members';e={(Get-DistributionGroupMember $_.SamAccountName -ResultSize Unlimited | % { $_.Name }) -join '; ' }}</pre>
+```
+$DN = 'CN=ThmsRynr,OU=BestUsers,DC=lab,DC=workingsysadmin,DC=com'
+Get-DistributionGroup -filter "members -eq '$DN'" | Select-Object Name,@{l='Members';e={(Get-DistributionGroupMember $_.SamAccountName -ResultSize Unlimited | % { $_.Name }) -join '; ' }}\n```
 
 Line 1 is just declaring a variable to hold the DistinguishedName attribute for the user I am interested in. Line 2 is the work line. The first thing I'm doing is getting all the distribution groups which have a member equal to the DN of the user I'm interested in. Now, the weirdness happens...
 
 When you do a <strong>Get-DistributionGroup</strong>, you do not get the members of that group back with it. Here are the properties that come back that contain the string "mem" in the name.
 
-<pre class="lang:ps decode:true ">PS C:\&gt; Get-DistributionGroup -filter "members -eq '$DN'" | Select-Object -First 1 | Get-Member | Where-Object Name -match 'mem' | Select-Object Name
+```
+PS C:\&gt; Get-DistributionGroup -filter "members -eq '$DN'" | Select-Object -First 1 | Get-Member | Where-Object Name -match 'mem' | Select-Object Name
 
 Name
 ----
@@ -28,7 +30,7 @@ BypassModerationFromSendersOrMembers
 MemberDepartRestriction
 MemberJoinRestriction
 RejectMessagesFromDLMembers
-RejectMessagesFromSendersOrMembers</pre>
+RejectMessagesFromSendersOrMembers\n```
 
 Nothing in there contains the members. So back to the command I wrote to accomplish my goal.
 

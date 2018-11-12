@@ -10,8 +10,9 @@ If you have a modern version of Active Directory, you have the opportunity to en
 
 Here's a quick and easy script to recover a user based on their username.
 
-<pre class="lang:ps decode:true">$dn = (Get-ADObject -SearchBase (get-addomain).deletedobjectscontainer -IncludeDeletedObjects -filter "samaccountname -eq '$Username'").distinguishedname
-Restore-ADObject -identity $dn</pre>
+```
+$dn = (Get-ADObject -SearchBase (get-addomain).deletedobjectscontainer -IncludeDeletedObjects -filter "samaccountname -eq '$Username'").distinguishedname
+Restore-ADObject -identity $dn\n```
 
 On the first line, we're getting the DistinguishedName for the deleted user. The DN changes when a user gets deleted because it's in the Recycle Bin now. Where's your deleted objects container? Well it's easily found with the <strong>(Get-ADDomain).DeletedObjectsContainer</strong> part of line 1. All we're doing is searching for AD objects in the deleted objects container whose username matches the one we're looking for. We need to make sure the <strong>-IncludeDeletedObjects</strong> flag is set or nothing that's deleted will be returned.
 

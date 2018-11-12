@@ -8,7 +8,8 @@ categories: [Automation, Exchange, exchange, PowerShell, powershell]
 ---
 Here's a bit of an obscure task. In Exchange you can configure the <em>AcceptMessagesOnlyFromDLMembers</em> attribute which does what it sounds like it does: it only allows the mail recipient to accept messages from members of specific distribution lists. The problem is, there's no built in method for appending a distribution list (DL) to an existing list of DLs. If you set <em>AcceptMessagesOnlyFromDLMembers</em> equal to a value, it overwrites what was there before. So, I wrote a quick script to append a value instead of overwriting it. You'll need a <a href="http://www.workingsysadmin.com/opening-a-remote-exchange-management-shell/" target="_blank">remote Exchange Management Shell</a> and the AD management module for this.
 
-<pre class="lang:ps decode:true ">function Add-AcceptMessagesOnlyFromDLMembers 
+```
+function Add-AcceptMessagesOnlyFromDLMembers 
 {
     [CmdletBinding()]
     param (
@@ -22,7 +23,7 @@ Here's a bit of an obscure task. In Exchange you can configure the <em>AcceptMe
     $arr += ($(Get-ADGroup $NameOfGroup -Properties CanonicalName).CanonicalName)
     set-mailContact $AppendTo -AcceptMessagesOnlyFromDLMembers:"$($arr)"
 }
-</pre>
+\n```
 
 First things first, I declare the function named <strong>Add-AcceptMessagesOnlyFromDLMembers</strong> which is a bit more verbose than I'd usually like to make it, but I'm also a fan of descriptive function and cmdlet names.
 

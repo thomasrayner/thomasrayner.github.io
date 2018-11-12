@@ -10,18 +10,20 @@ Here's a quick task: Get the WMI object <em>win32_bios</em> for a computer.<em>
 
 Well this question just got trickier. <em>win32_bios</em> isn't very big so it's an easy one to play with in this example. Let's step through a couple commands so we know what we're dealing with.
 
-<pre class="lang:ps decode:true ">Get-WMIObject win32_bios
+```
+Get-WMIObject win32_bios
 
 
 SMBIOSBIOSVersion : 6.00
 Manufacturer      : Phoenix Technologies LTD
 Name              : PhoenixBIOS 4.0 Release 6.0     
 SerialNumber      : VMware-42 00 a6 a6 02 95 ec 5e-89 05 0a cd b1 3b aa c6
-Version           : INTEL  - 6040000</pre>
+Version           : INTEL  - 6040000\n```
 
 Well okay, there are the five properties that we knew the command returns by default. We know the extended properties are in there and we can prove it.
 
-<pre class="lang:ps decode:true ">Get-WMIObject win32_bios | Select-Object -Property *
+```
+Get-WMIObject win32_bios | Select-Object -Property *
 
 
 PSComputerName        : workingsysadmin
@@ -70,15 +72,16 @@ Properties            : {BiosCharacteristics, BIOSVersion, BuildNumber, Caption.
 SystemProperties      : {__GENUS, __CLASS, __SUPERCLASS, __DYNASTY...}
 Qualifiers            : {dynamic, Locale, provider, UUID}
 Site                  : 
-Container             :</pre>
+Container             :\n```
 
 There's everything! That's a lot of blanks, though. Depending on the type of reporting you're doing, that might not be so nice to look at. I know that I'd like to get them out. Luckily with PowerShell 4.0, it's really easy if you use the <a title="Pipeline Variables" href="https://technet.microsoft.com/en-us/library/hh847884.aspx" target="_blank"><strong>-PipelineVariable</strong> parameter</a>.
 
-<pre class="lang:ps decode:true  ">Get-WmiObject win32_bios -PipelineVariable bios | 
+```
+Get-WmiObject win32_bios -PipelineVariable bios | 
   foreach {
    $props = $_.psobject.properties.name | Where-Object {$bios.$_}
    $bios | select $props
-  }</pre>
+  }\n```
 
 I've left out the output since it's every property that has a value and none of the ones that have a blank. Let's take a look at what's actually happening here.
 
@@ -90,8 +93,9 @@ On Line 3, we're setting the value of $props and on Line 4, we're writing out th
 
 Don't worry, this is pretty easy to do in earlier versions of PowerShell, too.
 
-<pre class="lang:ps decode:true">gwmi win32_bios | %{$wmi = $_}
-Select-Object -inputobject $wmi -property ($wmi.Properties.Name | Where-Object -FilterScript {$wmi.item($_)})</pre>
+```
+gwmi win32_bios | %{$wmi = $_}
+Select-Object -inputobject $wmi -property ($wmi.Properties.Name | Where-Object -FilterScript {$wmi.item($_)})\n```
 
 I started using some more shortcuts (gmi and % instead of Get-WMIObject and foreach).
 
@@ -105,7 +109,8 @@ The <strong>Where-Object</strong> command has a tricky property called <strong>-
 
 In my script, I'm filtering on if the current property the script is looking at has a value in $wmi. If the property is 0 or null and therefore doesn't exist, <strong>$wmi.item($_)</strong> will return false and that line won't be returned. It's basically a test to see if there's a string or not. Consider this example:
 
-<pre class="lang:ps decode:true">$var1 = [string]$null
+```
+$var1 = [string]$null
 $var2 = "something"
 
 if ($var1) { write-host "Var1 has a value" } else { write-host "Var1 has no value" }
@@ -113,7 +118,7 @@ if ($var2) { write-host "Var2 has a value" } else { write-host "Var1 has no valu
 
 #Will return
 #Var1 has no value
-#Var2 has a value</pre>
+#Var2 has a value\n```
 
 Because $var1 doesn't have an actual value assigned to it, an <strong>if ($var1) </strong>will return false. That's the same logic we are using all throughout the above code.
 

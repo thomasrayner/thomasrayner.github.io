@@ -18,7 +18,8 @@ An exception exists for two letter acronyms only like "VM" for Virtual Machine o
 
 With this description, it's no surprise that my rule will identify functions with 4 or more adjacent capital letters. It's not a perfect solution, because people could still implement things in all lowercase, or with other improperly capitalized names, but it's a good start.
 
-<pre class="lang:ps decode:true ">function Test-FunctionCasing {
+```
+function Test-FunctionCasing {
     [CmdletBinding()]
     [OutputType([PSCustomObject[]])]
     param (
@@ -45,6 +46,6 @@ With this description, it's no surprise that my rule will identify functions wit
             $PSCmdlet.ThrowTerminatingError( $_ )
         }
     }
-}</pre>
+}\n```
 
 Custom PSSA rules need to take some sort of AST object, and mine takes a ScriptBlockAST so it can go through all the declared functions in that AST. Line 12 will get all the function definitions with names that have 4 or more adjacent capital letters. For each of those, I return a PSSA warning about violating the naming convention.

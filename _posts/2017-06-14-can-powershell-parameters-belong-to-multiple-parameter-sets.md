@@ -10,7 +10,8 @@ Say you've got a function that takes three parameters: Username, ComputerName an
 
 This will generate an error:
 
-<pre class="lang:ps decode:true ">function Do-Thing {
+```
+function Do-Thing {
     [CmdletBinding()]
     param (
     [Parameter( ParameterSetName = 'Computer','Session' )][string]$Username,
@@ -18,13 +19,14 @@ This will generate an error:
     [Parameter( ParameterSetName = 'Session' )][PSSession]$SessionName
     )
 # Other code
-}</pre>
+}\n```
 
 So how do you make a parameter a member of more than one parameter set? You need more [Parameter()] qualifiers.
 
 <!--more-->
 
-<pre class="lang:ps decode:true ">function Do-Thing {
+```
+function Do-Thing {
     [CmdletBinding()]
     param (
     [Parameter( ParameterSetName = 'Computer' )]
@@ -35,6 +37,6 @@ So how do you make a parameter a member of more than one parameter set? You need
     [Parameter( ParameterSetName = 'Session' )][PSSession]$SessionName
     )
 # Other code
-}</pre>
+}\n```
 
 They chain together and you now $Username is a part of both parameter sets.

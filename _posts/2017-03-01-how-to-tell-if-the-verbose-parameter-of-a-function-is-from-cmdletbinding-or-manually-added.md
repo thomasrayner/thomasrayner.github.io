@@ -14,9 +14,10 @@ Consider the following three functions, which illustrate the three categories I 
 
 <!--more-->
 
-<pre class="lang:ps decode:true ">function do-verbose1 { param([switch]$Verbose) @{} + $psboundparameters }                  
+```
+function do-verbose1 { param([switch]$Verbose) @{} + $psboundparameters }                  
 function do-verbose2 { [cmdletbinding()] param() @{} + $psboundparameters }                
-function do-verbose3 { [cmdletbinding()] param([switch]$Verbose) @{} + $psboundparameters }</pre>
+function do-verbose3 { [cmdletbinding()] param([switch]$Verbose) @{} + $psboundparameters }\n```
 
 The first one is bad, the second one is good, the third one is double bad.
 

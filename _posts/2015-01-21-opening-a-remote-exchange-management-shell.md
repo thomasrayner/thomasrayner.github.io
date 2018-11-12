@@ -8,7 +8,8 @@ categories: [Exchange, exchange, PowerShell, powershell, PowerShell ISE, powersh
 ---
 Here's a function I stuck in my PowerShell profile. I found myself making lots of remote connections to my Exchange 2013 environment so I put together a quick function to create the connection for me. It's far from perfect but it saves me time every single time I use it so check it out.
 
-<pre class="lang:ps decode:true ">function gimme-exchange ()
+```
+function gimme-exchange ()
 {
     $arrExchangeServersURI = @("http://fqdn-of-server-one/Powershell","http://fqdn-of-server-two/Powershell")
     $success = $false
@@ -31,7 +32,7 @@ Here's a function I stuck in my PowerShell profile. I found myself making lots o
             $success = $false
         }
     }
-}</pre>
+}\n```
 
 On Line 1, we're declaring the function - no big deal. I'm naming mine "gimme-exchange" so once my profile loads, I can just type that to start the function.
 
@@ -47,7 +48,8 @@ That's it! Yay, saving time.
 
 <strong>Update:</strong> If you're already logged in as the user you want to connect to Exchange as, you can skip the credential gathering part and run this instead.
 
-<pre class="lang:ps decode:true ">$arrExchangeServersURI = @("http://fqdn-of-server-one/Powershell","http://fqdn-of-server-two/Powershell")
+```
+$arrExchangeServersURI = @("http://fqdn-of-server-one/Powershell","http://fqdn-of-server-two/Powershell")
 $success = $false
 ForEach ($connectionURI in $arrExchangeServersURI)
 {
@@ -66,6 +68,6 @@ ForEach ($connectionURI in $arrExchangeServersURI)
         $strError = "Error: ${strError}"
         $success = $false
     }
-}</pre>
+}\n```
 
 &nbsp;

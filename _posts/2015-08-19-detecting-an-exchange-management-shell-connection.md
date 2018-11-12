@@ -26,12 +26,14 @@ In order to figure out how we can determine if we have a module added that belon
 
 At first glance, we're obviously not going to be able to use the Name or Path attributes to identify remote Exchange Management Shell connections. ModuleType, Version, most of the others all look useless for us here. What looks useful, though, is the Description attribute which reads "Implicit remoting for http://my-exchange-server.fqdn/powershell". That, we can work with. Here's my code to tell me if I have a module added whose description is for a remote session to my Exchange server.
 
-<pre class="lang:ps decode:true ">get-module | select Description | ? { $_ -match "my-exchange-server" }</pre>
+```
+get-module | select Description | ? { $_ -match "my-exchange-server" }\n```
 
 The code will either return the description of the module if it's added, or null. You can work with it like this.
 
-<pre class="lang:ps decode:true ">$ExchAdded = get-module | select Description | ? { $_ -match "my-exchange-server" }
-if ($ExchAdded) { write-host "Yes, added" } else { write-host "No, not added" }</pre>
+```
+$ExchAdded = get-module | select Description | ? { $_ -match "my-exchange-server" }
+if ($ExchAdded) { write-host "Yes, added" } else { write-host "No, not added" }\n```
 
 Check it out.
 

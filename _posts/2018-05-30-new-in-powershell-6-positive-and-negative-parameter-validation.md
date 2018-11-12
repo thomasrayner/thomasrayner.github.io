@@ -13,11 +13,13 @@ In PowerShell 6, though, there's something new and cool you can do with Validate
 <!--more-->
 
 To do this, you start with a normal ValidateRange attribute, and instead of providing a range of numbers, you just use the word "Positive" or "Negative", like this.
-<pre class="lang:default decode:true ">[ValidateRange('Positive')]$int = 10
-[ValidateRange('Negative')]$int = -10</pre>
+```
+[ValidateRange('Positive')]$int = 10
+[ValidateRange('Negative')]$int = -10\n```
 These will both work correctly because we're assigning a value that works with the validation we've specified. Here's two that will throw errors.
-<pre class="lang:default decode:true ">[ValidateRange('Positive')]$int = -10
-[ValidateRange('Negative')]$int = 10</pre>
+```
+[ValidateRange('Positive')]$int = -10
+[ValidateRange('Negative')]$int = 10\n```
 Here's what it looks like in the console.
 
 <img class="alignnone size-full wp-image-762" src="/wp-content/uploads/2018/05/2018-05-15-09_32_19-PowerShell-6.0.0.png" alt="" width="835" height="356" />

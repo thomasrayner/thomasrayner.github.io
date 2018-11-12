@@ -10,7 +10,8 @@ Don't ask me why but I recently had a need to get a random line from a text file
 
 For this example, I have a file in my c:\temp folder named random.txt. It's contents just look like this.
 
-<pre class="lang:ps decode:true">so
+```
+so
 many
 random
 words
@@ -21,11 +22,12 @@ which
 one
 will
 be
-picked?</pre>
+picked?\n```
 
 So since <strong>Get-Random</strong> includes an -InputObject parameter, I should just be able to do the following, right?
 
-<pre class="lang:ps decode:true ">Get-Random -InputObject C:\temp\random.txt</pre>
+```
+Get-Random -InputObject C:\temp\random.txt\n```
 
 Well, if you were hoping it would be that easy, I'm afraid I've got some bad news. Every time you run this command, the InputObject specified is always the value returned.
 
@@ -33,7 +35,8 @@ Well, if you were hoping it would be that easy, I'm afraid I've got some bad new
 
 Well that's not very helpful for a guy looking for a random line from the file. Turns out that -InputObject is looking for a collection of items, it's not doing the work of examining the path to the file and extracting the data from it. That's easy enough to get around. We'll just do that work ourselves.
 
-<pre class="lang:ps decode:true ">Get-Random -InputObject (get-content C:\temp\random.txt)</pre>
+```
+Get-Random -InputObject (get-content C:\temp\random.txt)\n```
 
 There we go. Get a random item from the collection returned by <strong>Get-Content <span style="text-decoration: underline;">C:\Temp\Random.txt</span></strong>. Then you get output like this.
 
@@ -41,11 +44,13 @@ There we go. Get a random item from the collection returned by <strong>Get-Cont
 
 You could get a random file from a directory like this.
 
-<pre class="lang:ps decode:true ">Get-Random -InputObject (get-childitem c:\temp\)</pre>
+```
+Get-Random -InputObject (get-childitem c:\temp\)\n```
 
 Or, indeed, pass any array or hash table. Here's an example of getting a random property from the $Host variable.
 
-<pre class="lang:ps decode:true ">$Host | Select-Object (Get-Random -InputObject ($Host | Get-Member -MemberType Property).Name)</pre>
+```
+$Host | Select-Object (Get-Random -InputObject ($Host | Get-Member -MemberType Property).Name)\n```
 
 <a href="http://www.workingsysadmin.com/wp-content/uploads/2015/04/getrandom3.png"><img class="alignnone size-large wp-image-201" src="http://www.workingsysadmin.com/wp-content/uploads/2015/04/getrandom3-1024x315.png" alt="getrandom3" width="604" height="186" /></a>
 

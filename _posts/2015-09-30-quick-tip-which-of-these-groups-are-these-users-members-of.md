@@ -8,7 +8,8 @@ categories: [active directory, active directory, activedirectory, PowerShell, po
 ---
 Here's a quick PowerShell function I put together that you might like to use or pick pieces from. The point of the function is to take a list of usernames and a list of groups and tell you which users are members of which groups, including through nested group membership.
 
-<pre class="lang:ps decode:true ">#requires -Version 1 -Modules ActiveDirectory
+```
+#requires -Version 1 -Modules ActiveDirectory
 function Test-IsGroupMember
 {
     param (
@@ -29,7 +30,7 @@ function Test-IsGroupMember
         $Usernames | % { if ($arrMembers -contains $_) { write-host " * $_ is a member of $strGroup" } }
         Write-Output ''
     }
-}</pre>
+}\n```
 
 As you can see, this function requires the ActiveDirectory PowerShell module and the function is named <strong>Test-IsGroupMember. </strong>It takes two parameters called Usernames and Groups. Both are "object" types so they could be an array or a string. I didn't want to make overloaded versions of a script this simple so I took this shortcut. It's expected that the values in Usernames and Groups will be SamAccountNames.
 
@@ -37,13 +38,14 @@ On Line 15, I start the work. For all of the groups you pass the function, it de
 
 Here are some examples of how I like using this function.
 
-<pre class="lang:ps decode:true">#Take an array of users and an array of groups to see which users are in which groups
+```
+#Take an array of users and an array of groups to see which users are in which groups
 Test-IsGroupMember @('user1','user2','user3','ThmsRynr') @('Group1','Group2','Group3')
 
 #See if ThmsRynr is a (nested) member of SomeGroup
 Test-IsGroupMember ThmsRynr SomeGroup
 
 #See if all the members of InterestingGroup are members of any group whose name matches *Keyword*
-Test-IsGroupMember -Usernames (Get-ADGroupMember InterestingGroup).SamAccountName -Groups (Get-ADGroup -filter "Name -like '*Keyword*'").SamAccountName</pre>
+Test-IsGroupMember -Usernames (Get-ADGroupMember InterestingGroup).SamAccountName -Groups (Get-ADGroup -filter "Name -like '*Keyword*'").SamAccountName\n```
 
 Pretty flexible.

@@ -10,30 +10,35 @@ If you work with the ActiveDirectory PowerShell module, you've probably used the
 
 Say you have a command from something like an remote Exchange management shell, that returned an object that includes a username (called Alias in this example).
 
-<pre class="lang:ps decode:true">$person = (Get-Mailbox ThmsRynr).Alias</pre>
+```
+$person = (Get-Mailbox ThmsRynr).Alias\n```
 
 And let's use that in an ActiveDirectory command. Ignoring the fact that you could find the account that has this username without using a filter, let's see how you would use it in a filter.
 
 You might try this.
 
-<pre class="lang:ps decode:true">Get-AdUser -Filter "SamAccountName -eq $person"</pre>
+```
+Get-AdUser -Filter "SamAccountName -eq $person"\n```
 
 But you'd get errors.
 
-<pre class="lang:ps decode:true ">Get-AdUser : Error parsing query: 'SamAccountName -eq ThmsRynr' Error Message: 'syntax error' at position: '20'.
+```
+Get-AdUser : Error parsing query: 'SamAccountName -eq ThmsRynr' Error Message: 'syntax error' at position: '20'.
 At line:1 char:1
 + Get-AdUser -Filter "SamAccountName -eq $person"
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : ParserError: (:) [Get-ADUser], ADFilterParsingException
-    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Microsoft.ActiveDirectory.Management.Commands.GetADUser</pre>
+    + FullyQualifiedErrorId : ActiveDirectoryCmdlet:Microsoft.ActiveDirectory.Management.ADFilterParsingException,Microsoft.ActiveDirectory.Management.Commands.GetADUser\n```
 
 That's because the filter can't handle your variable that way. To use a variable in an ActiveDirectory cmdlet filter, you need to wrap the filter in curly braces.
 
-<pre class="lang:ps decode:true ">Get-AdUser -Filter {SamAccountName -eq $person}</pre>
+```
+Get-AdUser -Filter {SamAccountName -eq $person}\n```
 
 And you get your results!
 
-<pre class="lang:ps decode:true ">DistinguishedName : CN=Thomas Rayner,OU=Users,DC=lab,DC=workingsysadmin,DC=com
+```
+DistinguishedName : CN=Thomas Rayner,OU=Users,DC=lab,DC=workingsysadmin,DC=com
 Enabled           : True
 GivenName         : Thomas
 Name              : Thomas Rayner
@@ -42,6 +47,6 @@ ObjectGUID        : &lt;snip&gt;
 SamAccountName    : TFRayner
 SID               : &lt;snip&gt;
 Surname           : Rayner
-UserPrincipalName : ThmsRynr@outlook.com</pre>
+UserPrincipalName : ThmsRynr@outlook.com\n```
 
 Pretty easy fix for a pretty silly issue.

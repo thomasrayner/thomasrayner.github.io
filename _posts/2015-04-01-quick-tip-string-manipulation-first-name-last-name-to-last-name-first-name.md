@@ -23,10 +23,11 @@ I've got kind of a silly post this week. I often get a list of names in the form
 
 ... and sometimes, especially with long lists of names, it's a pain to do the manipulation in Notepad or Word. So what do you think I did? That's right, I wrote a PowerShell script to handle it for me. I just throw the list of people into a text file and call up this script.
 
-<pre class="lang:ps decode:true ">$rawnames = get-content C:\path\to\names.txt
+```
+$rawnames = get-content C:\path\to\names.txt
 $csnames = ""
 $rawnames | % { $csnames += "$($_.tostring().split(' ')[1]), $($_.tostring().split(' ')[0]); "}
-$csnames | clip.exe</pre>
+$csnames | clip.exe\n```
 
 This isn't the tidiest script but I break it up into a couple extra parts so it's easier to edit on the fly. I might comment out the " | clip.exe " part of the last line if I don't want the output on my clipboard.
 

@@ -24,10 +24,11 @@ This works nicely because ransomware will usually encrypt a file (modifying it) 
 
 So how do you simulate this behavior with PowerShell? Like this.
 
-<pre class="lang:ps decode:true  ">$strDir = "C:\temp\test1\"
+```
+$strDir = "C:\temp\test1\"
 GCI $strDir | Remove-Item -Force
 1..200 | % { $strPath = $strDir + $_ + ".txt"; "something" | Out-File $strPath | Out-Null }
-Measure-Command { 1..101 | % { $strPath = $strDir + $_ + ".txt"; $strNewPath = $strPath + ".chng"; "changed" | Out-File -Append $strPath; Rename-Item -Path $strPath -NewName $strNewPath } }</pre>
+Measure-Command { 1..101 | % { $strPath = $strDir + $_ + ".txt"; $strNewPath = $strPath + ".chng"; "changed" | Out-File -Append $strPath; Rename-Item -Path $strPath -NewName $strNewPath } }\n```
 
 Lines 1, 2 and 3 setup the environment. $strDir is the location we're monitoring for ransomware attacks (or a test directory in this case). Line 2 empties the test directory which you probably don't want to do indiscriminately in a production area but I want to do in my test area.
 
@@ -35,7 +36,8 @@ Line 3 creates 200 txt files in $strDir. <strong>1..200</strong> is a slick way
 
 Line 4 is the ransomware simulation. For 101 files, we're making a variable $strPath which is an individual file we created in line 3. We're also crafting a new path stored in $strNewPath which is the same file but with an extension. Then I'm changing the contents of the file by writing "changed" inside it. Finally, I rename the file. The whole thing is wrapped in a <strong>Measure-Command</strong> block so I can see how long it takes. On my test system, the ransomware part took 688 ms.
 
-<pre class="">Days              : 0
+```
+Days              : 0
 Hours             : 0
 Minutes           : 0
 Seconds           : 0
@@ -46,6 +48,6 @@ TotalHours        : 0.000191323055555556
 TotalMinutes      : 0.0114793833333333
 TotalSeconds      : 0.688763
 TotalMilliseconds : 688.763
-</pre>
+\n```
 
 There you go! Try it yourself and see if you can detect this simulated ransomware attack.

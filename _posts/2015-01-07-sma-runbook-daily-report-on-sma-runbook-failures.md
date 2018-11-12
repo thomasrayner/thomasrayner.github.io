@@ -10,14 +10,16 @@ The sad reality of using Service Management Automation is that it can be a littl
 
 First things first, I need to declare my runbook/workflow and get the stored variable asset which holds my SMTP server.
 
-<pre class="lang:ps decode:true ">workflow GetDailyFailedJobs
+```
+workflow GetDailyFailedJobs
 {
     $smtpserver = Get-AutomationVariable -Name 'SMTPServer'
-}</pre>
+}\n```
 
 Easy! Now the SMA PowerShell cmdlets work best in actual PowerShell, not in workflows so I'm going to cheat and use an inlinescript block to hold pretty much everything else. Now before we get to the good stuff, I'm going to knock out the easy task of setting up my try and catch blocks as well as my function that sends email.
 
-<pre class="lang:ps mark:4-22 decode:true">workflow GetDailyFailedJobs
+```
+workflow GetDailyFailedJobs
 {
     $smtpserver = Get-AutomationVariable -Name 'SMTPServer'
     InlineScript
@@ -39,13 +41,14 @@ Easy! Now the SMA PowerShell cmdlets work best in actual PowerShell, not in work
             send-mailmessage -to $emailaddress -From "SMA_MGMT@else.com" -Subject $smtpSubject -SMTPServer $smtpserver -body $body -bodyashtml
         }
     }
-}</pre>
+}\n```
 
 Most of this is pretty straight forward. I'm going to put some stuff in a try block and email it out if it works. If I catch an error, I'm going to email a notification that something screwed up in the try block.
 
 Now the meat and potatoes. Something actually worth making a blog entry for! We need to build the content of the email we're sending in the try block. Right now it's just text that says "better put something in here" and it's right. We better.
 
-<pre class="lang:ps mark:8-21 decode:true ">workflow GetDailyFailedJobs
+```
+workflow GetDailyFailedJobs
 {
     $smtpserver = Get-AutomationVariable -Name 'SMTPServer'
     InlineScript
@@ -83,7 +86,7 @@ Now the meat and potatoes. Something actually worth making a blog entry for! We 
             send-mailmessage -to $emailaddress -From "SMA_MGMT@else.com" -Subject $smtpSubject -SMTPServer $smtpserver -body $body -bodyashtml
         }
     }
-}</pre>
+}\n```
 
 Wow that got a little ugly really quickly. What you need to keep in mind is that a lot of this ugliness is styling to make the email report pretty. That's a little counter-intuitive but, hey, welcome to scripting as a working sysadmin. Let's break it down line by line.
 

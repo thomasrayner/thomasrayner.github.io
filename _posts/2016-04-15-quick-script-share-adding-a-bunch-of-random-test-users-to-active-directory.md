@@ -8,7 +8,8 @@ categories: [active directory, active directory, PowerShell, powershell, PowerSh
 ---
 I recently had a need to add a bunch of random users to a specific OU in Active Directory to do some testing. I didn't care what their names were, but, I wanted to be able to find all the users that belonged to each batch. Here's the script I wrote to do this.
 
-<pre class="lang:ps decode:true ">#requires -Version 2 -Modules ActiveDirectory
+```
+#requires -Version 2 -Modules ActiveDirectory
 &lt;#
     .Synopsis
     Adds a bunch of dummy users to Active Directory.
@@ -232,6 +233,6 @@ $null = for ($i = 0; $i -lt $Count; $i++)
 #list the users created, verify they can be found in AD
 $CreatedUsers = (Get-ADUser -SearchBase $OU -Filter "Description -like '*$ID*'").SamAccountName
 Write-Output 'Created following users'
-$CreatedUsers</pre>
+$CreatedUsers\n```
 
 &nbsp;

@@ -10,7 +10,8 @@ Here's a one-liner that will help you find all the mail enabled groups that a us
 
 Here's the one-liner!
 
-<pre class="lang:ps decode:true ">(get-aduser ThmsRynr -properties memberof).memberof | % { get-adgroup $_ } | ? { $_.GroupCategory -eq "Distribution" } | ft Name</pre>
+```
+(get-aduser ThmsRynr -properties memberof).memberof | % { get-adgroup $_ } | ? { $_.GroupCategory -eq "Distribution" } | ft Name\n```
 
 It might not be the epitome of efficiency but it works and served me well when I needed it to.
 

@@ -10,14 +10,15 @@ A little while ago, I fielded a question in the <a href="http://powershell.slack
 
 Turns out it's not too hard. You just need to set up a file watcher.
 
-<pre class="lang:ps decode:true ">$watcher = New-Object System.IO.FileSystemWatcher
+```
+$watcher = New-Object System.IO.FileSystemWatcher
 $watcher.Path = 'C:\temp\'
 $watcher.Filter = 'test1.txt'
 $watcher.EnableRaisingEvents = $true
 
 $changed = Register-ObjectEvent $watcher 'Changed' -Action {
    write-output "Changed: $($eventArgs.FullPath)"
-}</pre>
+}\n```
 
 First, we create the watcher, which is just a FileSystemWatcher object. Technically the watcher watches the whole directory for changes (the path), which is why we add a filter.
 
@@ -25,6 +26,7 @@ Then we register an ObjectEvent, so that whenever the watcher sees a change even
 
 To get rid of the ObjectEvent, just run the following.
 
-<pre class="lang:ps decode:true ">Unregister-Event $changed.Id</pre>
+```
+Unregister-Event $changed.Id\n```
 
 It's just that easy!

@@ -13,7 +13,8 @@ Here's how to pop all the claim information for an authenticated user into a Raz
 <!--more-->
 
 I decided to put the whole thing into an HTML table in order to make it a bit more readable. It's kind of a challenge to differentiate between the claim name and the value if they aren't aligned nicely. From there, make sure you're using System.Security.Claims, and you can write yourself this foreach loop.
-<pre class="lang:c# decode:true">&lt;table&gt;
+```
+&lt;table&gt;
     @foreach (var claim in ((ClaimsIdentity)User.Identity).Claims)
     {
         &lt;tr&gt;
@@ -21,7 +22,7 @@ I decided to put the whole thing into an HTML table in order to make it a bit mo
             &lt;td&gt;@claim.Value&lt;/td&gt;
         &lt;/tr&gt;
     }
-&lt;/table&gt;</pre>
+&lt;/table&gt;\n```
 It's not a big mind blower. This is a .cshtml document, so we can write HTML and mix in some inline C#. Using the <strong>ClaimsIdentity</strong> class, we can write a foreach loop for each claim in the identity of the currently logged in user. This assumes that the user isn't logged in more than once (ie: Facebook and Twitter and Azure AD).
 
 Then I'm making a new row in my table for each claim, and separate cells for the claim type, which is the name of the claim, and the claim value.

@@ -10,9 +10,10 @@ When you use the <strong>Get-MessageTrackingLog</strong> cmdlet, by default, it
 
 My solution is the following.
 
-<pre class="lang:ps decode:true  ">$results = $null
+```
+$results = $null
 get-transportservice | foreach-object { $results += Get-MessageTrackingLog -server $_.Name -start (get-date).addhours(-1) -end (get-date) -resultsize unlimited | Select-Object -Property eventid,serverhostname,sender,recipients,messagesubject,timestamp }
 $results | Sort-Object -Property Timestamp | ft 
-</pre>
+\n```
 
 The <strong>Get-TransportService</strong> cmdlet gets a list of all the transport servers in your infrastructure. For each of the servers we get back, I'm running the <strong>Get-MessageTrackingLog</strong> cmdlet and appending the results to a $results variable. I'm taking that results collection and sorting it chronologically.

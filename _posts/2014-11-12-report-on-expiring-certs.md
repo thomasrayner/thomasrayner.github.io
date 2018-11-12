@@ -22,16 +22,18 @@ Now the fun part. Time to put together an SMA runbook that will go through this 
 
 Let's start simply by initializing our PowerShell Workflow. You get to this point in SMA by creating a new runbook. I'm also going to set up a whopping one variable.
 
-<pre class="wrap:true lang:ps decode:true ">workflow GetExpiringCerts
+```
+workflow GetExpiringCerts
 {
     $strInPath = Get-AutomationVariable -Name 'INFOLDER'
-}</pre>
+}\n```
 
 Our workflow/runbook is called GetExpiringCerts. The variable $strInPath is the location to where I have all the files I ever load into SMA. That is, it's just a path to a network share that's the same in all my runbooks that use it.
 
 So far so good? Good. Next we need to look through the CSV that's somewhere beneath $strInPath for all our certs. Let's break down that big block of code:
 
-<pre class="wrap:true lang:ps mark:4-10 decode:true">workflow GetExpiringCerts
+```
+workflow GetExpiringCerts
 {
     $strInPath = Get-AutomationVariable -Name 'INFOLDER'
     $strCerts = inlinescript { 
@@ -41,7 +43,7 @@ So far so good? Good. Next we need to look through the CSV that's somewhere bene
         $arrCertsExpireAfterToday | % { $strResults += "&lt;br&gt;&lt;br&gt;"; $strResults += "&lt;b&gt;Issued Common Name:&lt;/b&gt; " + $_.IssuedCommonName; $strResults += "&lt;br&gt;&lt;b&gt;Expires:&lt;/b&gt; " + $_.CertificateExpirationDate; $strResults += " &lt;b&gt;Requested By:&lt;/b&gt; " + $_.RequesterName }
         $strResults
     }
-}</pre>
+}\n```
 
 There's some cheating right there. PowerShell Workflows are different than regular vanilla PowerShell in ways that I don't always like. To make a PowerShell Workflow (which is what SMA runbooks use) execute some code like regular PowerShell, you need to wrap it in an <strong>inlinescript</strong> block. We're going to take the output of the inline script and assign it to $strCerts.
 
@@ -55,7 +57,8 @@ I print $strResults on line 9, as the last thing I do in the inlinescript block 
 
 We're almost out of the woods. All we have to do now is send the email.
 
-<pre class="wrap:true lang:ps mark:12-15 decode:true ">workflow GetExpiringCerts
+```
+workflow GetExpiringCerts
 {
     $strInPath = Get-AutomationVariable -Name 'INFOLDER'
     $strCerts = inlinescript { 
@@ -70,7 +73,7 @@ We're almost out of the woods. All we have to do now is send the email.
     $strEmail = @("ThmsRynr@outlook.com","other@people.com")
     $strSMTPServer = Get-AutomationVariable -Name 'SMTPServer'
     send-mailmessage -to $strEmail -From "service_account@yourdomain.com" -Subject $strSubject  -SMTPServer $strSMTPServer -body $strCerts -bodyashtml
-}</pre>
+}\n```
 
 Easy. We need a subject, a list of people to send the email to, and an SMTP server. My email To list is an array and I store my SMTP server in an SMA asset. Then I use the send-mailmessage cmdlet to shoot this email off. Make sure to use the <strong>-bodyashtml</strong> flag so the HTML is parsed correctly instead of being included as plaintext.
 

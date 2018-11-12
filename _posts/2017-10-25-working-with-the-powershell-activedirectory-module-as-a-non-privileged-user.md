@@ -14,15 +14,18 @@ We're going to leverage the $PSDefaultParameterValues built-in variable which al
 
 First, set up a variable to hold your credentials.
 
-<pre class="lang:ps decode:true ">PS&gt; $acred = Get-Credential -Message 'Admin creds'</pre>
+```
+PS&gt; $acred = Get-Credential -Message 'Admin creds'\n```
 
 Now, import the ActiveDirectory module.
 
-<pre class="lang:ps decode:true ">PS&gt; Import-Module ActiveDirectory</pre>
+```
+PS&gt; Import-Module ActiveDirectory\n```
 
 And finally, a little something special.
 
-<pre class="lang:ps decode:true ">PS&gt; $PSDefaultParameterValues += @{ 'activedirectory:\*:Credential' = $acred }</pre>
+```
+PS&gt; $PSDefaultParameterValues += @{ 'activedirectory:\*:Credential' = $acred }\n```
 
 I'm adding a value to my $PSDefaultParameterValues variable. What I'm saying is for all the cmdlets in the ActiveDirectory module, set the -Credential parameter equal to the $acred variable that I set first.
 

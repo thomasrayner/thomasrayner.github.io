@@ -8,7 +8,8 @@ categories: [Uncategorized]
 ---
 I recently had the chance to work with Microsoft PFE, Mike MacGillivray, on an upgrade of some Windows Certificate Authorities and want to share the upgrade script with you. Here it is, without commentary. Details and explanation are currently forthcoming.
 
-<pre class="lang:ps decode:true ">#requires -Version 2
+```
+#requires -Version 2
 #requires -RunAsAdministrator
 $OldEAP = $ErrorActionPreference
 $ErrorActionPreference = 'stop'
@@ -211,6 +212,6 @@ Add-LogEntry $Logpath 'Started certsvc'
 
 #endregion
 
-$ErrorActionPreference = $OldEAP</pre>
+$ErrorActionPreference = $OldEAP\n```
 
 &nbsp;

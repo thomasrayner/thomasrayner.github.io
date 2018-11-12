@@ -14,12 +14,14 @@ Here's an easy one-liner to get a list of users with this problem.
 
 <!--more-->
 
-<pre class="lang:ps decode:true">get-aduser -filter "useraccountcontrol -band 32" -properties useraccountcontrol</pre>
+```
+get-aduser -filter "useraccountcontrol -band 32" -properties useraccountcontrol\n```
 
 This shows you all the users in your domain whose password not required flag is set.
 
 Here's an easy way to fix it indiscriminately! Pipe the last command into...
 
-<pre class="lang:ps decode:true "> | foreach-object { Set-ADAccountControl $_.samaccountname -PasswordNotRequired $false }</pre>
+```
+ | foreach-object { Set-ADAccountControl $_.samaccountname -PasswordNotRequired $false }\n```
 
 &nbsp;

@@ -10,43 +10,48 @@ If you don't know what Pester is, it's a <a href="https://github.com/pester/Pest
 
 First things first, I need a function to validate.
 
-<pre class="lang:ps decode:true ">function Write-SomeMath 
+```
+function Write-SomeMath 
 {
     param(
         [int]$First,
         [int]$Second
     )
     return $First + $Second
-}</pre>
+}\n```
 
 I guess that will work. <strong>Write-SomeMath</strong> takes two integers and returns their sum. Hardly a breathtaking display of complexity and function but it will do just fine for this example.
 
 Now I need to install Pester. The easiest way to do this is using the <strong>PSGet</strong> module in PowerShell 5.0 to get it from <a href="http://powershellgallery.com" target="_blank">PowerShellGallery.com</a>.
 
-<pre class="lang:ps decode:true ">Install-Module Pester -Scope CurrentUser -Force
-Import-Module Pester</pre>
+```
+Install-Module Pester -Scope CurrentUser -Force
+Import-Module Pester\n```
 
 The next thing I need is a <em>Describe</em> block.
 
-<pre class="lang:ps decode:true ">Describe 'GoofingWithPester.ps1' {
+```
+Describe 'GoofingWithPester.ps1' {
 
-}</pre>
+}\n```
 
 This <em>Describe</em> block will contain and - you guessed it - describe the tests (I just used my filename) and provide a unique TestDrive (check out the getting started link).
 
 Now I need a <em>Context </em>block.
 
-<pre class="lang:ps mark:2-4 decode:true">Describe 'GoofingWithPester.ps1' {
+```
+Describe 'GoofingWithPester.ps1' {
     Context 'Write-SomeMath' {
         
     }
-}</pre>
+}\n```
 
 I'm further grouping my tests by creating a <em>Context</em> here for my <strong>Write-SomeMath</strong> function. This could have been named anything.
 
 Now, I could start with a bunch of tests, but I want to show off a particular feature of Pester that allows you to pass an array of different test cases.
 
-<pre class="lang:ps mark:3-22 decode:true">Describe 'GoofingWithPester.ps1' {
+```
+Describe 'GoofingWithPester.ps1' {
     Context 'Write-SomeMath' {
         $testcases = @(
             @{
@@ -70,11 +75,12 @@ Now, I could start with a bunch of tests, but I want to show off a particular fe
         )
 
     }
-}</pre>
+}\n```
 
 All I did was define an array called <em>$testcases</em> which holds an array of hash tables. It's got the first number, second number, expected result and a name of what we're testing. Now I can pass this entire array to a test rather than crafting different tests for all of them individually.
 
-<pre class="lang:ps mark:23-26 decode:true">Describe 'GoofingWithPester.ps1' {
+```
+Describe 'GoofingWithPester.ps1' {
     Context 'Write-SomeMath' {
         $testcases = @(
             @{
@@ -102,13 +108,14 @@ All I did was define an array called <em>$testcases</em> which holds an array o
         }
 
     }
-}</pre>
+}\n```
 
 This is an <em>It</em> block which is what Pester calls a test. I've named it "Can add &lt;test&gt;" and it will pull the "test" value from the hashtable and fill it in. Cool! I'm using the <em>-TestCases</em> parameter to pass my array of test cases to the <em>It</em> block. Then I've got parameters inside the test for my first value, second value and expected outcome. I execute <strong>Write-SomeMath</strong> with the values pulled from my test cases and pipe the result to "<strong>Should Be</strong>" to compare the outcome to my expected outcome.
 
 Now, just one more test for fun. What if I don't pass an integer to my function?
 
-<pre class="lang:ps mark:27-29 decode:true ">Describe 'GoofingWithPester.ps1' {
+```
+Describe 'GoofingWithPester.ps1' {
     Context 'Write-SomeMath' {
         $testcases = @(
             @{
@@ -138,7 +145,7 @@ Now, just one more test for fun. What if I don't pass an integer to my function?
             {Write-SomeMath -First 9 -Second 'cat'} | Should throw
         }
     }
-}</pre>
+}\n```
 
 Another <em>It</em> block for detecting wrong datatypes. I pipe the result into <strong>Should throw</strong> because my function should throw an error. For this to work properly, the code I'm testing has to be wrapped in a scriptblock, otherwise the thrown error will occur and be trapped in my function.
 

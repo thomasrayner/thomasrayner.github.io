@@ -14,11 +14,13 @@ So what if you have an unsigned script you want to run but your execution policy
 
 Administrative users can easily bypass the execution policy with this command.
 
-<pre class="lang:ps decode:true">PowerShell.exe -noprofile -executionpolicy bypass -file "\\path\to\file.ps1"</pre>
+```
+PowerShell.exe -noprofile -executionpolicy bypass -file "\\path\to\file.ps1"\n```
 
 But what about limited users? Well there's something for them, too.
 
-<pre class="lang:ps decode:true ">Powershell.exe -NoProfile -Command {.([scriptblock]::create((Get-Content "\\path\to\script.ps1" | out-string)))}</pre>
+```
+Powershell.exe -NoProfile -Command {.([scriptblock]::create((Get-Content "\\path\to\script.ps1" | out-string)))}\n```
 
 That's right, just one line. No registry hacking, no weird developer program strangeness, just a command that allows a user or service to subvert the execution policy of the machine.
 

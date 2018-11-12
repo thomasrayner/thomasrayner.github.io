@@ -8,7 +8,8 @@ categories: [Automation, automation, PowerShell, powershell, SMA, sma, WMI, wmi]
 ---
 I don't know about you but I hate dealing with systems that use UTC time. I have SMA runbooks that work with Exchange 2013, Exchange Online Protection and other services that annoyingly return results in UTC instead of my local timezone. I wrote an SMA runbook that can be called from other SMA runbooks to do the conversion for me.
 
-<pre class="lang:ps decode:true">workflow ConvertUTCtoLocal
+```
+workflow ConvertUTCtoLocal
 {
     param(
        [parameter(Mandatory=$true)]
@@ -18,7 +19,7 @@ I don't know about you but I hate dealing with systems that use UTC time. I have
     $TZ = [System.TimeZoneInfo]::FindSystemTimeZoneById($strCurrentTimeZone)
     $LocalTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($UTCTime, $TZ)
     Return $LocalTime
-}</pre>
+}\n```
 
 It's pretty simple runbook! It has one mandatory parameter $UTCTime which, as the name would suggest, is the UTC time that you want to convert to your local time.
 

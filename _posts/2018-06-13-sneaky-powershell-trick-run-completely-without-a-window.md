@@ -13,7 +13,8 @@ Maybe you have a login script or something else that's written in PowerShell tha
 Fire up Visual Studio, and create a new C# console application. Right click and change the properties of the project so that the output type is Window App... and then get this... <em>don't make a window</em>.
 
 From there, you'll need to add a reference for <strong>PowerShellStandard.Library</strong> so you can do PowerShell-y business in your C# application. After that, you can make a method look like this.
-<pre class="lang:c# decode:true ">static void Main(string[] args)
+```
+static void Main(string[] args)
 {
     var powershell = PowerShell.Create();
     powershell.AddScript(@"
@@ -24,7 +25,7 @@ Get-ChildItem -Path c:\temp | out-file c:\temp\shh.txt
         Thread.Sleep(200);
     powershell.EndInvoke(handler);
     powershell.Dispose();
-}</pre>
+}\n```
 It's not super complicated code. Line 3 creates a new PowerShell object so we can, you know, run PowerShell code. On Line 4 - 6, we're adding the script that's going to be executed. You could retrieve the code from a file, but I've just stuck a here-string in there. My script is pretty simple, it's just getting all the items in my c:\temp folder and exporting that output to a file named shh.txt.
 
 After that, I've got to actually run my code. That happens on Line 7, and then on Line 8 and 9, we make the thread wait until the code is done executing. Then finally on Line 10 and 11, I'm cleaning up after myself by ending the invocation and disposing of my PowerShell object.

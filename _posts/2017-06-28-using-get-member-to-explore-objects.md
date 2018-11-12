@@ -12,15 +12,17 @@ Last week, I put out a post about<a href="http://www.workingsysadmin.com/using-s
 
 Let's say you're using <strong>Get-CimInstance</strong> to get information about the operating system. You might do something like this.
 
-<pre class="lang:ps decode:true">PS&gt; Get-CimInstance -ClassName win32_operatingsystem
+```
+PS&gt; Get-CimInstance -ClassName win32_operatingsystem
 
 SystemDirectory     Organization          BuildNumber RegisteredUser        SerialNumber            Version
 ---------------     ------------          ----------- --------------        ------------            -------
-C:\windows\system32 &lt;snip&gt;                14393       &lt;snip&gt;                &lt;snip&gt;                  10.0.14393</pre>
+C:\windows\system32 &lt;snip&gt;                14393       &lt;snip&gt;                &lt;snip&gt;                  10.0.14393\n```
 
 As is the case with our example last week, there's more stuff returned and available to us than what is returned by default. Let's use <strong>Get-Member</strong> to see what it all is.
 
-<pre class="lang:ps decode:true ">PS&gt; Get-CimInstance -ClassName win32_operatingsystem | get-member
+```
+PS&gt; Get-CimInstance -ClassName win32_operatingsystem | get-member
 
 
    TypeName: Microsoft.Management.Infrastructure.CimInstance#root/cimv2/Win32_OperatingSystem
@@ -53,14 +55,15 @@ DataExecutionPrevention_SupportPolicy     Property    byte DataExecutionPreventi
 Debug                                     Property    bool Debug {get;}
 Description                               Property    string Description {get;set;}
 Distributed                               Property    bool Distributed {get;}
-&lt;output truncated&gt;</pre>
+&lt;output truncated&gt;\n```
 
 Holy smokes, there's a lot of stuff there. As with <strong>Select-Object</strong>, you can see all the different properties that exist in this object. The big difference here is that you can see all the different methods this object comes with, too. You could store this information in a variable and then invoke the <strong>.HashCode</strong><strong>()</strong> on it and see the output of that, like this.
 
-<pre class="lang:ps decode:true">PS&gt; $osInfo = Get-CimInstance -ClassName win32_operatingsystem
+```
+PS&gt; $osInfo = Get-CimInstance -ClassName win32_operatingsystem
 
 PS&gt; $osInfo.GetHashCode()
-57422975</pre>
+57422975\n```
 
 There's a lot of examples of methods that are more interesting than this, but you can play with it and make this work for you.
 

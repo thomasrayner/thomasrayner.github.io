@@ -15,7 +15,8 @@ HackTheBox.eu offers a cool variety of vulnerable by design virtual machines for
 I am not a professional penetration tester or red teamer, nor is this meant to be the type of write up that I'd provide to a client if I was doing this for money. This is just a summary of what I did to get the user and root flags on the box. I'm not going to get into any of the rabbit holes or areas that didn't lead to a solution<strong> (because this isn't a real write up)</strong>.
 
 First things first, I ran <em>nmap</em> to see what might be up and running on the box. I ran safe scripts, enumerated versions, and saved all output with the file basename "nmap".
-<pre class="lang:ps highlight:0 decode:true">nmap -sC -sV -oA nmap 10.10.10.37</pre>
+```
+nmap -sC -sV -oA nmap 10.10.10.37\n```
 You'll quickly see that there is a Wordpress site running, and when you visit it, it appears to be a place for information on someone's Minecraft server. After some basic poking around, and taking notice of the "Notch" username of the person who made all the posts on the site, I ran <em>dirbuster</em> on it to find any possibly interesting directories or files.
 
 Poking around in the <em>dirbuster</em> results, I found a /wp-content/uploads folder that contained two .jar files. It was around this time that I learned that .jar files are basically just archives and can be unzipped with things like <em>unzip</em> on the Linux CLI. Predictably, there are some .class files in the extracted data, which can be decompiled using <em>javap</em>.

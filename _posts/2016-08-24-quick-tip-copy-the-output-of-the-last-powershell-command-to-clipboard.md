@@ -10,7 +10,8 @@ I recently found myself poking around in PowerShell and going "oh, good now I wa
 
 So, I threw this small function into my profile.
 
-<pre class="lang:ps decode:true ">function cc { r | scb }</pre>
+```
+function cc { r | scb }\n```
 
 You'll need PowerShell 5.0 for this one (for <strong>Set-Clipboard</strong>). This just looks like gibberish though, what's going on?
 
@@ -18,7 +19,8 @@ Well, clearly I'm defining a function named <strong>cc</strong> which is not a 
 
 <strong>r</strong> is an alias for <strong>Invoke-History</strong> which re-runs the last command you typed. Try it yourself.
 
-<pre class="lang:ps decode:true">PS G:\&gt; write-output "hah!"
+```
+PS G:\&gt; write-output "hah!"
 hah!
 
 PS G:\&gt; r
@@ -27,7 +29,7 @@ hah!
 
 PS G:\&gt; r
 write-output "hah!"
-hah!</pre>
+hah!\n```
 
 <strong>scb</strong> is an alias for <strong>Set-Clipboard</strong> which means whatever came out of the last command will be the new contents of your clipboard.
 

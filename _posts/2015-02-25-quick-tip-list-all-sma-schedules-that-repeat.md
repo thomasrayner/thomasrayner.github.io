@@ -10,7 +10,8 @@ I use a few PowerShell scripts that end up <a title="Quick Tip: Run An SMA Runbo
 
 Luckily, there's an easy way to use PowerShell to list SMA schedules that aren't one-time use. We just want a list of all the SMA schedules that are repeating. You need the <a title="SMA PowerShell Tools" href="http://blogs.technet.com/b/orchestrator/archive/2014/03/11/sma-capabilities-in-depth-the-sma-powershell-module.aspx" target="_blank">SMA PowerShell tools</a> for this.
 
-<pre class="lang:ps decode:true">Get-SmaSchedule -WebServiceEndpoint https://SMA-Management-Server | ? { $_.NextRun } | ft</pre>
+```
+Get-SmaSchedule -WebServiceEndpoint https://SMA-Management-Server | ? { $_.NextRun } | ft\n```
 
 We're going to get all the SMA schedules on our SMA implementation and get the ones where there is a NextRun value. The question mark is an alias for the <strong>Where-Object</strong> command and so we're looking for schedules where <em>$_.NextRun</em> is true (has a value, isn't null). I like formatting the output as a table for easier reading.
 

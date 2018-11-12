@@ -12,6 +12,7 @@ So did a transport rule get changed administratively by some cowboy admin collea
 
 You just need to know the name which you can find by running a <strong>Get-TransportRule</strong> command and looking for the one that you're interested in. Then run this...
 
-<pre class="lang:ps decode:true  ">(Get-TransportRule | ? { $_.Name -eq 'The Name Of Your Rule' }).WhenChanged</pre>
+```
+(Get-TransportRule | ? { $_.Name -eq 'The Name Of Your Rule' }).WhenChanged\n```
 
 ... which will give you the date and time that the rule was last changed.

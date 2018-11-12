@@ -12,7 +12,8 @@ My requirements were rather basic. I wanted a function that would return the top
 
 So, let's get started.
 
-<pre class="lang:ps decode:true ">function Get-LargeMailbox
+```
+function Get-LargeMailbox
 {
     [CmdletBinding()]
     param (
@@ -23,13 +24,14 @@ So, let's get started.
         ValueFromPipeline = $True)]
         [string]$Identity = '*'
     )
-}</pre>
+}\n```
 
 All I've done here is declare my new function named <strong>Get-LargeMailbox </strong>and specified its parameters. $Top is the integer representing the number of mailboxes to return (defaulted to 1) and $Identity is the specific mailbox we want to return (defaulted to * which will return all mailboxes).
 
 Now, I know I need to get my mailboxes and retrieve some statistics.
 
-<pre class="lang:ps mark:13-14 decode:true">function Get-LargeMailbox
+```
+function Get-LargeMailbox
 {
     [CmdletBinding()]
     param (
@@ -43,29 +45,32 @@ Now, I know I need to get my mailboxes and retrieve some statistics.
         
     Get-Mailbox -Identity $Identity -ResultSize Unlimited |
     Get-MailboxStatistics 
-}</pre>
+}\n```
 
 So far, so good. We haven't narrowed down the stats we care about yet but we're getting all the mailboxes in the organization and retrieving all the stats for them. Now we're about to run into a problem. There's a property returned by <strong>Get-MailboxStatistics</strong> called TotalItemSize but when you're in a remote session, but, it's hard to work with. Observe.
 
-<pre class="lang:ps decode:true">PS C:\&gt; (Get-Mailbox ThmsRynr | Get-MailboxStatistics).TotalItemSize | Format-List
+```
+PS C:\&gt; (Get-Mailbox ThmsRynr | Get-MailboxStatistics).TotalItemSize | Format-List
 
 
 IsUnlimited : False
-Value       : 2.303 GB (2,473,094,022 bytes)</pre>
+Value       : 2.303 GB (2,473,094,022 bytes)\n```
 
 You can see it returns a property consisting of a boolean value for if my quota is unlimited, and then a value of what my total size is. Ok, so that value is probably a number, right?
 
-<pre class="lang:ps decode:true ">PS C:\&gt; (Get-Mailbox ThmsRynr| Get-MailboxStatistics).TotalItemSize.Value | Get-Member
+```
+PS C:\&gt; (Get-Mailbox ThmsRynr| Get-MailboxStatistics).TotalItemSize.Value | Get-Member
 
 
    TypeName: Deserialized.Microsoft.Exchange.Data.ByteQuantifiedSize
-#output omitted</pre>
+#output omitted\n```
 
 Well, yeah, it is. The Value of TotalItemSize is a number but it's a <em>Deserialized.Microsoft.Exchange.Data.ByteQuantifiedSize </em>and when you're connected to a remote Exchange Management Shell, you don't have that library loaded unless you install some tools on your workstation. Rather than do that, can't we just fool around with it a bit and avoid installing a bunch of superfluous Exchange management tools? I bet we can, especially since this value has a ToString() method associated with it.
 
 Back to our function. I need to sort the results of my "Get all the mailboxes, get all their stats" command by the total size of the mailboxes.
 
-<pre class="lang:ps mark:15-19 decode:true">function Get-LargeMailbox
+```
+function Get-LargeMailbox
 {
     [CmdletBinding()]
     param (
@@ -84,13 +89,14 @@ Back to our function. I need to sort the results of my "Get all the mailboxes, g
             $_.TotalItemSize.Value.ToString().split('(').split(' ')[-2].replace(',', '') -as [double]
         }
     } -Descending 
-}</pre>
+}\n```
 
 Oh boy, string manipulation is always fun, isn't it? What I've done here is sorted my mailboxes by an expression. That expression is the result of converting the value of the TotalItemSize attribute to a string and manipulating it. I'm splitting it on the open bracket character, and then again on the space character. I'm taking the second last item in that array, stripping out the commas and casting it as a double (because some values are too big to be integers). That's a lot of weird string manipulation for some of you to get your heads around, but look at the string returned by default. I need the number of bytes and that was the best way to get it.
 
 Now all I need to do is select the properties from my sorted list of mailboxes and return the top number of results. Here's the final function.
 
-<pre class="lang:ps mark:20-25 decode:true ">function Get-LargeMailbox
+```
+function Get-LargeMailbox
 {
     [CmdletBinding()]
     param (
@@ -115,11 +121,12 @@ Now all I need to do is select the properties from my sorted list of mailboxes a
             $_.TotalItemSize.Value.ToString().split('(').split(' ')[-2].replace(',', '') -as [double]
         }
     } -First $Top
-}</pre>
+}\n```
 
 Now you can do things like this.
 
-<pre class="lang:ps decode:true">#See how big my individual mailbox is
+```
+#See how big my individual mailbox is
 Get-LargeMailbox -Identity ThmsRynr
 
 #Get the largest 20 mailboxes in the organization
@@ -138,7 +145,7 @@ Select-Object -Property DisplayName, @{
         '{0:N0}' -f $_.MailboxSize
     }
 } |
-Format-Table -AutoSize</pre>
+Format-Table -AutoSize\n```
 
 Before we end, let's take a closer look at the last example.
 

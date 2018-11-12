@@ -12,7 +12,8 @@ Well, it involves knowing about what your host actually does. What ports are sup
 
 <!--more-->
 
-<pre class="lang:ps decode:true">PS&gt; Test-NetConnection -ComputerName $computerName -Port 3389
+```
+PS&gt; Test-NetConnection -ComputerName $computerName -Port 3389
 
 
 ComputerName     : &lt;snip - name of the computer I'm testing&gt;
@@ -20,6 +21,6 @@ RemoteAddress    : &lt;snip - IP address of the computer I'm testing&gt;
 RemotePort       : 3389
 InterfaceAlias   : Ethernet
 SourceAddress    : &lt;snip - my IP address&gt;
-TcpTestSucceeded : True</pre>
+TcpTestSucceeded : True\n```
 
 Here I just checked if port 3389 (for RDP) is open or not. Looks like it is.

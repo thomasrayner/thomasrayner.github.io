@@ -10,7 +10,8 @@ I've been continuing my quest to identify users who have large Exchange mailboxe
 
 So, let's define the function and parameters.
 
-<pre class="lang:ps decode:true ">function Get-LargeFolder 
+```
+function Get-LargeFolder 
 {
     [CmdletBinding()]
     param (
@@ -24,11 +25,12 @@ So, let's define the function and parameters.
         ValueFromPipeline = $True)]
         [string]$Identity = '*'
     )
-}</pre>
+}\n```
 
 My function is going to be named <strong>Get-LargeFolder</strong> and takes three parameters. $FolderScope is used in the <strong>Get-MailboxFolderStatistics</strong> cmdlet (spoiler alert) and must belong to the set of values specified. $Top is an integer used to define how many results we're going to return and $Identity can be specified as an individual username to examine a specific mailbox, or left blank (defaulted to *) to examine the entire organization.
 
-<pre class="lang:ps mark:16-17 decode:true ">function Get-LargeFolder 
+```
+function Get-LargeFolder 
 {
     [CmdletBinding()]
     param (
@@ -45,11 +47,12 @@ My function is going to be named <strong>Get-LargeFolder</strong> and takes thr
 
     Get-Mailbox -Identity $Identity -ResultSize Unlimited |
     Get-MailboxFolderStatistics -FolderScope $FolderScope 
-}</pre>
+}\n```
 
 Now I've added a couple lines to get all the mailboxes in my organization (or a specific user's mailbox) which I pipe into a <strong>Get-MailboxFolderStatistics</strong> command with the FolderScope parameter set to the same value we passed to our function. Now we need to sort the results, but, <a href="http://www.workingsysadmin.com/getting-your-organizations-largest-exchange-mailboxes-with-powershell/" target="_blank">see my last post</a> for why that's going to be complicated.
 
-<pre class="lang:ps mark:18-22 decode:true ">function Get-LargeFolder 
+```
+function Get-LargeFolder 
 {
     [CmdletBinding()]
     param (
@@ -71,11 +74,12 @@ Now I've added a couple lines to get all the mailboxes in my organization (or a 
             $_.FolderSize.split('(').split(' ')[-2].replace(',','') -as [double]
         }
     } -Descending 
-}</pre>
+}\n```
 
 The FolderSize parameter that comes back with a <strong>Get-MailboxFolderStatistics</strong> cmdlet is a string which I'm splitting up in order to get back <em>only</em> the value in bytes which I am casting to a double. Now that we have gathered our stats and put them in order, I just need to select them so they may be returned. Here is the complete script.
 
-<pre class="lang:ps mark:23-34 decode:true">function Get-LargeFolder 
+```
+function Get-LargeFolder 
 {
     [CmdletBinding()]
     param (
@@ -109,11 +113,12 @@ The FolderSize parameter that comes back with a <strong>Get-MailboxFolderStatis
             $_.FolderSize.split('(').split(' ')[-2].replace(',', '') -as [double]
         }
     } -First $Top
-}</pre>
+}\n```
 
 Now you can do this.
 
-<pre class="lang:ps decode:true ">#Get 25 largest Deleted Items folders in your organization
+```
+#Get 25 largest Deleted Items folders in your organization
 Get-LargeFolder -FolderScope 'DeletedItems' -Top 25
 
 #Get my largest 10 folders
@@ -132,6 +137,6 @@ Select-Object -Property NameFolder, @{
         '{0:N0}' -f $_.FolderSize
     }
 } -First 25 |
-Format-Table -AutoSize</pre>
+Format-Table -AutoSize\n```
 
 &nbsp;

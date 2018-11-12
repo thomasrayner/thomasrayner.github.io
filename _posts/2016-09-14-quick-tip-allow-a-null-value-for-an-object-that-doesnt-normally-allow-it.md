@@ -10,23 +10,27 @@ In the PowerShell Slack channel (<a href="http://powershell.slack.com" target="_
 
 The issue is, if you try to assign a null value to a datetime object, you get an error.
 
-<pre class="lang:ps decode:true ">[datetime]$null
-Cannot convert null to type "System.DateTime".</pre>
+```
+[datetime]$null
+Cannot convert null to type "System.DateTime".\n```
 
 The solution is super easy. Just make the thing nullable.
 
-<pre class="lang:ps decode:true ">[nullable[datetime]]$null</pre>
+```
+[nullable[datetime]]$null\n```
 
 This will return no output. So when you're declaring the variable that will hold your datetime object, just make sure you make it nullable.
 
-<pre class="lang:ps decode:true ">[nullable[datetime]]$date = $MaybeNullMaybeNot</pre>
+```
+[nullable[datetime]]$date = $MaybeNullMaybeNot\n```
 
 Just for more proof this works as advertised, try this.
 
-<pre class="lang:ps decode:true ">try { [datetime]$null; write-output 'worked!' } catch { write-output 'no worked!' }
+```
+try { [datetime]$null; write-output 'worked!' } catch { write-output 'no worked!' }
 no worked!
 
 try { [nullable[datetime]]$null; write-output 'worked!' } catch { write-output 'no worked!' }
-worked!</pre>
+worked!\n```
 
 Cool!

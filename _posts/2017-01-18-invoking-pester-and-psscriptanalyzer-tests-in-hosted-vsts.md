@@ -47,14 +47,15 @@ Although the test results from Pester and PSScriptAnalyzer are separate and inde
 
 The script inside <em>Invoke-Test.ps1</em> should look something like this.
 
-<pre class="lang:ps decode:true">$ErrorActionPreference = 'stop'
+```
+$ErrorActionPreference = 'stop'
 Install-PackageProvider -Name Nuget -Scope CurrentUser -Force -Confirm:$false
 Install-Module -Name Pester -Scope CurrentUser -Force -Confirm:$false
 Install-Module -Name PSScriptAnalyzer -Scope CurrentUser -Force -Confirm:$false
 Import-Module Pester
 Import-Module PSScriptAnalyzer
 Invoke-Pester -OutputFile 'PesterResults.xml' -OutputFormat 'NUnitXml' -Script '.\Tests\Set-E.tests.ps1'
-Invoke-Pester -OutputFile 'PSSAResults.xml' -OutputFormat 'NUnitXml' -Script '.\Tests\PSSA.tests.ps1'</pre>
+Invoke-Pester -OutputFile 'PSSAResults.xml' -OutputFormat 'NUnitXml' -Script '.\Tests\PSSA.tests.ps1'\n```
 
 Broken down line by line, the script performs the following tasks.
 
@@ -88,7 +89,8 @@ The script for running PSScriptAnalyzer in hosted VSTS is more clearly defined t
 
 The Pester test that runs PSScriptAnalyzer testing should look something like this.
 
-<pre class="lang:ps decode:true">Describe 'Testing against PSSA rules' {
+```
+Describe 'Testing against PSSA rules' {
        Context 'PSSA Standard Rules' {
         $analysis = Invoke-ScriptAnalyzer -Path '..\ScriptName\Set-E.ps1'
         $scriptAnalyzerRules = Get-ScriptAnalyzerRule
@@ -104,7 +106,7 @@ The Pester test that runs PSScriptAnalyzer testing should look something like th
             }
         }
     }
-}</pre>
+}\n```
 
 The basic logic of this Pester test is that it performs an <em>Invoke-ScriptAnalyzer</em> on the script we are interested in testing (this may need to be adjusted for your purposes to include all of the files associated with a module, etc.), and examines the results. The script gets a list of all of the PSScriptAnalyzer rules, writes a test for each rule, and if the analysis contains any of the rules, the test for that specific rule is violated. Running the tests this way allows us to export granular results that indicates which PSScriptAnalyzer rule was broken from within VSTS.
 

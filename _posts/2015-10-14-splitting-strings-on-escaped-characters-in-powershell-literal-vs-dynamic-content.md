@@ -14,22 +14,25 @@ Awesome information, but, it doesn't talk about escape characters. In PowerShell
 
 Now, what if I have something like this?
 
-<pre class="lang:ps decode:true ">$Body = 'Thank you for stopping by to see us.
+```
+$Body = 'Thank you for stopping by to see us.
 
 It was nice to see you.
 
 Stop by again soon.
 
-Thanks!'</pre>
+Thanks!'\n```
 
 It's just a multi-line string with blank lines in between each of the lines with content. Now, what if I wanted to keep each of the content lines on it's own line while removing all the lines that are blank? Well, since $Body is one big multi-line string, I can split it on "new line". Using escape characters in PowerShell, to denote a new line we just type:
 
-<pre class="">`r`n</pre>
+```
+`r`n\n```
 
 So can I do this?
 
-<pre class="lang:ps decode:true">Write-Host 'Using single quotes' -ForegroundColor Green
-$Body.split('`r`n') | % { if (-not [string]::IsNullOrWhiteSpace($_)) { $_ } }</pre>
+```
+Write-Host 'Using single quotes' -ForegroundColor Green
+$Body.split('`r`n') | % { if (-not [string]::IsNullOrWhiteSpace($_)) { $_ } }\n```
 
 I'm splitting $Body on each new line, and for each line, if it is not null or white space (<a href="http://www.workingsysadmin.com/quick-tip-strip-empty-lines-out-of-a-file/" target="_blank">using some of the information from this post</a>), I write it. I'm using single quotes to wrap the new line marker to split up $Body. Well, unfortunately, the output looks like this.
 
@@ -37,8 +40,9 @@ I'm splitting $Body on each new line, and for each line, if it is not null or wh
 
 Well, that's not exactly what I was hoping for. Instead of splitting $Body on a new line, it looks like it's split it on the letters n and r. It turns out that the escape character, like variables and the output from commands, is dynamic content. To do what I'm trying to do, the command needs to look like this.
 
-<pre class="lang:ps decode:true ">Write-Host 'Using double quotes' -ForegroundColor Green
-$Body.split("`r`n") | % { if (-not [string]::IsNullOrWhiteSpace($_)) { $_ } }</pre>
+```
+Write-Host 'Using double quotes' -ForegroundColor Green
+$Body.split("`r`n") | % { if (-not [string]::IsNullOrWhiteSpace($_)) { $_ } }\n```
 
 The only difference is the value in the split command. Instead of single quotes I've got double quotes wrapping the new line marker. Now the output looks like this.
 

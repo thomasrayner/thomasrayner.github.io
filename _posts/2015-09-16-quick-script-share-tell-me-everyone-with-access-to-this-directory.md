@@ -10,7 +10,8 @@ Trying something new. Here's a quick script I threw together to satisfy a reques
 
 In this experimental post, I'm not going to break down the script, but instead, I've quickly commented in-line most of the tricky bits. I think it's pretty straight forward, but, I wrote it. Let me know what you think.
 
-<pre class="lang:ps decode:true">#requires -Version 1 -Modules ActiveDirectory
+```
+#requires -Version 1 -Modules ActiveDirectory
 
 #function to return the SamAccountNames of all the users in a group - if the group is empty, return the name of the group
 Function Get-NestedGroupMember {
@@ -59,6 +60,6 @@ Function Get-Access {
     $ErrorActionPreference = $OldEAP
 }
 
-Get-Access '\\host\share\some folder'</pre>
+Get-Access '\\host\share\some folder'\n```
 
 &nbsp;

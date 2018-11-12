@@ -14,9 +14,10 @@ I've got some OUs that have user and group objects that I would really miss if t
 
 Here's the script I used:
 
-<pre class="lang:ps decode:true ">$arrOUs = @("Sensitive OU1","Sensitive OU2")
+```
+$arrOUs = @("Sensitive OU1","Sensitive OU2")
 $arrOUs | % { Get-ADObject -SearchBase "OU=$($_),DC=sub,DC=domain,DC=tld" -filter {(ObjectClass -eq "group")} | Set-ADObject -ProtectedFromAccidentalDeletion:$true }
 $arrOUs | % { Get-ADObject -SearchBase  "OU=$($_),DC=sub,DC=domain,DC=tld" -filter {(ObjectClass -eq "user")} | Set-ADObject -ProtectedFromAccidentalDeletion:$true }
-Get-ADOrganizationalUnit -filter * | Set-ADObject -ProtectedFromAccidentalDeletion:$true</pre>
+Get-ADOrganizationalUnit -filter * | Set-ADObject -ProtectedFromAccidentalDeletion:$true\n```
 
 Line 1 defines an array of names of my sensitive OUs. Lines 2 and 3 are basically the same: they get all the AD objects in the sensitive OUs with an ObjectClass of group or user and protect them from accidental deletion. Why do this in two lines? I was getting inconsistent results (computer and other objects were returned) when I tried combining the filter. My AD isn't that big so this works just fine for me. Line 4 protects all my OUs in my AD from accidental deletion.
