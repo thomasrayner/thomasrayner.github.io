@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Script Share: Disable Azure AD MFA Without Wiping User Options
+title: Script Share - Disable Azure AD MFA Without Wiping User Options
 date: 2018-05-16 07:30
 author: thmsrynr
 comments: true

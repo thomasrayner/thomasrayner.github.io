@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Find All The Mail Enabled Groups A User Is A Member Of
+title: Quick Tip - Find All The Mail Enabled Groups A User Is A Member Of
 date: 2015-05-27 08:30
 author: thmsrynr@outlook.com
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Use PowerShell To Detect If A Location Is A Directory Or A Symlink
+title: Quick Tip - Use PowerShell To Detect If A Location Is A Directory Or A Symlink
 date: 2015-03-18 08:30
 author: thmsrynr@outlook.com
 comments: true

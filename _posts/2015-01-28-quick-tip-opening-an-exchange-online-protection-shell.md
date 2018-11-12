@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Opening An Exchange Online Protection Shell
+title: Quick Tip - Opening An Exchange Online Protection Shell
 date: 2015-01-28 02:15
 author: thmsrynr@outlook.com
 comments: true

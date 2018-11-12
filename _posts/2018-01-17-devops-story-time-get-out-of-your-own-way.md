@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DevOps Story Time: Get Out Of Your Own Way
+title: DevOps Story Time - Get Out Of Your Own Way
 date: 2018-01-17 07:30
 author: thmsrynr
 comments: true

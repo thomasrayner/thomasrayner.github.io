@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Diagnosing Slow PowerShell Load Times
+title: Quick Tip - Diagnosing Slow PowerShell Load Times
 date: 2017-08-02 07:00
 author: thmsrynr@outlook.com
 comments: true

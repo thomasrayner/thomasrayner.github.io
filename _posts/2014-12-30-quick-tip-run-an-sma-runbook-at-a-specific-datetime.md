@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Run An SMA Runbook At A Specific Date/Time
+title: Quick Tip - Run An SMA Runbook At A Specific Date/Time
 date: 2014-12-30 02:15
 author: thmsrynr@outlook.com
 comments: true

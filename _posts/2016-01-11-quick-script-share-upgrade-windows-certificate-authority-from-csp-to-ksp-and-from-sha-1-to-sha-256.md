@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Script Share: Upgrade Windows Certificate Authority from CSP to KSP and from SHA-1 to SHA-256
+title: Quick Script Share - Upgrade Windows Certificate Authority from CSP to KSP and from SHA-1 to SHA-256
 date: 2016-01-11 12:05
 author: thmsrynr@outlook.com
 comments: true

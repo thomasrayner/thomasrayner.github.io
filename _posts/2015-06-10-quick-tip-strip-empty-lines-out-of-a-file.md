@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Strip Empty Lines Out Of A File
+title: Quick Tip - Strip Empty Lines Out Of A File
 date: 2015-06-10 08:30
 author: thmsrynr@outlook.com
 comments: true

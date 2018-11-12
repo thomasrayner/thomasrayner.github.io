@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Search Remote Computer Certificate Store
+title: Quick Tip - Search Remote Computer Certificate Store
 date: 2015-04-29 07:30
 author: thmsrynr@outlook.com
 comments: true

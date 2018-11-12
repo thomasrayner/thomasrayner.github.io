@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Regex Example: Strip Out HTML Tags
+title: Regex Example - Strip Out HTML Tags
 date: 2018-02-21 07:30
 author: thmsrynr
 comments: true

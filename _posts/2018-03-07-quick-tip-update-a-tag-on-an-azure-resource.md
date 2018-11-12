@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Update a Tag on an Azure Resource
+title: Quick Tip - Update a Tag on an Azure Resource
 date: 2018-03-07 07:30
 author: thmsrynr
 comments: true

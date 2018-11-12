@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Protect Your Active Directory From Finger Slips
+title: Quick Tip - Protect Your Active Directory From Finger Slips
 date: 2015-04-15 08:30
 author: thmsrynr@outlook.com
 comments: true

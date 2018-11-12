@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Script Share: Tell Me Everyone With Access To This Directory
+title: Quick Script Share - Tell Me Everyone With Access To This Directory
 date: 2015-09-16 08:30
 author: thmsrynr@outlook.com
 comments: true

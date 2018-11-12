@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: PowerShell Regex To Get Value Between Quotation Marks
+title: Quick Tip - PowerShell Regex To Get Value Between Quotation Marks
 date: 2016-08-03 08:30
 author: thmsrynr@outlook.com
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: New Stuff: Get-Clipboard And Set-Clipboard - New In PowerShell 5.0
+title: New Stuff - Get-Clipboard And Set-Clipboard - New In PowerShell 5.0
 date: 2015-05-13 08:30
 author: thmsrynr@outlook.com
 comments: true

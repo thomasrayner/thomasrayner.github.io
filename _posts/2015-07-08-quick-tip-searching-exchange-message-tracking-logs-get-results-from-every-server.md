@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Searching Exchange Message Tracking Logs (Get Results From Every Server)
+title: Quick Tip - Searching Exchange Message Tracking Logs (Get Results From Every Server)
 date: 2015-07-08 08:30
 author: thmsrynr@outlook.com
 comments: true

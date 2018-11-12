@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Open A File In Default Program
+title: Quick Tip - Open A File In Default Program
 date: 2018-02-14 07:30
 author: thmsrynr
 comments: true

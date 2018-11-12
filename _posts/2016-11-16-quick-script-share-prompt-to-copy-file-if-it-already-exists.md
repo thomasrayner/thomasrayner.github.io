@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Script Share: Prompt To Copy File If It Already Exists
+title: Quick Script Share - Prompt To Copy File If It Already Exists
 date: 2016-11-16 08:30
 author: thmsrynr@outlook.com
 comments: true

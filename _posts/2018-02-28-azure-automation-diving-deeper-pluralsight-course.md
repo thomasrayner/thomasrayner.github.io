@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Azure Automation: Diving Deeper (Pluralsight Course)
+title: Azure Automation - Diving Deeper (Pluralsight Course)
 date: 2018-02-28 07:30
 author: thmsrynr
 comments: true

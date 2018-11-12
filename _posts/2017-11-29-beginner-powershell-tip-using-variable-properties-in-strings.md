@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beginner PowerShell Tip: Using Variable Properties In Strings
+title: Beginner PowerShell Tip - Using Variable Properties In Strings
 date: 2017-11-29 07:00
 author: thmsrynr@outlook.com
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DevOps Story Time: Take A Risk - Risk Adverse Doesn't Mean No Risks Ever
+title: DevOps Story Time - Take A Risk - Risk Adverse Doesn't Mean No Risks Ever
 date: 2018-04-04 07:30
 author: thmsrynr
 comments: true

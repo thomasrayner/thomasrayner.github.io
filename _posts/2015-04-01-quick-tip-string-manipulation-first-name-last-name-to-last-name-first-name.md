@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: String Manipulation - First Name Last Name to Last Name, First Name
+title: Quick Tip - String Manipulation - First Name Last Name to Last Name, First Name
 date: 2015-04-01 08:30
 author: thmsrynr@outlook.com
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Beginner PowerShell Tip: The .Count Property Doesn't Exist If A Command Only Returns One Item
+title: Beginner PowerShell Tip - The .Count Property Doesn't Exist If A Command Only Returns One Item
 date: 2017-12-06 07:00
 author: thmsrynr
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: PowerShell Supports Partial Parameter Names
+title: Quick Tip - PowerShell Supports Partial Parameter Names
 date: 2018-03-21 07:30
 author: thmsrynr
 comments: true

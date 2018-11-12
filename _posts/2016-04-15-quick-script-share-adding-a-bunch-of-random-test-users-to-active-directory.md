@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Script Share: Adding A Bunch Of Random Test Users To Active Directory
+title: Quick Script Share - Adding A Bunch Of Random Test Users To Active Directory
 date: 2016-04-15 12:18
 author: thmsrynr@outlook.com
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sharing: MVPDays YEG Presentation Material
+title: Sharing MVPDays YEG Presentation Material
 date: 2015-09-28 09:00
 author: thmsrynr@outlook.com
 comments: true

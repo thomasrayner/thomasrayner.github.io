@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PowerShell Tip: Another Take On Progress Reporting
+title: PowerShell Tip - Another Take On Progress Reporting
 date: 2018-03-14 07:30
 author: thmsrynr
 comments: true

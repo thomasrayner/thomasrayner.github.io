@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Get All The Security Patches Installed On A Server Since A Specific Date
+title: Quick Tip - Get All The Security Patches Installed On A Server Since A Specific Date
 date: 2016-10-26 08:30
 author: thmsrynr@outlook.com
 comments: true

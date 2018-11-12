@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PowerShell: Control What Order Properties Are Displayed On A Custom Objects And Hash Tables
+title: PowerShell - Control What Order Properties Are Displayed On A Custom Objects And Hash Tables
 date: 2018-01-24 07:30
 author: thmsrynr
 comments: true

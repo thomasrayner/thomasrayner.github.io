@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: See All The Tab-Completion Options At Once In The PowerShell Console
+title: Quick Tip - See All The Tab-Completion Options At Once In The PowerShell Console
 date: 2018-06-27 07:30
 author: thmsrynr
 comments: true

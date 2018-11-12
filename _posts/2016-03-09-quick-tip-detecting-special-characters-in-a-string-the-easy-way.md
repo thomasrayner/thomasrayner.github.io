@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Detecting Special Characters In A String The Easy Way
+title: Quick Tip - Detecting Special Characters In A String The Easy Way
 date: 2016-03-09 08:30
 author: thmsrynr@outlook.com
 comments: true

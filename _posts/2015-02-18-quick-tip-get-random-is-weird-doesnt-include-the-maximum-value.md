@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Get-Random Is Weird - Doesn't Include The Maximum Value
+title: Quick Tip - Get-Random Is Weird - Doesn't Include The Maximum Value
 date: 2015-02-18 08:30
 author: thmsrynr@outlook.com
 comments: true

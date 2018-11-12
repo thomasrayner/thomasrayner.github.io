@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Did the last command work or not?
+title: Quick Tip - Did the last command work or not?
 date: 2018-02-07 07:30
 author: thmsrynr
 comments: true

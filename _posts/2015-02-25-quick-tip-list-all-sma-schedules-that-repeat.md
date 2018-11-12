@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: List All SMA Schedules That Repeat
+title: Quick Tip - List All SMA Schedules That Repeat
 date: 2015-02-25 08:30
 author: thmsrynr@outlook.com
 comments: true

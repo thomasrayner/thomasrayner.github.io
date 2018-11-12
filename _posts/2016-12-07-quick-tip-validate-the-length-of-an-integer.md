@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Validate The Length Of An Integer
+title: Quick Tip - Validate The Length Of An Integer
 date: 2016-12-07 08:30
 author: thmsrynr@outlook.com
 comments: true

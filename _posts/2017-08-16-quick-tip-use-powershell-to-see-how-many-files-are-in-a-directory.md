@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Use PowerShell To See How Many Files Are In A Directory
+title: Quick Tip - Use PowerShell To See How Many Files Are In A Directory
 date: 2017-08-16 07:00
 author: thmsrynr@outlook.com
 comments: true

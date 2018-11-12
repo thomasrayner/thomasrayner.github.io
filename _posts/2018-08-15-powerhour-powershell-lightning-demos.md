@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PowerHour: PowerShell Lightning Demos
+title: PowerHour - PowerShell Lightning Demos
 date: 2018-08-15 07:30
 author: thmsrynr
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Invitation: MVP Virtual Conference
+title: Invitation - MVP Virtual Conference
 date: 2015-04-22 08:30
 author: thmsrynr@outlook.com
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Renewing Exchange 2013 Certificates: SHA-256 Style
+title: Renewing Exchange 2013 Certificates SHA-256 Style
 date: 2015-01-14 01:00
 author: thmsrynr@outlook.com
 comments: true

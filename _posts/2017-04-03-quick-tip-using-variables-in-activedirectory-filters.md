@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Using Variables In ActiveDirectory Filters
+title: Quick Tip - Using Variables In ActiveDirectory Filters
 date: 2017-04-03 08:30
 author: thmsrynr@outlook.com
 comments: true

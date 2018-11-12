@@ -1,6 +1,6 @@
 ---
 layout: post
-title: New in PowerShell 6: Positive And Negative Parameter Validation
+title: New in PowerShell 6 - Positive And Negative Parameter Validation
 date: 2018-05-30 07:30
 author: thmsrynr
 comments: true

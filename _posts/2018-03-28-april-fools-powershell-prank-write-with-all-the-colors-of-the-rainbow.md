@@ -1,6 +1,6 @@
 ---
 layout: post
-title: April Fools PowerShell Prank: Write With All The Colors Of The Rainbow
+title: April Fools PowerShell Prank - Write With All The Colors Of The Rainbow
 date: 2018-03-28 07:30
 author: thmsrynr
 comments: true

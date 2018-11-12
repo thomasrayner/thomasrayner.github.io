@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Which Of These Groups Are These Users Members Of?
+title: Quick Tip - Which Of These Groups Are These Users Members Of?
 date: 2015-09-30 08:30
 author: thmsrynr@outlook.com
 comments: true

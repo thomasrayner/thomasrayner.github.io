@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Sneaky PowerShell Trick: Run Completely Without A Window
+title: Sneaky PowerShell Trick - Run Completely Without A Window
 date: 2018-06-13 07:30
 author: thmsrynr
 comments: true

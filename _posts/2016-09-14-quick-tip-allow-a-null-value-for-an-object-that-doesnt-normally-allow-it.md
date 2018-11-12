@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Allow A Null Value For An Object That Doesn't Normally Allow It
+title: Quick Tip - Allow A Null Value For An Object That Doesn't Normally Allow It
 date: 2016-09-14 08:30
 author: thmsrynr@outlook.com
 comments: true

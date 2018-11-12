@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Split A PowerShell Collection Into Two Arrays
+title: Quick Tip - Split A PowerShell Collection Into Two Arrays
 date: 2018-06-20 07:30
 author: thmsrynr
 comments: true

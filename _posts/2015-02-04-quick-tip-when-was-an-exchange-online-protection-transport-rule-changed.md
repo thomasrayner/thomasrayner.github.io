@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: When was an Exchange Online Protection Transport Rule Changed?
+title: Quick Tip - When was an Exchange Online Protection Transport Rule Changed?
 date: 2015-02-04 02:00
 author: thmsrynr@outlook.com
 comments: true

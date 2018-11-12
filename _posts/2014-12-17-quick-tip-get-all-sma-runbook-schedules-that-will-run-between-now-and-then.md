@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Get All SMA Runbook Schedules That Will Run Between Now And Then
+title: Quick Tip - Get All SMA Runbook Schedules That Will Run Between Now And Then
 date: 2014-12-17 16:15
 author: thmsrynr@outlook.com
 comments: true

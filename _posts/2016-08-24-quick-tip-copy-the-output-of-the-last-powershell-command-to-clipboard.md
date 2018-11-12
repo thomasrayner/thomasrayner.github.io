@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Copy The Output Of The Last PowerShell Command To Clipboard
+title: Quick Tip - Copy The Output Of The Last PowerShell Command To Clipboard
 date: 2016-08-24 08:30
 author: thmsrynr@outlook.com
 comments: true

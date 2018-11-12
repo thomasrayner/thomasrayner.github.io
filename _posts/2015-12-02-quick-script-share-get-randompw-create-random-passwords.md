@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Script Share: Get-RandomPW - Create Random Passwords
+title: Quick Script Share - Get-RandomPW - Create Random Passwords
 date: 2015-12-02 08:30
 author: thmsrynr@outlook.com
 comments: true

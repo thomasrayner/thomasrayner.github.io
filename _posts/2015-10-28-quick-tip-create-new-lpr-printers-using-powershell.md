@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Quick Tip: Create New LPR Printers Using PowerShell
+title: Quick Tip - Create New LPR Printers Using PowerShell
 date: 2015-10-28 08:30
 author: thmsrynr@outlook.com
 comments: true

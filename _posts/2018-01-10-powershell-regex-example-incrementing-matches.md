@@ -1,6 +1,6 @@
 ---
 layout: post
-title: PowerShell Regex Example: Incrementing Matches
+title: PowerShell Regex Example - Incrementing Matches
 date: 2018-01-10 07:30
 author: thmsrynr
 comments: true
