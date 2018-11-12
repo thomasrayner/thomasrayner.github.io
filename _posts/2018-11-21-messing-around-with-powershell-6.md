@@ -1,11 +1,10 @@
 ---
 layout: post
 title: Messing Around With PowerShell 6
-date: 2018-11-21 07:30
+date: 2018-11-21
 author: thmsrynr
 comments: true
 categories: [all for fun, C#, C#, New Stuff, open source, oss, PowerShell, powershell]
-published: false
 ---
 Starting with PowerShell 6, the whole thing is open source. You've probably heard that already. But if you don't think of yourself as a "developer", then it's possible that the furthest you've ever taken advantage of that fact is creating a GitHub issue or commenting on a PR. Today, follow along with me, and we'll change that.
 

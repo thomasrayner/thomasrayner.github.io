@@ -1,11 +1,10 @@
 ---
 layout: post
 title: Learn PowerShell With PSKoans
-date: 2018-11-14 07:30
+date: 2018-11-14
 author: thmsrynr
 comments: true
 categories: [learning, PowerShell, powershell]
-published: false
 ---
 If you've found your way to this blog, you probably already have a reasonable understanding of basic PowerShell concepts (or maybe that's a foolish assumption). But, how about all your coworkers? And for you, you're probably not done learning yet. There are plenty of ways to learn PowerShell - books, online courses, stealing code from blogs - but in my opinion, the best way to learn PowerShell is by writing PowerShell.
 
