@@ -13,7 +13,8 @@ Here's a question I see over and over and over again: "I have a string and I'm t
 Say you have this string for our example.
 
 ```
-PS&gt; $splitstring = 'this is an interesting string with the letters s and t all over the place'\n```
+PS&gt; $splitstring = 'this is an interesting string with the letters s and t all over the place'
+```
 
 Now let's say you want to split it on all the "s" characters. You might do this and get these results.
 
@@ -26,7 +27,8 @@ thi
 ting
 tring with the letter
 
- and t all over the place\n```
+ and t all over the place
+```
 
 That did exactly what we thought it would. It took our string and broke it apart on all the "s"'s. Now, what if I want to split it where there's an "st"? There's only two spots it should split: the "st" in "intere<strong>st</strong>ing" and in "<strong>st</strong>ring". Let's try the same thing we tried before.
 
@@ -49,7 +51,8 @@ er
 
  and
  all over
-he place\n```
+he place
+```
 
 Well that ain't right. What happened? If we look closely, we can see that our string was split anywhere that there was an "s" or a "t", rather than where there was an "st" together.
 
@@ -64,7 +67,8 @@ PS&gt; $splitstring -split 'st'
 
 this is an intere
 ing
-ring with the letters s and t all over the place\n```
+ring with the letters s and t all over the place
+```
 
 That looks more like we're expecting.
 

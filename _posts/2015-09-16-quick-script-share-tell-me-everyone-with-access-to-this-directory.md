@@ -60,6 +60,7 @@ Function Get-Access {
     $ErrorActionPreference = $OldEAP
 }
 
-Get-Access '\\host\share\some folder'\n```
+Get-Access '\\host\share\some folder'
+```
 
 &nbsp;

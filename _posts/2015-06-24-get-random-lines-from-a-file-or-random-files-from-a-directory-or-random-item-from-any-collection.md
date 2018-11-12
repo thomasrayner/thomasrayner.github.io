@@ -22,12 +22,14 @@ which
 one
 will
 be
-picked?\n```
+picked?
+```
 
 So since <strong>Get-Random</strong> includes an -InputObject parameter, I should just be able to do the following, right?
 
 ```
-Get-Random -InputObject C:\temp\random.txt\n```
+Get-Random -InputObject C:\temp\random.txt
+```
 
 Well, if you were hoping it would be that easy, I'm afraid I've got some bad news. Every time you run this command, the InputObject specified is always the value returned.
 
@@ -36,7 +38,8 @@ Well, if you were hoping it would be that easy, I'm afraid I've got some bad new
 Well that's not very helpful for a guy looking for a random line from the file. Turns out that -InputObject is looking for a collection of items, it's not doing the work of examining the path to the file and extracting the data from it. That's easy enough to get around. We'll just do that work ourselves.
 
 ```
-Get-Random -InputObject (get-content C:\temp\random.txt)\n```
+Get-Random -InputObject (get-content C:\temp\random.txt)
+```
 
 There we go. Get a random item from the collection returned by <strong>Get-Content <span style="text-decoration: underline;">C:\Temp\Random.txt</span></strong>. Then you get output like this.
 
@@ -45,12 +48,14 @@ There we go. Get a random item from the collection returned by <strong>Get-Cont
 You could get a random file from a directory like this.
 
 ```
-Get-Random -InputObject (get-childitem c:\temp\)\n```
+Get-Random -InputObject (get-childitem c:\temp\)
+```
 
 Or, indeed, pass any array or hash table. Here's an example of getting a random property from the $Host variable.
 
 ```
-$Host | Select-Object (Get-Random -InputObject ($Host | Get-Member -MemberType Property).Name)\n```
+$Host | Select-Object (Get-Random -InputObject ($Host | Get-Member -MemberType Property).Name)
+```
 
 <a href="http://www.workingsysadmin.com/wp-content/uploads/2015/04/getrandom3.png"><img class="alignnone size-large wp-image-201" src="http://www.workingsysadmin.com/wp-content/uploads/2015/04/getrandom3-1024x315.png" alt="getrandom3" width="604" height="186" /></a>
 

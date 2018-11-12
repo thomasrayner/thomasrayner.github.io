@@ -25,7 +25,8 @@ function Get-LargeFolder
         ValueFromPipeline = $True)]
         [string]$Identity = '*'
     )
-}\n```
+}
+```
 
 My function is going to be named <strong>Get-LargeFolder</strong> and takes three parameters. $FolderScope is used in the <strong>Get-MailboxFolderStatistics</strong> cmdlet (spoiler alert) and must belong to the set of values specified. $Top is an integer used to define how many results we're going to return and $Identity can be specified as an individual username to examine a specific mailbox, or left blank (defaulted to *) to examine the entire organization.
 
@@ -47,7 +48,8 @@ function Get-LargeFolder
 
     Get-Mailbox -Identity $Identity -ResultSize Unlimited |
     Get-MailboxFolderStatistics -FolderScope $FolderScope 
-}\n```
+}
+```
 
 Now I've added a couple lines to get all the mailboxes in my organization (or a specific user's mailbox) which I pipe into a <strong>Get-MailboxFolderStatistics</strong> command with the FolderScope parameter set to the same value we passed to our function. Now we need to sort the results, but, <a href="http://www.workingsysadmin.com/getting-your-organizations-largest-exchange-mailboxes-with-powershell/" target="_blank">see my last post</a> for why that's going to be complicated.
 
@@ -74,7 +76,8 @@ function Get-LargeFolder
             $_.FolderSize.split('(').split(' ')[-2].replace(',','') -as [double]
         }
     } -Descending 
-}\n```
+}
+```
 
 The FolderSize parameter that comes back with a <strong>Get-MailboxFolderStatistics</strong> cmdlet is a string which I'm splitting up in order to get back <em>only</em> the value in bytes which I am casting to a double. Now that we have gathered our stats and put them in order, I just need to select them so they may be returned. Here is the complete script.
 
@@ -113,7 +116,8 @@ function Get-LargeFolder
             $_.FolderSize.split('(').split(' ')[-2].replace(',', '') -as [double]
         }
     } -First $Top
-}\n```
+}
+```
 
 Now you can do this.
 
@@ -137,6 +141,7 @@ Select-Object -Property NameFolder, @{
         '{0:N0}' -f $_.FolderSize
     }
 } -First 25 |
-Format-Table -AutoSize\n```
+Format-Table -AutoSize
+```
 
 &nbsp;

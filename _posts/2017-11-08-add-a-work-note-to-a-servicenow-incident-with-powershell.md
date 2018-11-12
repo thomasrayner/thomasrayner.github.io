@@ -21,7 +21,8 @@ $headers.Add('Authorization',('Basic {0}' -f $base64AuthInfo))
 $headers.Add('Accept','application/json')
 $uriGetIncident = "https://$SubDomain.service-now.com/api/now/table/incident?sysparm_query=number%3D$SNIncidentNumber&amp;sysparm_fields=&amp;sysparm_limit=1"
 $responseGetIncident = Invoke-WebRequest -Headers $headers -Method "GET" -Uri $uriGetIncident
-$resultGetIncident = ($responseGetIncident.Content | ConvertFrom-Json).Result\n```
+$resultGetIncident = ($responseGetIncident.Content | ConvertFrom-Json).Result
+```
 
 Assuming I already created a credential object named $Credential to hold my ServiceNow creds, I can add do some encoding to assemble them in a way that I can add them to the header of the request I'm about to make. I'm doing that on the first three lines.
 
@@ -38,7 +39,8 @@ $workNotesBody = @"
 {"work_notes":"$Message"}
 "@
 $uriPatchIncident = "https://$SubDomain.service-now.com/api/now/table/incident/$($resultGetIncident.sys_id)"
-$null = Invoke-WebRequest -Headers $headers -Method "PATCH" -Uri $uriPatchIncident -body $workNotesBody\n```
+$null = Invoke-WebRequest -Headers $headers -Method "PATCH" -Uri $uriPatchIncident -body $workNotesBody
+```
 
 On lines 1 - 3, I'm making the body of my patch request, to say that I'm adding the value of $Message into the work_notes field of my incident. Line 5 is where I make the URI for this patch activity, using the sys_id that came out of the get query I performed earlier.
 

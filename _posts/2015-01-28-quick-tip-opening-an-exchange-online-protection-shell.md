@@ -13,6 +13,7 @@ Last week I wrote a post on <a title="Opening A Remote Exchange Management Shell
 ```
 $cred = Get-Credential
 $s = New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $cred -Authentication Basic -AllowRedirection
-import-pssession $s\n```
+import-pssession $s
+```
 
 This looks a lot like the function I showed you last week except it's connecting to Office 365 and you need to use your Live ID instead of AD credentials.

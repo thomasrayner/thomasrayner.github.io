@@ -13,7 +13,8 @@ Here is my solution. The summarized instructions are: "You have a CSV with one c
 I did this.
 
 ```
-Import-Csv -Path $InputFile | ForEach-Object -Process { Get-WmiObject Win32_OperatingSystem -ComputerName $_.MachineName | Select-Object -Property PSComputerName, Caption } | Export-Csv -Path $OutputFile -NoTypeInformation\n```
+Import-Csv -Path $InputFile | ForEach-Object -Process { Get-WmiObject Win32_OperatingSystem -ComputerName $_.MachineName | Select-Object -Property PSComputerName, Caption } | Export-Csv -Path $OutputFile -NoTypeInformation
+```
 
 It's pretty verbose but I made it that way for readability. I use a grand total of one pair of curly braces in the solution, which I hope satisfies the definition of "limited". What I'm doing is importing the CSV, which is located wherever $InputFile is, and for each of the lines in that CSV, I am performing a task on the computer indicated. That task is to get the Win32_OperatingSystem WMI Object which contains all kinds of neat info about a system's OS. Of the data returned, I am selecting the PSComputerName, which should equal the same value as the line in the input file (but doesn't cost me any curly braces to return) and the Caption, which is the friendly name of the OS. I export that into $OutputFile's location.
 

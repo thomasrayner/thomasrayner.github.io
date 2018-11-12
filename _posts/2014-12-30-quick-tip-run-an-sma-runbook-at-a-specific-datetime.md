@@ -16,7 +16,8 @@ You'll need the <a title="SMA PowerShell Tools" href="http://blogs.technet.com/b
 $dateWhen = [DateTime]"&lt;put a date and time in here or otherwise calculate one&gt;"
 $strSchedName = "some_prefix_$($strWhen)"
 $schedRun = set-smaschedule -name $strSchedName -webserviceendpoint "https://your-endpoint" -scheduletype onetimeschedule -starttime $dateWhen -expirytime $dateWhen.AddHours(3) -description $env:username
-$strReturn = start-smarunbook -name "your-runbook" -WebServiceEndpoint "https://your-endpoint" -schedulename $strSchedName -parameters @{ var1 = "var1"; var2 = "var2" }\n```
+$strReturn = start-smarunbook -name "your-runbook" -WebServiceEndpoint "https://your-endpoint" -schedulename $strSchedName -parameters @{ var1 = "var1"; var2 = "var2" }
+```
 
 Line 1 is easy, it's just a variable for a datetime object and it's going to represent the time you want to trigger the runbook. Line 2 is a variable for what the name of the SMA schedule asset will be. I like to add something dynamic here to avoid naming collisions.
 

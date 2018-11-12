@@ -12,7 +12,8 @@ Did you know that you can use <strong>Where-Object</strong> to split a collecti
 
 As you can tell from Herb's comment in this screenshot, it's actually the .where() method that is relatively new that we're using to split collections this way. The syntax is kind of atypical, so let's break it down.
 ```
-$a, $b = (1..5).where({$_ % 2}, 'split')\n```
+$a, $b = (1..5).where({$_ % 2}, 'split')
+```
 <ul>
  	<li><strong>$a, $b = </strong>
 <ul>

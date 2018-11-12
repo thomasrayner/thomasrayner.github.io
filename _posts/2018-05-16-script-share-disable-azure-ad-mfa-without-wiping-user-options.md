@@ -41,7 +41,8 @@ function Move-MfaSettings {
         }
         $null = Set-MsolUser -UserPrincipalName $User.UserPrincipalName -StrongAuthenticationRequirements @() -StrongAuthenticationMethods $setStrongAuthMethods
     }
-}\n```
+}
+```
 It could probably stand for a better name, but I've called it <strong>Move-MfaSettings</strong>, and it takes one parameter: a MSOL user object. It supports the -WhatIf flag, by implementing SupportsShouldProcess.
 
 On line 18, I'm storing the Strong Authentication Methods of the user object that was passed to the function. All I need out of here is the MethodType and IsDefault properties. This is the option/preference information that we would normally lose by performing this task. We're going to lose it again, but since we've saved it here, we can rebuild and add it back later.

@@ -18,7 +18,8 @@ SMBIOSBIOSVersion : 6.00
 Manufacturer      : Phoenix Technologies LTD
 Name              : PhoenixBIOS 4.0 Release 6.0     
 SerialNumber      : VMware-42 00 a6 a6 02 95 ec 5e-89 05 0a cd b1 3b aa c6
-Version           : INTEL  - 6040000\n```
+Version           : INTEL  - 6040000
+```
 
 Well okay, there are the five properties that we knew the command returns by default. We know the extended properties are in there and we can prove it.
 
@@ -72,7 +73,8 @@ Properties            : {BiosCharacteristics, BIOSVersion, BuildNumber, Caption.
 SystemProperties      : {__GENUS, __CLASS, __SUPERCLASS, __DYNASTY...}
 Qualifiers            : {dynamic, Locale, provider, UUID}
 Site                  : 
-Container             :\n```
+Container             :
+```
 
 There's everything! That's a lot of blanks, though. Depending on the type of reporting you're doing, that might not be so nice to look at. I know that I'd like to get them out. Luckily with PowerShell 4.0, it's really easy if you use the <a title="Pipeline Variables" href="https://technet.microsoft.com/en-us/library/hh847884.aspx" target="_blank"><strong>-PipelineVariable</strong> parameter</a>.
 
@@ -81,7 +83,8 @@ Get-WmiObject win32_bios -PipelineVariable bios |
   foreach {
    $props = $_.psobject.properties.name | Where-Object {$bios.$_}
    $bios | select $props
-  }\n```
+  }
+```
 
 I've left out the output since it's every property that has a value and none of the ones that have a blank. Let's take a look at what's actually happening here.
 
@@ -95,7 +98,8 @@ Don't worry, this is pretty easy to do in earlier versions of PowerShell, too.
 
 ```
 gwmi win32_bios | %{$wmi = $_}
-Select-Object -inputobject $wmi -property ($wmi.Properties.Name | Where-Object -FilterScript {$wmi.item($_)})\n```
+Select-Object -inputobject $wmi -property ($wmi.Properties.Name | Where-Object -FilterScript {$wmi.item($_)})
+```
 
 I started using some more shortcuts (gmi and % instead of Get-WMIObject and foreach).
 
@@ -118,7 +122,8 @@ if ($var2) { write-host "Var2 has a value" } else { write-host "Var1 has no valu
 
 #Will return
 #Var1 has no value
-#Var2 has a value\n```
+#Var2 has a value
+```
 
 Because $var1 doesn't have an actual value assigned to it, an <strong>if ($var1) </strong>will return false. That's the same logic we are using all throughout the above code.
 

@@ -18,7 +18,8 @@ Import-Module -FullyQualifiedName $moduleName -Force
 $scriptName =  Join-Path $modules[0].Directory.FullName "CreateExoPSSession.ps1"
 . $scriptName
 $null = Connect-EXOPSSession
-$exchangeOnlineSession = (Get-PSSession | Where-Object { ($_.ConfigurationName -eq 'Microsoft.Exchange') -and ($_.State -eq 'Opened') })[0]\n```
+$exchangeOnlineSession = (Get-PSSession | Where-Object { ($_.ConfigurationName -eq 'Microsoft.Exchange') -and ($_.State -eq 'Opened') })[0]
+```
 On lines 1 and 2, I'm getting the location of the different tools and libraries that we installed earlier. Once I find the ExoPowerShellModule.dll, I can import it like any other module, except I'm specifying the full path, on line 3.
 
 Lines 4 and 5 are where I find and dot source CreateExoPSSession.ps1 which is the script that contains the <strong>Connect-EXOPSSession</strong> cmdlet (which I'd be remiss if I didn't mention violates the PowerShell naming standards created by the community and advertised by Microsoft). That cmdlet will trigger a login process that includes MFA, similar to how <strong>Login-AzureRmAccount</strong> works.

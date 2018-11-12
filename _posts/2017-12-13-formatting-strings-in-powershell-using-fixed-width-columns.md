@@ -10,14 +10,16 @@ Working with strings in PowerShell is fun, I don't care what you say. In this po
 
 Say you have a variable <em>$fileExtensions</em> which you populated with this command.
 ```
-PS&gt; $fileExtensions = Get-ChildItem | Group-Object -Property Extension\n```
+PS&gt; $fileExtensions = Get-ChildItem | Group-Object -Property Extension
+```
 And, for some reason, instead of the default output which is formatted like a table, I want output presented like this.
 
 <!--more-->
 ```
 .ps1     file extension: 11
 .xlsx    file extension: 3
-.dll     file extension: 1\n```
+.dll     file extension: 1
+```
 This is a silly example, but notice that even though there are extensions of varying length (.ps1 and .dll are four characters including the dot, and .xlsx is five), all of the "file extension: &lt;number&gt;" is aligned.
 
 How'd I do that? Let's start with some code that <em>doesn't</em> work.
@@ -26,7 +28,8 @@ PS&gt; $fileExtensions | foreach-object { "$($_.Name) file extension: $($_.Count
 
 .ps1 file extension: 11
 .xlsx file extension: 3
-.dll file extension: 3\n```
+.dll file extension: 3
+```
 How incredibly unfortunately unattractive! Luckily, it's not too hard to fix. Check out this code.
 ```
 PS&gt; $fileExtensions | foreach-object { "{0,-8} file extension: {1}" -f $_.Name, $_.Count }
@@ -34,7 +37,8 @@ PS&gt; $fileExtensions | foreach-object { "{0,-8} file extension: {1}" -f $_.Nam
 
 .ps1     file extension: 11
 .xlsx    file extension: 3
-.dll     file extension: 3\n```
+.dll     file extension: 3
+```
 Oh yes look at that goodness. In this example I'm using the <em>-f </em> operator to insert the variables into the string. Let's break down the new string I'm creating.
 
 <em>{0}</em> and <em>{1]</em> are basically placeholders. The <em>-f</em> operator is going to insert the variables that come after it (<em>$_.Name</em> and <em>$_.Count</em>) into the 0 and 1 spots.
@@ -53,4 +57,5 @@ Write-Output $("{0,$($header.Length)} Third line" -f " ")
 
 [11/2/2017 12:47:58 PM] First line
                         Second line
-                        Third line\n```
+                        Third line
+```

@@ -21,6 +21,7 @@ RemoteAddress    : &lt;snip - IP address of the computer I'm testing&gt;
 RemotePort       : 3389
 InterfaceAlias   : Ethernet
 SourceAddress    : &lt;snip - my IP address&gt;
-TcpTestSucceeded : True\n```
+TcpTestSucceeded : True
+```
 
 Here I just checked if port 3389 (for RDP) is open or not. Looks like it is.

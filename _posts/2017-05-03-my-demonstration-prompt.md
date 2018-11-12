@@ -24,6 +24,7 @@ Not much explaining to do here. Here's the code I have in my profile to make it 
 function Invoke-DemoPrompt {
     $demo = 'function prompt {"I $([char]0x1b)[0;31m$([char]9829) $([char]0x1b)[0;0mPS&gt; "} clear-host'
     Invoke-Expression $demo
-}\n```
+}
+```
 
 Shout out to Joel and Brandon in the PowerShell Slack for working this one out. It's pretty simple. $demo is a string that redefines my prompt function and its invoked.

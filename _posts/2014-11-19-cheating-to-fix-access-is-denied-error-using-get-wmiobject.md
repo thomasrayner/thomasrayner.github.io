@@ -10,7 +10,8 @@ I was doing a little work that involved using PowerShell to get a list of printe
 
 ```
 $printserver = "printserver1.domain.tld"
-Get-WMIObject -class Win32_Printer -computer $printserver | Select Name,DriverName,PortName | Export-CSV -path 'C:\temp\$printserver.csv'\n```
+Get-WMIObject -class Win32_Printer -computer $printserver | Select Name,DriverName,PortName | Export-CSV -path 'C:\temp\$printserver.csv'
+```
 
 I had a list of print servers that I imported into an array and looped through them but this is the important part of the code. I am simply using WMI to get some information about the logical printer objects on a given print server and exporting them to a CSV.
 
@@ -23,13 +24,15 @@ At line:1 char:1
 + ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     + CategoryInfo          : NotSpecified: (:) [Get-WmiObject], UnauthorizedAccessException
     + FullyQualifiedErrorId : System.UnauthorizedAccessException,Microsoft.PowerShell.Commands.GetWmiObjectCommand
-\n```
+
+```
 
 Not cool. I have Domain Admin rights... it's a domain joined server... what do you mean access is denied? Running the command locally on the server worked, I just couldn't do it remotely. There's <a title="Search for the answer" href="http://lmgtfy.com/?q=Get-WMIObject+%3A+Access+is+denied.+(Exception+from+HRESULT%3A+0x80070005+(E_ACCESSDENIED))" target="_blank">plenty of literature on trying to fix this error</a> already but I was in a hurry so I tried the next thing that came to mind: cheat a bit and run the command locally on the server... remotely.
 
 ```
 $printserver = "printserver2.domain.tld"
-invoke-command -computer $printserver -scriptblock { Get-WMIObject -class Win32_Printer -computer localhost | Select Name,DriverName,PortName } | Export-CSV -path 'C:\temp\$printserver.csv'\n```
+invoke-command -computer $printserver -scriptblock { Get-WMIObject -class Win32_Printer -computer localhost | Select Name,DriverName,PortName } | Export-CSV -path 'C:\temp\$printserver.csv'
+```
 
 I didn't do anything ground breaking, I just used invoke-command to run the command on the server instead of running the command on my local machine (to retrieve remote information).
 

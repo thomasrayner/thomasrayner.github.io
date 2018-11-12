@@ -8,7 +8,8 @@ categories: [active directory, active directory, array, beginner series, beginne
 ---
 If you’re just getting started in PowerShell, it’s possible that you haven’t bumped into this specific issue yet. Perhaps you've got a variable <em>$users</em> and you're assigning it a value like this.
 ```
-PS&gt; $users = Get-ADUser -Filter "samaccountname -like '*thmsrynr'"\n```
+PS&gt; $users = Get-ADUser -Filter "samaccountname -like '*thmsrynr'"
+```
 This will get all the users in your Active Directory whose username ends with "thmsrynr".
 
 Great! Now how many users got returned? We can check the Count property to find out.
@@ -16,11 +17,13 @@ Great! Now how many users got returned? We can check the Count property to find 
 <!--more-->
 ```
 PS&gt; $users.Count
-3\n```
+3
+```
 Looks like there are three users in my AD that got returned. Now the problem at hand, what if there's only one user returned? What if only one user in my AD has that kind of username? I'll end up with this.
 ```
 PS&gt; $users.Count
-# Nothing gets returned...\n```
+# Nothing gets returned...
+```
 Even though I can do this and see there is one user in there.
 ```
 PS&gt; $users
@@ -34,7 +37,8 @@ ObjectGUID        : &lt;snip&gt;
 SamAccountName    : ThmsRynr
 SID               : &lt;snip&gt;
 Surname           : Rayner
-UserPrincipalName : thmsrynr@outlook.com\n```
+UserPrincipalName : thmsrynr@outlook.com
+```
 What if I was doing something like this?
 ```
 if ($users.Count -gt 0) {
@@ -42,10 +46,12 @@ if ($users.Count -gt 0) {
 }
 else {
     # Do something else
-}\n```
+}
+```
 Since <em>$users.Count</em> is null even when there's one user in there, my if statement won't work correctly. Well, you can take a bit of a shortcut and do something a bit different when you're assigning a value to <em>$users</em>.
 ```
-$users = @(Get-AdUser -Filter "samaccountname -like '*thmsrynr'")\n```
+$users = @(Get-AdUser -Filter "samaccountname -like '*thmsrynr'")
+```
 By wrapping the command in <strong>@( )</strong> we are forcing <em>$users</em> to be an array even if only one item is returned.
 
 This issue happens because PowerShell loves to unroll arrays and other collections for you. By doing this workaround, if there's only one AD user whose username ends in thmsrynr, you'll still end up with an array with a single item in it, and <em>$users.Count</em> will return "1" like you expected.

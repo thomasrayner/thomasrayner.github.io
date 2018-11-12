@@ -15,19 +15,22 @@ First, you've got to have the Azure PowerShell tools installed and be logged int
 ```
 Install-Module -Name AzureRm -Repository PSGallery -Scope CurrentUser -Force
 Import-Module AzureRm
-Login-AzureRmAccount\n```
+Login-AzureRmAccount
+```
 
 Next, it's time to download the certificate. There are some Azure Key Vault cmdlets built in which, helpfully, do not follow the standard AzureRm naming scheme.
 
 ```
-$cert = Get-AzureKeyVaultSecret -VaultName 'My-Vault' -Name 'My-Cert'\n```
+$cert = Get-AzureKeyVaultSecret -VaultName 'My-Vault' -Name 'My-Cert'
+```
 
 Now, we have to convert the SecretValueText property to a certificate.
 
 ```
 $certBytes = [System.Convert]::FromBase64String($cert.SecretValueText)
 $certCollection = New-Object System.Security.Cryptography.X509Certificates.X509Certificate2Collection
-$certCollection.Import($certBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)\n```
+$certCollection.Import($certBytes,$null,[System.Security.Cryptography.X509Certificates.X509KeyStorageFlags]::Exportable)
+```
 
 We can convert the SecretValueText to bytes, and use the X509Certificate2Collection class to convert those bytes to a certificate.
 
@@ -36,7 +39,8 @@ Next, we want to write the certificate to a pfx file on a disk somewhere (prefer
 ```
 $protectedCertificateBytes = $certCollection.Export([System.Security.Cryptography.X509Certificates.X509ContentType]::Pkcs12, $password)
 $pfxPath = "D:\a\1\temp\ThomasRayner-export.pfx"
-[System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)\n```
+[System.IO.File]::WriteAllBytes($pfxPath, $protectedCertificateBytes)
+```
 
 The first line here exports the certificate and protects it with a password, but where did that come from?! Then it writes the protected bytes to a path on the file system.
 
@@ -44,11 +48,13 @@ So where did that password come from? I'm actually storing that in the Azure Key
 
 ```
 $password = (Get-AzureKeyVaultSecret -VaultName 'My-Vault' -Name 'My-PW').SecretValueText
-$secure = ConvertTo-SecureString -String $password -AsPlainText -Force\n```
+$secure = ConvertTo-SecureString -String $password -AsPlainText -Force
+```
 
 Now, I can either refer to that pfx file, or I can import it like this.
 
 ```
-Import-PfxCertificate -FilePath "D:\a\1\temp\ThomasRayner-export.pfx" Cert:\CurrentUser\My -Password $secure\n```
+Import-PfxCertificate -FilePath "D:\a\1\temp\ThomasRayner-export.pfx" Cert:\CurrentUser\My -Password $secure
+```
 
 Make sure you clean up your certs after you're done!

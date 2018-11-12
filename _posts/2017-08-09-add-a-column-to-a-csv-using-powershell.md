@@ -20,16 +20,19 @@ PS&gt; $servers
 Name     IPAddress
 ----     ---------
 server01 10.1.2.10
-server02 10.1.2.11\n```
+server02 10.1.2.11
+```
 
 Now, let's borrow some code from my <a href="http://www.workingsysadmin.com/calculated-properties-in-powershell/" target="_blank" rel="noopener noreferrer">post on calculated properties in PowerShell</a> to help us add this column and my post on <a href="http://www.workingsysadmin.com/use-test-netconnection-in-powershell-to-see-if-a-port-is-open/" target="_blank" rel="noopener noreferrer">seeing if a port is open using PowerShell</a> to populate the data.
 
 ```
-PS&gt; $servers = $servers | Select-Object -Property *, @{label = 'Port3389Open'; expression = {(Test-NetConnection -ComputerName $_.Name -Port 3389).TcpTestSucceeded}}\n```
+PS&gt; $servers = $servers | Select-Object -Property *, @{label = 'Port3389Open'; expression = {(Test-NetConnection -ComputerName $_.Name -Port 3389).TcpTestSucceeded}}
+```
 
 You can run <strong>$servers</strong> to see the if the new data shows up correctly (spoiler alert, it did), and then use <strong>Export-Csv</strong> to put the data into the same, or a new CSV file.
 
 ```
-PS&gt; $servers | Export-Csv -Path c:\temp\demo\servers-and-port-data.csv -NoTypeInformation\n```
+PS&gt; $servers | Export-Csv -Path c:\temp\demo\servers-and-port-data.csv -NoTypeInformation
+```
 
 Use the <em>-Force</em> flag if you're overwriting an existing CSV.

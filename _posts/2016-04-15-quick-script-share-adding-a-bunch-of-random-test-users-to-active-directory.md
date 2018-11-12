@@ -233,6 +233,7 @@ $null = for ($i = 0; $i -lt $Count; $i++)
 #list the users created, verify they can be found in AD
 $CreatedUsers = (Get-ADUser -SearchBase $OU -Filter "Description -like '*$ID*'").SamAccountName
 Write-Output 'Created following users'
-$CreatedUsers\n```
+$CreatedUsers
+```
 
 &nbsp;

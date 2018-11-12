@@ -13,7 +13,8 @@ Here is my solution. The instructions are to get information back from a JSON en
 First things first, here's how I did the one-liner part.
 
 ```
-Invoke-WebRequest http://www.telize.com/geoip | ConvertFrom-Json | Format-Table Longitude,Latitude,Continent_Code,Timezone -AutoSize\n```
+Invoke-WebRequest http://www.telize.com/geoip | ConvertFrom-Json | Format-Table Longitude,Latitude,Continent_Code,Timezone -AutoSize
+```
 
 This brings back exactly what Mr. Don Jones has asked for. I'm using the <strong>Invoke-WebRequest</strong> cmdlet to make a web request to that IP and converting what's returned using <strong>ConvertFrom-Json. </strong>Then it's just a matter of formatting the output and selecting only the items we care about for this puzzle.
 
@@ -37,7 +38,8 @@ function Get-GeoIP
     {
         throw $_.Exception.Message
     }
-}\n```
+}
+```
 
 I've declared two parameters, $Attributes and $IP. $Attributes are the attributes we want to return. In our puzzle instructions, we're asked for Longitude, Latitude, Continent_Code and Timezone but you could use this function to get any of them. By default, the function will return all attributes. $IP is another IP address that we can get data for. If you don't specify one, the function will retrieve data for the client's IP. Otherwise, we can get data for an IP that isn't the one we're making our request from.
 
@@ -63,7 +65,8 @@ isp            : redacted
 postal_code    : redacted
 country        : Canada
 country_code3  : CAN
-region_code    : AB\n```
+region_code    : AB
+```
 
 Here, I'm just running the script with no parameters set. It gets all the data back from my IP. I've sanitized a lot of the data returned for the purpose of publishing this post but it was all returned correctly.
 
@@ -72,7 +75,8 @@ PS C:\&gt; Get-GeoIP -Attributes @('Longitude','Latitude','Continent_Code','Time
 
 longitude latitude continent_code timezone           
 --------- -------- -------------- --------           
--122.3933  37.7697 NA             America/Los_Angeles\n```
+-122.3933  37.7697 NA             America/Los_Angeles
+```
 
 Here, I asked for the attributes from the puzzle and specified the IP address for <a href="http://powershell.org" target="_blank">PowerShell.org</a>. You can see that it returned exactly what we'd expect.
 
@@ -83,6 +87,7 @@ PS C:\&gt; Invoke-WebRequest 'http://headers.jsontest.com/' | ConvertFrom-Json |
 
 Host                 User-Agent                                                           
 ----                 ----------                                                           
-headers.jsontest.com Mozilla/5.0 (Windows NT; Windows NT 6.2; en-US) WindowsPowerShell/4.0\n```
+headers.jsontest.com Mozilla/5.0 (Windows NT; Windows NT 6.2; en-US) WindowsPowerShell/4.0
+```
 
 Interesting user agent.

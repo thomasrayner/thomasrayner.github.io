@@ -19,7 +19,8 @@ The challenge was to get all the security updates installed on the local compute
 The winner of this hole is <a href="https://github.com/SimonWahlin" target="_blank">Simon Wåhlin</a>. Here is their 46 character submission.
 
 ```
-gcim(gcls *ix*|% *mC*e)|? I*n -gt((date)+-30d)\n```
+gcim(gcls *ix*|% *mC*e)|? I*n -gt((date)+-30d)
+```
 
 <strong>gcls &#42;ix&#42; </strong>gets the CimClass <em>win32_quickfixengineering</em> and <strong>% &#42;mC&#42;e </strong>gets the <em>CimClassName</em> property. <strong>gcim</strong> is an alias for <strong>Get-CimInstance </strong>which, as per the previous section, is getting the <em>win32_quickfixengineering</em> class. The results are piped into the <strong>where-object</strong> cmdlet where the property matching the pattern <strong>I*n</strong> (which happens to be <em>InstalledOn</em>) is greater than the current date, minus 30 days.
 
@@ -30,7 +31,8 @@ The challenge was to get the top ten file extensions in c:\windows\system32, onl
 The winner of this hole is <a href="https://github.com/SimonWahlin" target="_blank">Simon Wåhlin</a> again. Here is their 42 character submission.
 
 ```
-(ls C:\*\s*2\*.*|% E*n|group|sort c* -d)[0..9]\n```
+(ls C:\*\s*2\*.*|% E*n|group|sort c* -d)[0..9]
+```
 
 <strong>ls c:&#92;&#42;&#92;s&#42;2&#92;&#42;.&#42;</strong> means <strong>Get-ChildItem</strong> where the path is c:\<em>&lt;any directory&gt;\&lt;a directory matching s&#42;2&gt;\&lt;files, not directories&gt; </em>and this pattern only matches the path c:\windows\system32\&lt;files&gt;. This is piped into the <strong>foreach-object</strong> cmdlet to retrieve the property that matches the pattern <strong>E&#42;n</strong>,<strong> </strong>which is the <em>Extension</em> property. The extensions are piped into the <strong>sort-object</strong> cmdlet, sorted by the property that matches the pattern <strong>c&#42;,</strong> which is count, and returned in descending order. This is an array, and the items in positions 0-9 are returned.
 
@@ -45,7 +47,8 @@ To break some submissions that didn't check what the aliases resolved to, you co
 The winner of this hole is <a href="https://github.com/EdijsPerkums" target="_blank">EdijsPerkums</a>. Here is their 24 character submission.
 
 ```
-gal ?,??|? Di* -Notm Get\n```
+gal ?,??|? Di* -Notm Get
+```
 
 <strong>Get-Alias </strong>is passed an array of regex patterns, <strong>?,??</strong> which corresponds to one and two characters. The results are piped into the <strong>where-object</strong> cmdlet to isolate aliases whose property that matches the pattern <strong>Di&#42;</strong> (DisplayName) doesn't match <strong>Get</strong>.
 

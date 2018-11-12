@@ -19,12 +19,14 @@ First things first, make a new directory in your modules folder and navigate to 
 ```
 $dir = 'C:\Windows\system32\WindowsPowerShell\v1.0\Modules\JEA-Test'
 new-item -itemtype directory -path $dir
-cd $dir\n```
+cd $dir
+```
 
 So far, so easy. Now, we're going to use the brand new JEA cmdlets to configure what is basically our constrained endpoint.
 
 ```
-New-PSSessionConfigurationFile -path "$dir\JEA-Test.pssc"\n```
+New-PSSessionConfigurationFile -path "$dir\JEA-Test.pssc"
+```
 
 This PSSC is the first of two files we're going to make. It's a session config file that specifies the role mappings (we'll get to roles in a second) and some other general config settings. A PSSC file looks like this.
 
@@ -61,7 +63,8 @@ SessionType = 'RestrictedRemoteServer'
 # User roles (security groups), and the role capabilities that should be applied to them when applied to a session
 RoleDefinitions = @{ 'mvp-trayner\test users' = @{ RoleCapabilities = 'testers' } } 
 
-}\n```
+}
+```
 
 If you've ever authored a PowerShell module before, this should look familiar. There's only a few things you need to do here. The first is change the value for <em>SessionType</em> to <em>RemoteRestrictedServer. </em>You need to make it this in order to actually restrict the user connections.
 
@@ -72,12 +75,14 @@ The other important task to do is define the <em>RoleDefinitions</em> line. Thi
 Save that and now it's time to make a new directory. Roles <strong>must</strong> be in a "RoleCapabilities" folder within your module.
 
 ```
-new-item -itemtype directory "$dir\RoleCapabilities"\n```
+new-item -itemtype directory "$dir\RoleCapabilities"
+```
 
 Now we are going to continue using our awesome new JEA cmdlets to create a PowerShell Role Capabilities file.
 
 ```
-New-PSRoleCapabilityFile -path "$dir\RoleCapabilities\testers.psrc"\n```
+New-PSRoleCapabilityFile -path "$dir\RoleCapabilities\testers.psrc"
+```
 
 <strong>It's very important to note here that the name of my PSRC file is the same as the RoleCapability that I assigned in the PSSC file above.</strong>
 
@@ -145,7 +150,8 @@ VisibleExternalCommands = 'c:\scripts\this.ps1'
 # Assemblies to load when applied to a session
 # AssembliesToLoad = 'System.Web', 'System.OtherAssembly, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a'
 
-}\n```
+}
+```
 
 Let's skip ahead to line 25. What I'm doing here is white listing any cmdlet that starts with <strong>Get- </strong>or <strong>Measure-</strong> as well as <strong>Select-Object</strong>. Inherently, any of the parameters and values for the parameters are whitelisted, too. I can hear you worrying, though. "What if a Get- command contains a method that allows you to write or set data? I don't want that!" Well, rest assured. JEA runs in <a href="https://technet.microsoft.com/en-us/library/dn433292.aspx" target="_blank">No Language mode</a> which prevents users from doing any of those shenanigans.
 
@@ -164,12 +170,14 @@ With these tools at your disposal, you can configure absolutely anything about a
 Lastly, you need to set up the JEA endpoint. You can also overwrite the default endpoint so every connection hits your JEA config but you may want to set up another unconstrained endpoint just for admins... just in case.
 
 ```
-Register-PSSessionConfiguration -name 'JEA-Test' -path $dir\n```
+Register-PSSessionConfiguration -name 'JEA-Test' -path $dir
+```
 
 That's it. You're done. Holy, that was way too easy for how powerful it is. Now when a user wants to connect, they just run a command like this and they're in a session limited like you want.
 
 ```
-Enter-PSSession -ComputerName mvp-trayner -ConfigurationName JEA-Test\n```
+Enter-PSSession -ComputerName mvp-trayner -ConfigurationName JEA-Test
+```
 
 If they are in my local "Test Users" group, they'll have the "testers" role applied and their session will be constrained like I described above. You'll need to make sure your test users have permissions to remotely connect at all, though, otherwise the connection will be rejected before a JEA config is applied.
 

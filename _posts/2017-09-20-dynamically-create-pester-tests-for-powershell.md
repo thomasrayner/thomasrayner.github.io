@@ -19,7 +19,8 @@ function Get-Square {
     )
     $result = $Number * $Number
     $result
-}\n```
+}
+```
 
 This will just get the square of the number we pass it. Your test might look like this.
 
@@ -36,7 +37,8 @@ describe 'Get-Square' {
     it 'squares 3' {
         Get-Square 3 | Should Be 9
     }
-}\n```
+}
+```
 
 This would work. It would test your function correctly, and give you all the feedback you expect. There's another way to do this, though. Check out this next example.
 
@@ -52,7 +54,8 @@ describe 'Get-Square' {
             Get-Square $test[0] | Should Be $test[1]
         }
     }
-}\n```
+}
+```
 
 This particular example gets more complicated, but shows you what I'm talking about. $tests is an array of smaller arrays where the first number is the number to be squared, and the second number is the answer we expect. Then for each test (array in $tests), I'm generating a new <strong>it</strong> assertion. Neat, right?
 

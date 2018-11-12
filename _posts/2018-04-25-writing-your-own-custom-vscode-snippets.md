@@ -22,7 +22,8 @@ By default, the file includes a description, syntax and even an example of how t
         "Write-Verbose \"[$(Get-Date -format G)] ${1:message}\"$0"
     ],
     "description": "Prepend datetime for Write-Verbose"
-}\n```
+}
+```
 The name of my snippet is the first thing that's indicated, "DateTime pre-pended Write-Verbose", then the different properties that make up the snippet. The prefix I've given it is "verb", which you'll see the use for in a moment. Then, the body of the snippet. This one is just a "Write-Verbose" command, with part of the string to be written pre-populated. First, I'm writing the current time and date enclosed in square brackets, and then using the "${1:message}" notation, I'm placing the cursor at the location of that text, highlighting the word "message". This makes it so when you insert the snippet, the word "message" is already highlighted and you can just start typing your message. Then I have a "$0" at the end so when you hit tab, it takes you to the end of the line, outside the quotation marks of the "Write-Verbose". Finally, I gave the snippet a basic description.
 
 To use the snippet, go CTRL + Shift + P to open the command pallet, find Insert Snippet, and type the prefix you gave your snippet - mine is "verb". Then once you hit enter, the body of your snippet will be inserted, and in my case, the word "message" is highlighted, right after the datetime.

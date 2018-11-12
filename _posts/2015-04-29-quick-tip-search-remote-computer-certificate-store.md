@@ -9,13 +9,15 @@ categories: [certificates, PKI, pki, PowerShell, powershell, PowerShell ISE, pow
 It's really easy to search your local certificate store using PowerShell. You simply run a command like this.
 
 ```
-dir Cert:\LocalMachine -rec | ? { $_.Subject -match "Interesting" }\n```
+dir Cert:\LocalMachine -rec | ? { $_.Subject -match "Interesting" }
+```
 
 The above command will recursively look through all the certs in the local machine store and return the ones that have the word "Interesting" in the subject. Not exactly re-inventing the wheel here.
 
 There's not a ton of great options for snooping through the certificate store of remote computers, though. The solution I chose to get around this is dead simple. I used the <strong>Invoke-Command</strong> cmdlet to scan the certificate store of a remote computer. It's so easy that it almost feels like cheating.
 
 ```
-Invoke-Command -ScriptBlock { dir Cert:\LocalMachine -rec | ? { $_.Subject -match "Interesting" } } -ComputerName ThmsRynr.mydomain.tld\n```
+Invoke-Command -ScriptBlock { dir Cert:\LocalMachine -rec | ? { $_.Subject -match "Interesting" } } -ComputerName ThmsRynr.mydomain.tld
+```
 
 &nbsp;

@@ -16,7 +16,8 @@ I am not a professional penetration tester or red teamer, nor is this meant to b
 
 First things first, I ran <em>nmap</em> to see what might be up and running on the box. I ran safe scripts, enumerated versions, and saved all output with the file basename "nmap".
 ```
-nmap -sC -sV -oA nmap 10.10.10.22\n```
+nmap -sC -sV -oA nmap 10.10.10.22
+```
 Among other things, one of the items that is immediately revealed is that Europa is running a web server, and has an SSL certificate protecting the HTTPS part. Right there in the <em>nmap</em> output, you can see that the certificate has a subject alternative name for an "admin-portal" subdomain.
 
 Obviously with a name as juicy as "admin-portal", that's where I'm going to start. You can find the login.php page there. As with any login form, I tried a couple manual SQL injection techniques but wasn't immediately granted access, so I used Burpsuite to capture a post request to login.php and sent it over to <em>sqlmap</em>. Eventually <em>sqlmap</em> will pop that login form open for you and get you redirected to dashboard.php.

@@ -13,7 +13,8 @@ SMA runbooks to the rescue! I wrote my solution in PowerShell and stuck it in an
 First, I needed to get everything in the directory and print it. I originally looked at using Out-Printer but I have images, PDFs, all kinds of non-plaintext files. I needed another solution and it was this:
 
 ```
-get-childitem "\\nas\directory" | % { Start-Process -FilePath $_.VersionInfo.FileName –Verb Print -PassThru }\n```
+get-childitem "\\nas\directory" | % { Start-Process -FilePath $_.VersionInfo.FileName –Verb Print -PassThru }
+```
 
 Foreach file in this directory, we're starting a process on the file that prints it. It will effectively open the file in whatever the default application is, render it and print it to your default printer. Great! Except what if I don't want to print to the default printer? The Start-Process cmdlet doesn't seem to lend itself to that very well. As usual, I had to cheat.
 
@@ -21,7 +22,8 @@ Foreach file in this directory, we're starting a process on the file that prints
 $defprinter = (Get-WmiObject -ComputerName . -Class Win32_Printer -Filter "Default=True").Name
 $null = (Get-WmiObject -ComputerName . -Class Win32_Printer -Filter "Name='My Desired Printer'").SetDefaultPrinter()
 get-childitem "\\nas\directory" | % { Start-Process -FilePath $_.VersionInfo.FileName –Verb Print -PassThru }
-$null = (Get-WmiObject -ComputerName . -Class Win32_Printer -Filter "Name='$defprinter'").SetDefaultPrinter()\n```
+$null = (Get-WmiObject -ComputerName . -Class Win32_Printer -Filter "Name='$defprinter'").SetDefaultPrinter()
+```
 
 Since we're printing to the default printer, why don't we just change the default? Well, because maybe the default printer (that we don't want to print to) is default for a reason. So let's change the default printer and change it back after.
 

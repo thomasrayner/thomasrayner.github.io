@@ -18,5 +18,6 @@ You could store the current Error Action Preference in another variable, set the
 
 Even if the Error Action Preference is set to SilentlyContinue, you can do this...
 ```
-Write-Error "This is my error" -ErrorAction Continue\n```
+Write-Error "This is my error" -ErrorAction Continue
+```
 ... and your error will be written to the screen anyway. Obviously you can use the -ErrorAction parameter on everything else that has one too, for the same effect. Error Action Preference is just there to determine how errors are handled if you don't specify -ErrorAction.

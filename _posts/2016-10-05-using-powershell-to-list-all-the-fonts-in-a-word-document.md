@@ -13,7 +13,8 @@ $Word = New-Object -ComObject Word.Application
 $OpenDoc = $Word.Documents.open('c:\temp\test.docx')
 $OpenDoc.words | % { $_ | select -ExpandProperty font } | select Name -Unique
 $OpenDoc.close()
-$Word.quit()\n```
+$Word.quit()
+```
 
 There could very well be a better way of doing this but this is what I came up with in a hurry. Line 1 declares a new instance of Word and line 2 opens the document we're looking at. Then, for each word (which is handily a property of the open word document), we're expanding the font property and selecting all the unique names of the fonts on line 3. Lines 4 and 5 close the document and quit Word.
 

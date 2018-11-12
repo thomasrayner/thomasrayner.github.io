@@ -19,7 +19,8 @@ workflow ConvertUTCtoLocal
     $TZ = [System.TimeZoneInfo]::FindSystemTimeZoneById($strCurrentTimeZone)
     $LocalTime = [System.TimeZoneInfo]::ConvertTimeFromUtc($UTCTime, $TZ)
     Return $LocalTime
-}\n```
+}
+```
 
 It's pretty simple runbook! It has one mandatory parameter $UTCTime which, as the name would suggest, is the UTC time that you want to convert to your local time.
 

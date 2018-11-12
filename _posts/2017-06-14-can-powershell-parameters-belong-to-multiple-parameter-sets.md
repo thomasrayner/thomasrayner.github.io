@@ -19,7 +19,8 @@ function Do-Thing {
     [Parameter( ParameterSetName = 'Session' )][PSSession]$SessionName
     )
 # Other code
-}\n```
+}
+```
 
 So how do you make a parameter a member of more than one parameter set? You need more [Parameter()] qualifiers.
 
@@ -37,6 +38,7 @@ function Do-Thing {
     [Parameter( ParameterSetName = 'Session' )][PSSession]$SessionName
     )
 # Other code
-}\n```
+}
+```
 
 They chain together and you now $Username is a part of both parameter sets.

@@ -18,7 +18,8 @@ Find-AzureRmResource -TagName user |
     ForEach-Object { Get-AzureRmResource -ResourceId $_.ResourceId |
     ForEach-Object { $tags = $_.Tags; 
                      $tags['user'] = 'Thomas'; 
-                     Set-AzureRmResource -Tag $tags -ResourceId $_.ResourceId } }\n```
+                     Set-AzureRmResource -Tag $tags -ResourceId $_.ResourceId } }
+```
 I like Find-AzureRmResource best for searching for resources with a specific tag, but it doesn’t return the tags for some reason that is beyond me. You can search by tag but the tags aren’t returned? Weird, right?
 
 Anyway, I pipe everything I find into Get-AzureRmResource which is bad at searching for resources but DOES return the tags. Then for the resource I find, I store the tags on that resource in a temporary variable (named <strong>$tags</strong>), and then I work with the variable instead of working directly with the Azure object to update the “user” tag I care about. Then I set the tags on that resource to be what I stored. This should keep all the other tags intact, and update the value of one specific tag.

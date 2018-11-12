@@ -26,7 +26,8 @@ Let's start simply by initializing our PowerShell Workflow. You get to this poin
 workflow GetExpiringCerts
 {
     $strInPath = Get-AutomationVariable -Name 'INFOLDER'
-}\n```
+}
+```
 
 Our workflow/runbook is called GetExpiringCerts. The variable $strInPath is the location to where I have all the files I ever load into SMA. That is, it's just a path to a network share that's the same in all my runbooks that use it.
 
@@ -43,7 +44,8 @@ workflow GetExpiringCerts
         $arrCertsExpireAfterToday | % { $strResults += "&lt;br&gt;&lt;br&gt;"; $strResults += "&lt;b&gt;Issued Common Name:&lt;/b&gt; " + $_.IssuedCommonName; $strResults += "&lt;br&gt;&lt;b&gt;Expires:&lt;/b&gt; " + $_.CertificateExpirationDate; $strResults += " &lt;b&gt;Requested By:&lt;/b&gt; " + $_.RequesterName }
         $strResults
     }
-}\n```
+}
+```
 
 There's some cheating right there. PowerShell Workflows are different than regular vanilla PowerShell in ways that I don't always like. To make a PowerShell Workflow (which is what SMA runbooks use) execute some code like regular PowerShell, you need to wrap it in an <strong>inlinescript</strong> block. We're going to take the output of the inline script and assign it to $strCerts.
 
@@ -73,7 +75,8 @@ workflow GetExpiringCerts
     $strEmail = @("ThmsRynr@outlook.com","other@people.com")
     $strSMTPServer = Get-AutomationVariable -Name 'SMTPServer'
     send-mailmessage -to $strEmail -From "service_account@yourdomain.com" -Subject $strSubject  -SMTPServer $strSMTPServer -body $strCerts -bodyashtml
-}\n```
+}
+```
 
 Easy. We need a subject, a list of people to send the email to, and an SMTP server. My email To list is an array and I store my SMTP server in an SMA asset. Then I use the send-mailmessage cmdlet to shoot this email off. Make sure to use the <strong>-bodyashtml</strong> flag so the HTML is parsed correctly instead of being included as plaintext.
 

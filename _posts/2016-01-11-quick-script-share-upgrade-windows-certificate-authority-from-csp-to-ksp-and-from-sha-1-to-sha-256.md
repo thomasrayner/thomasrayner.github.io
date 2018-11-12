@@ -212,6 +212,7 @@ Add-LogEntry $Logpath 'Started certsvc'
 
 #endregion
 
-$ErrorActionPreference = $OldEAP\n```
+$ErrorActionPreference = $OldEAP
+```
 
 &nbsp;

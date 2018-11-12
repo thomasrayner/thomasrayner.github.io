@@ -15,7 +15,8 @@ Other cmdlets like <strong>Write-Output</strong> are for writing to standard ou
 There's not much to it. Just add a couple of lines to their PowerShell profile.
 ```
 $PSDefaultParameterValues.Add('write-host:foregroundcolor',{get-random $([system.enum]::getvalues([system.consolecolor]))})
-$PSDefaultParameterValues.Add('write-host:backgroundcolor',{get-random $([system.enum]::getvalues([system.consolecolor]))})\n```
+$PSDefaultParameterValues.Add('write-host:backgroundcolor',{get-random $([system.enum]::getvalues([system.consolecolor]))})
+```
 This adds default values for the <em>-BackgroundColor</em>  and <em>-ForegroundColor</em>  parameters when <strong>Write-Host</strong> is called. If a script specifies a value for those parameters, those specific values will be used instead. If, instead, <strong>Write-Host</strong> is called without specifying values for the foreground and background color parameters, a random one will be used instead. It'll look something like this.
 
 <img class="alignnone wp-image-666 size-full" src="/wp-content/uploads/2018/01/2018-01-10-13_56_29-powershell.png" alt="" width="492" height="509" />

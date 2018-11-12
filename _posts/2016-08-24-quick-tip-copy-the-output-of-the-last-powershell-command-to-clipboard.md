@@ -11,7 +11,8 @@ I recently found myself poking around in PowerShell and going "oh, good now I wa
 So, I threw this small function into my profile.
 
 ```
-function cc { r | scb }\n```
+function cc { r | scb }
+```
 
 You'll need PowerShell 5.0 for this one (for <strong>Set-Clipboard</strong>). This just looks like gibberish though, what's going on?
 
@@ -29,7 +30,8 @@ hah!
 
 PS G:\&gt; r
 write-output "hah!"
-hah!\n```
+hah!
+```
 
 <strong>scb</strong> is an alias for <strong>Set-Clipboard</strong> which means whatever came out of the last command will be the new contents of your clipboard.
 

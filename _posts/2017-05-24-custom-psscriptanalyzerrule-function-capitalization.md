@@ -46,6 +46,7 @@ function Test-FunctionCasing {
             $PSCmdlet.ThrowTerminatingError( $_ )
         }
     }
-}\n```
+}
+```
 
 Custom PSSA rules need to take some sort of AST object, and mine takes a ScriptBlockAST so it can go through all the declared functions in that AST. Line 12 will get all the function definitions with names that have 4 or more adjacent capital letters. For each of those, I return a PSSA warning about violating the naming convention.

@@ -12,7 +12,8 @@ Here's the code I came up with.
 
 ```
 $DN = 'CN=ThmsRynr,OU=BestUsers,DC=lab,DC=workingsysadmin,DC=com'
-Get-DistributionGroup -filter "members -eq '$DN'" | Select-Object Name,@{l='Members';e={(Get-DistributionGroupMember $_.SamAccountName -ResultSize Unlimited | % { $_.Name }) -join '; ' }}\n```
+Get-DistributionGroup -filter "members -eq '$DN'" | Select-Object Name,@{l='Members';e={(Get-DistributionGroupMember $_.SamAccountName -ResultSize Unlimited | % { $_.Name }) -join '; ' }}
+```
 
 Line 1 is just declaring a variable to hold the DistinguishedName attribute for the user I am interested in. Line 2 is the work line. The first thing I'm doing is getting all the distribution groups which have a member equal to the DN of the user I'm interested in. Now, the weirdness happens...
 
@@ -30,7 +31,8 @@ BypassModerationFromSendersOrMembers
 MemberDepartRestriction
 MemberJoinRestriction
 RejectMessagesFromDLMembers
-RejectMessagesFromSendersOrMembers\n```
+RejectMessagesFromSendersOrMembers
+```
 
 Nothing in there contains the members. So back to the command I wrote to accomplish my goal.
 

@@ -22,7 +22,8 @@ So, now, what do you want to do? I like to start simple. When you first launch <
 Copyright (c) Microsoft Corporation. All rights reserved.
 
 https://aka.ms/pscore6-docs
-Type 'help' to get help.\n```
+Type 'help' to get help.
+```
 So, let's make that more interesting. Probably there's a string somewhere that we can just edit and make it say whatever we want.
 
 If you expand <code>powershell-win-core</code> , you'll see <code>Program.cs</code> which is probably what gets run when you fire up <code>pwsh.exe</code> in Windows. At least, when I started poking around, that was my guess. It seems pretty simple. It returns an <code>UnmanagedPSEntry</code>.
@@ -39,7 +40,8 @@ Save everything, follow the above linked directions to build PowerShell, and lau
 Copyright (c) Microsoft Corporation. All rights reserved.
 
 https://aka.ms/pscore6-docs
-Type 'help' to get help. Or otherwise just do your thing, man.\n```
+Type 'help' to get help. Or otherwise just do your thing, man.
+```
 </div>
 <div></div>
 <div>It's the little things that add the most joy to life. In all honesty though, explore a bit and you'll start to learn about how PowerShell <em>really</em> works, and next time you see something that doesn't work like you think it should, you'll have more power to do something about it.</div>

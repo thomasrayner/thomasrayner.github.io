@@ -21,7 +21,8 @@ PS&gt; $filename -split '\\'
 C:
 temp
 demo
-thing.txt\n```
+thing.txt
+```
 
 Notice how I had to split on "&#92;"? I had to escape that backslash. We're regexing already! Also notice that I lost the backslash on which I split the string. Now let's do a tiny bit more regex in our split pattern to retain that backslash.
 
@@ -31,7 +32,8 @@ PS&gt; $filename -split '(?=\\)'
 C:
 \temp
 \demo
-\thing.txt\n```
+\thing.txt
+```
 
 Look at that, we kept our backslash. How? Well look at the pattern we split on: <strong>(?=&#92;)</strong>. That's what regex calls a "lookahead". It's contained in round brackets and the "?=" part basically means "where the next character is a " and the "&#92;" still means our backslash. So we're splitting the string on the place in the string where the next character is a backslash. we're effectively splitting on the space between characters.
 
@@ -43,7 +45,8 @@ PS&gt; $filename -split '(?&lt;=\\)'
 C:\
 temp\
 demo\
-thing.txt\n```
+thing.txt
+```
 
 This is a "lookbehind". It's the same as a lookahead, except it's looking for a place where the character to the left matches the pattern, instead of the character to the right. A lookbehind is denoted with the "?&lt;=" characters.
 

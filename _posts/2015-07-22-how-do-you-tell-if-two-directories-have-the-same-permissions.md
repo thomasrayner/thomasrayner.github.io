@@ -42,7 +42,8 @@ AccessControlType : Allow
 IdentityReference : NT AUTHORITY\Authenticated Users
 IsInherited       : True
 InheritanceFlags  : None
-PropagationFlags  : None\n```
+PropagationFlags  : None
+```
 
 Look at that. A list of all the different permissions on the folder we care about! Now all we have to do is compare this ACL to the ACLs of other directories. For this, why not simply use the <strong>Compare-Object</strong> cmdlet? Here's the full script to compare three folders and commands. I'll break it all down.
 
@@ -53,7 +54,8 @@ $ACLthree = get-acl "C:\temp\test3"
 write-host "Compare 1 and 2 ----------------------"
 Compare-Object -referenceobject $ACLone -differenceobject $ACLtwo -Property access | select sideindicator -ExpandProperty access | ft
 write-host "Compare 1 and 3 ----------------------"
-Compare-Object -referenceobject $ACLone -differenceobject $ACLthree -Property access | select sideindicator -ExpandProperty access | ft\n```
+Compare-Object -referenceobject $ACLone -differenceobject $ACLthree -Property access | select sideindicator -ExpandProperty access | ft
+```
 
 The first three lines are just getting the ACLs for the three directories I care about and storing the values in variables. There's tons of better ways to get and organize that information but this way lays it out nicely for this example.
 

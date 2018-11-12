@@ -13,14 +13,16 @@ $s = @"
 Here is: "Some data"
 Here's "some other data"
 this is "important" data
-"@\n```
+"@
+```
 
 ... that maybe came from the body of a file, was returned by some other part of a script, etc., and you just want the portions that are actually between the quotes, the quickest and easiest way to get it is through a regular expression match.
 
 That's right, forget splitting or trimming or doing other weird string manipulation stuff. Just use the <strong>[regex]::matches() </strong>feature of PowerShell to get your values.
 
 ```
-[regex]::matches($s,'(?&lt;=\").+?(?=\")').value\n```
+[regex]::matches($s,'(?&lt;=\").+?(?=\")').value
+```
 
 <strong>Matches</strong> takes two parameters. 1. The value to look for matches in, in this case the here-string in my $s variable, and 2. The regular expression to be used for matching. Since <strong>Matches</strong> returns a few items, we are making sure to just select the value for each match.
 

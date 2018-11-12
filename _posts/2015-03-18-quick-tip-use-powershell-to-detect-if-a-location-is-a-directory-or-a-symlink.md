@@ -15,7 +15,8 @@ PS C:\Users\ThmsRynr&gt; ((get-item c:\symlink).Attributes.ToString())
 Directory, ReparsePoint
 
 PS C:\Users\ThmsRynr&gt; ((get-item c:\normaldir).Attributes.ToString())
-Directory\n```
+Directory
+```
 
 Here, we're just running a <strong>Get-Item</strong> command on two locations, getting the Attributes property and converting to a string. The first item is a symlink and includes "ReparsePoint" in its attributes. The second item is a normal directory and does not include "ReparsePoint".
 
@@ -26,6 +27,7 @@ PS C:\Users\ThmsRynr&gt; ((get-item c:\symlink).Attributes.ToString() -match "Re
 True
 
 PS C:\Users\ThmsRynr&gt; ((get-item c:\normaldir).Attributes.ToString() -match "ReparsePoint")
-False\n```
+False
+```
 
 Easy. If the above values have "ReparsePoint" in them, we know they are a symlink and not just a regular directory. In my case, my script to apply ACLs to a group of directories avoided symlinks with ease.

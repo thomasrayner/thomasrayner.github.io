@@ -16,7 +16,8 @@ I am not a professional penetration tester or red teamer, nor is this meant to b
 
 First things first, I ran <em>nmap</em> to see what might be up and running on the box. I ran safe scripts, enumerated versions, and saved all output with the file basename "nmap".
 ```
-nmap -sC -sV -oA nmap 10.10.10.46\n```
+nmap -sC -sV -oA nmap 10.10.10.46
+```
 You'll quickly find a Wordpress site is up and running. If you run <em>wpscan --enumerate u</em> or just look around at some of the posts, you'll find a username: falaraki. If you use <em>dirbuster</em> and any of the normal wordlists, you may have a challenging time. I used <em>cewl</em> to make a wordlist for <em>dirbuster</em> after receiving a small nudge in the HTB Slack channel. You'll find a whole pile of directories, each one containing a seemingly identical image. Sounds like we're in for everybody's favorite thing in the world: steganography!
 
 I wrote a quick script to download all of them because I love taking up tons of diskspace on my VM, and you'll find that the image in the "Rightiousness" directory looks the same as the others but has a larger file size. You can use <em>steghide extract -sf rightiousness.jpg</em> with no password to extract a wordlist hidden in the larger image. Maybe this is why the box is called Apocalyst... apoca... list. Wordlist. Maybe.

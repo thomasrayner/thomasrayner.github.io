@@ -22,7 +22,8 @@ I decided to put the whole thing into an HTML table in order to make it a bit mo
             &lt;td&gt;@claim.Value&lt;/td&gt;
         &lt;/tr&gt;
     }
-&lt;/table&gt;\n```
+&lt;/table&gt;
+```
 It's not a big mind blower. This is a .cshtml document, so we can write HTML and mix in some inline C#. Using the <strong>ClaimsIdentity</strong> class, we can write a foreach loop for each claim in the identity of the currently logged in user. This assumes that the user isn't logged in more than once (ie: Facebook and Twitter and Azure AD).
 
 Then I'm making a new row in my table for each claim, and separate cells for the claim type, which is the name of the claim, and the claim value.

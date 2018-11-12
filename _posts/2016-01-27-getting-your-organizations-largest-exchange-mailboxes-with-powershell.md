@@ -24,7 +24,8 @@ function Get-LargeMailbox
         ValueFromPipeline = $True)]
         [string]$Identity = '*'
     )
-}\n```
+}
+```
 
 All I've done here is declare my new function named <strong>Get-LargeMailbox </strong>and specified its parameters. $Top is the integer representing the number of mailboxes to return (defaulted to 1) and $Identity is the specific mailbox we want to return (defaulted to * which will return all mailboxes).
 
@@ -45,7 +46,8 @@ function Get-LargeMailbox
         
     Get-Mailbox -Identity $Identity -ResultSize Unlimited |
     Get-MailboxStatistics 
-}\n```
+}
+```
 
 So far, so good. We haven't narrowed down the stats we care about yet but we're getting all the mailboxes in the organization and retrieving all the stats for them. Now we're about to run into a problem. There's a property returned by <strong>Get-MailboxStatistics</strong> called TotalItemSize but when you're in a remote session, but, it's hard to work with. Observe.
 
@@ -54,7 +56,8 @@ PS C:\&gt; (Get-Mailbox ThmsRynr | Get-MailboxStatistics).TotalItemSize | Format
 
 
 IsUnlimited : False
-Value       : 2.303 GB (2,473,094,022 bytes)\n```
+Value       : 2.303 GB (2,473,094,022 bytes)
+```
 
 You can see it returns a property consisting of a boolean value for if my quota is unlimited, and then a value of what my total size is. Ok, so that value is probably a number, right?
 
@@ -63,7 +66,8 @@ PS C:\&gt; (Get-Mailbox ThmsRynr| Get-MailboxStatistics).TotalItemSize.Value | G
 
 
    TypeName: Deserialized.Microsoft.Exchange.Data.ByteQuantifiedSize
-#output omitted\n```
+#output omitted
+```
 
 Well, yeah, it is. The Value of TotalItemSize is a number but it's a <em>Deserialized.Microsoft.Exchange.Data.ByteQuantifiedSize </em>and when you're connected to a remote Exchange Management Shell, you don't have that library loaded unless you install some tools on your workstation. Rather than do that, can't we just fool around with it a bit and avoid installing a bunch of superfluous Exchange management tools? I bet we can, especially since this value has a ToString() method associated with it.
 
@@ -89,7 +93,8 @@ function Get-LargeMailbox
             $_.TotalItemSize.Value.ToString().split('(').split(' ')[-2].replace(',', '') -as [double]
         }
     } -Descending 
-}\n```
+}
+```
 
 Oh boy, string manipulation is always fun, isn't it? What I've done here is sorted my mailboxes by an expression. That expression is the result of converting the value of the TotalItemSize attribute to a string and manipulating it. I'm splitting it on the open bracket character, and then again on the space character. I'm taking the second last item in that array, stripping out the commas and casting it as a double (because some values are too big to be integers). That's a lot of weird string manipulation for some of you to get your heads around, but look at the string returned by default. I need the number of bytes and that was the best way to get it.
 
@@ -121,7 +126,8 @@ function Get-LargeMailbox
             $_.TotalItemSize.Value.ToString().split('(').split(' ')[-2].replace(',', '') -as [double]
         }
     } -First $Top
-}\n```
+}
+```
 
 Now you can do things like this.
 
@@ -145,7 +151,8 @@ Select-Object -Property DisplayName, @{
         '{0:N0}' -f $_.MailboxSize
     }
 } |
-Format-Table -AutoSize\n```
+Format-Table -AutoSize
+```
 
 Before we end, let's take a closer look at the last example.
 

@@ -14,6 +14,7 @@ Say you want to know what day of the week it will be some arbitrary number of da
 
 ```
 PS&gt; (Get-Date).AddDays(39).DayOfWeek
-Friday\n```
+Friday
+```
 
 At the time I write this, it looks like in 39 days, it'll be Friday.

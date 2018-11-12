@@ -14,7 +14,8 @@ First things first, I need to declare my runbook/workflow and get the stored var
 workflow GetDailyFailedJobs
 {
     $smtpserver = Get-AutomationVariable -Name 'SMTPServer'
-}\n```
+}
+```
 
 Easy! Now the SMA PowerShell cmdlets work best in actual PowerShell, not in workflows so I'm going to cheat and use an inlinescript block to hold pretty much everything else. Now before we get to the good stuff, I'm going to knock out the easy task of setting up my try and catch blocks as well as my function that sends email.
 
@@ -41,7 +42,8 @@ workflow GetDailyFailedJobs
             send-mailmessage -to $emailaddress -From "SMA_MGMT@else.com" -Subject $smtpSubject -SMTPServer $smtpserver -body $body -bodyashtml
         }
     }
-}\n```
+}
+```
 
 Most of this is pretty straight forward. I'm going to put some stuff in a try block and email it out if it works. If I catch an error, I'm going to email a notification that something screwed up in the try block.
 
@@ -86,7 +88,8 @@ workflow GetDailyFailedJobs
             send-mailmessage -to $emailaddress -From "SMA_MGMT@else.com" -Subject $smtpSubject -SMTPServer $smtpserver -body $body -bodyashtml
         }
     }
-}\n```
+}
+```
 
 Wow that got a little ugly really quickly. What you need to keep in mind is that a lot of this ugliness is styling to make the email report pretty. That's a little counter-intuitive but, hey, welcome to scripting as a working sysadmin. Let's break it down line by line.
 

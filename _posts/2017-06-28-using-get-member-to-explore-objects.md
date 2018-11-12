@@ -17,7 +17,8 @@ PS&gt; Get-CimInstance -ClassName win32_operatingsystem
 
 SystemDirectory     Organization          BuildNumber RegisteredUser        SerialNumber            Version
 ---------------     ------------          ----------- --------------        ------------            -------
-C:\windows\system32 &lt;snip&gt;                14393       &lt;snip&gt;                &lt;snip&gt;                  10.0.14393\n```
+C:\windows\system32 &lt;snip&gt;                14393       &lt;snip&gt;                &lt;snip&gt;                  10.0.14393
+```
 
 As is the case with our example last week, there's more stuff returned and available to us than what is returned by default. Let's use <strong>Get-Member</strong> to see what it all is.
 
@@ -55,7 +56,8 @@ DataExecutionPrevention_SupportPolicy     Property    byte DataExecutionPreventi
 Debug                                     Property    bool Debug {get;}
 Description                               Property    string Description {get;set;}
 Distributed                               Property    bool Distributed {get;}
-&lt;output truncated&gt;\n```
+&lt;output truncated&gt;
+```
 
 Holy smokes, there's a lot of stuff there. As with <strong>Select-Object</strong>, you can see all the different properties that exist in this object. The big difference here is that you can see all the different methods this object comes with, too. You could store this information in a variable and then invoke the <strong>.HashCode</strong><strong>()</strong> on it and see the output of that, like this.
 
@@ -63,7 +65,8 @@ Holy smokes, there's a lot of stuff there. As with <strong>Select-Object</stron
 PS&gt; $osInfo = Get-CimInstance -ClassName win32_operatingsystem
 
 PS&gt; $osInfo.GetHashCode()
-57422975\n```
+57422975
+```
 
 There's a lot of examples of methods that are more interesting than this, but you can play with it and make this work for you.
 

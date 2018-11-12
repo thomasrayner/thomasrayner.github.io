@@ -28,7 +28,8 @@ So how do you simulate this behavior with PowerShell? Like this.
 $strDir = "C:\temp\test1\"
 GCI $strDir | Remove-Item -Force
 1..200 | % { $strPath = $strDir + $_ + ".txt"; "something" | Out-File $strPath | Out-Null }
-Measure-Command { 1..101 | % { $strPath = $strDir + $_ + ".txt"; $strNewPath = $strPath + ".chng"; "changed" | Out-File -Append $strPath; Rename-Item -Path $strPath -NewName $strNewPath } }\n```
+Measure-Command { 1..101 | % { $strPath = $strDir + $_ + ".txt"; $strNewPath = $strPath + ".chng"; "changed" | Out-File -Append $strPath; Rename-Item -Path $strPath -NewName $strNewPath } }
+```
 
 Lines 1, 2 and 3 setup the environment. $strDir is the location we're monitoring for ransomware attacks (or a test directory in this case). Line 2 empties the test directory which you probably don't want to do indiscriminately in a production area but I want to do in my test area.
 
@@ -48,6 +49,7 @@ TotalHours        : 0.000191323055555556
 TotalMinutes      : 0.0114793833333333
 TotalSeconds      : 0.688763
 TotalMilliseconds : 688.763
-\n```
+
+```
 
 There you go! Try it yourself and see if you can detect this simulated ransomware attack.

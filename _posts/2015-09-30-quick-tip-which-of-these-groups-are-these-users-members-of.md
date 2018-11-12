@@ -30,7 +30,8 @@ function Test-IsGroupMember
         $Usernames | % { if ($arrMembers -contains $_) { write-host " * $_ is a member of $strGroup" } }
         Write-Output ''
     }
-}\n```
+}
+```
 
 As you can see, this function requires the ActiveDirectory PowerShell module and the function is named <strong>Test-IsGroupMember. </strong>It takes two parameters called Usernames and Groups. Both are "object" types so they could be an array or a string. I didn't want to make overloaded versions of a script this simple so I took this shortcut. It's expected that the values in Usernames and Groups will be SamAccountNames.
 
@@ -46,6 +47,7 @@ Test-IsGroupMember @('user1','user2','user3','ThmsRynr') @('Group1','Group2','Gr
 Test-IsGroupMember ThmsRynr SomeGroup
 
 #See if all the members of InterestingGroup are members of any group whose name matches *Keyword*
-Test-IsGroupMember -Usernames (Get-ADGroupMember InterestingGroup).SamAccountName -Groups (Get-ADGroup -filter "Name -like '*Keyword*'").SamAccountName\n```
+Test-IsGroupMember -Usernames (Get-ADGroupMember InterestingGroup).SamAccountName -Groups (Get-ADGroup -filter "Name -like '*Keyword*'").SamAccountName
+```
 
 Pretty flexible.

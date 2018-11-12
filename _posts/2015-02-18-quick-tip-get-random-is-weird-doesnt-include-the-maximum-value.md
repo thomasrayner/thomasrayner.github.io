@@ -13,7 +13,8 @@ while ($true)
 {
     Get-Random -Minimum 1 -Maximum 2
     sleep 1
-}\n```
+}
+```
 
 Run it on your own computer. Every second, it should write a random number between 1 and 2 until you interrupt it (CTRL + C). You would expect a somewhat balanced output of 1's and 2's like if you were recording the outcomes of repeatedly flipping a coin. Right? Wrong. You will get a string of 1's and never ever EVER get a 2. Change the Maximum to 3 and you will get 1's and 2's but no 3's.
 

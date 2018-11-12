@@ -13,6 +13,7 @@ foreach ($printer in $(Get-Content -Path 'c:\temp\printers.txt')
 {
     Add-PrinterPort -ComputerName PrintServer -PrinterName $printer -HostName 'PrinterHostName'
     Add-Printer -ComputerName PrintServer -DriverName 'Name Of Your Driver' -PortName "PrinterHostName:$printer" -Name $printer
-}\n```
+}
+```
 
 There are no real surprises here. It's just a matter of finding the right combinations of parameters and their values to make LPR printers and ports happen. In this example, I'm creating a bunch of them out of a list I have in a file.

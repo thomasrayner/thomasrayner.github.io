@@ -14,7 +14,8 @@ You can set something up to experiment with this with this code.
 
 ```
 PS&gt; $a = @{}
-PS&gt; 1..3 | % { $a.add($(New-Guid), $_) }\n```
+PS&gt; 1..3 | % { $a.add($(New-Guid), $_) }
+```
 
 Declare $a as a new empty hashtable, and then add three items to it. The key is a GUID, and the value is just a number. You get something like this.
 
@@ -25,7 +26,8 @@ Name                           Value
 ----                           -----
 a2022422-ffe6-4291-a736-c1d... 1
 33b8251c-8c09-433c-ae88-666... 3
-4d9d41c1-8a0b-4326-ad59-164... 2\n```
+4d9d41c1-8a0b-4326-ad59-164... 2
+```
 
 Now say you want to refer to the first item in the list whose key/GUID is a2022422-ffe6-4291-a736-c1de97720f25, in my example. You could try any of these.
 
@@ -33,13 +35,15 @@ Now say you want to refer to the first item in the list whose key/GUID is a2022
 PS&gt; $a.a2022422-ffe6-4291-a736-c1de97720f25
 PS&gt; $a.'a2022422-ffe6-4291-a736-c1de97720f25'
 PS&gt; $a['a2022422-ffe6-4291-a736-c1de97720f25']
-PS&gt; $a.Item('a2022422-ffe6-4291-a736-c1de97720f25')\n```
+PS&gt; $a.Item('a2022422-ffe6-4291-a736-c1de97720f25')
+```
 
 But none of these actually return any information. The problem is that the key is a GUID, not a string, but we're trying to refer to it as a string. Instead, you have to treat it like a GUID.
 
 ```
 PS&gt; $a[[guid]'a2022422-ffe6-4291-a736-c1de97720f25']
 
-1\n```
+1
+```
 
 By casting the string as a GUID, you're telling the hashtable that you're not just looking for a string. This same thing works for other data types like integers.

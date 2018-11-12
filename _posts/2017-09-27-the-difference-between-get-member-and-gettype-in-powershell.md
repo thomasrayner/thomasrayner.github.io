@@ -15,14 +15,16 @@ In order to make this a more generic example, and to simplify it, let's approach
 ```
 PS&gt; $thing1 = 'This is an item'
 PS&gt; $thing2 = @('This is another item','This is one more item')
-PS&gt; $thing1; $thing2\n```
+PS&gt; $thing1; $thing2
+```
 
 The third line shows you what you get if you write these out to the screen.
 
 ```
 This is an item
 This is another item
-This is one more item\n```
+This is one more item
+```
 
 It looks like three separate strings, right? Well we should be able to dissect these with <strong>Get-Member</strong> to get to the bottom of this and identify the types of objects these are. After all, one is a string and the other is an array, right?
 
@@ -35,7 +37,8 @@ PS&gt; $thing1 | Get-Member
 Name             MemberType            Definition
 ----             ----------            ----------
 Clone            Method                System.Object Clone()
-&lt;output truncated&gt;\n```
+&lt;output truncated&gt;
+```
 
 So far, so good. $thing1 is our string, so we'd expect the TypeName to be System.String. Let's check the array.
 
@@ -48,7 +51,8 @@ PS&gt; $thing2 | Get-Member
 Name             MemberType            Definition
 ----             ----------            ----------
 Clone            Method                System.Object Clone()
-&lt;output truncated&gt;\n```
+&lt;output truncated&gt;
+```
 
 Dang, $thing2 is an array but <strong>Get-Member</strong> is still saying the TypeName is System.String. What's going on?
 
@@ -59,7 +63,8 @@ PS&gt; $thing2.GetType()
 
 IsPublic IsSerial Name                                     BaseType
 -------- -------- ----                                     --------
-True     True     Object[]                                 System.Array\n```
+True     True     Object[]                                 System.Array
+```
 
 There you go. $thing2 is a System.Array object, just like we thought.
 

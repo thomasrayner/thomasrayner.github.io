@@ -9,14 +9,16 @@ categories: [hash table, hashtable, ordered objects, PowerShell, powershell]
 There are a handful of different ways to create custom objects in PowerShell, including building one from a hash table. You might do something like this.
 ```
 PS&gt; $props = @{'prop1' = 1; 'prop2' = 2}
-PS&gt; $obj = New-Object -TypeName PSObject -Property $props\n```
+PS&gt; $obj = New-Object -TypeName PSObject -Property $props
+```
 But then, just run <strong>$obj</strong> and see what you get. This is what I got.
 ```
 PS&gt; $obj
 
 prop2 prop1
 ----- -----
-    2     1\n```
+    2     1
+```
 It put prop2 before prop1 even though I put prop1 first in the hash table! Most of the time, this doesn't matter, but what about when it does?
 
 <!--more-->
@@ -27,13 +29,15 @@ PS&gt; $obj | Select-Object -Property prop1,prop2
 
 prop1 prop2
 ----- -----
-    1     2\n```
+    1     2
+```
 But that seems excessively verbose and inefficient. Luckily there is a better way. Introducing Ordered Hash Tables!
 
 Ordered hash tables are pretty much what they sound like. By default, a hash table is a collection of objects (key and value pairs) whose order isn't important. An ordered hash table is the same thing, but where the order they are in the hash table matters, and they're pretty easy to use. Our first lines of code from this example becomes this.
 ```
 PS&gt; $props = [ordered]@{'prop1' = 1; 'prop2' = 2}
-PS&gt; $obj = New-Object -TypeName PSObject -Property $props\n```
+PS&gt; $obj = New-Object -TypeName PSObject -Property $props
+```
 Just add the <em>[ordered]</em>  accelerator to the hash table, and now PowerShell will respect the order that you enter items into your hash table.
 
 &nbsp;

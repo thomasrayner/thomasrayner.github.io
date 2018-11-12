@@ -12,17 +12,20 @@ The issue is, if you try to assign a null value to a datetime object, you get an
 
 ```
 [datetime]$null
-Cannot convert null to type "System.DateTime".\n```
+Cannot convert null to type "System.DateTime".
+```
 
 The solution is super easy. Just make the thing nullable.
 
 ```
-[nullable[datetime]]$null\n```
+[nullable[datetime]]$null
+```
 
 This will return no output. So when you're declaring the variable that will hold your datetime object, just make sure you make it nullable.
 
 ```
-[nullable[datetime]]$date = $MaybeNullMaybeNot\n```
+[nullable[datetime]]$date = $MaybeNullMaybeNot
+```
 
 Just for more proof this works as advertised, try this.
 
@@ -31,6 +34,7 @@ try { [datetime]$null; write-output 'worked!' } catch { write-output 'no worked!
 no worked!
 
 try { [nullable[datetime]]$null; write-output 'worked!' } catch { write-output 'no worked!' }
-worked!\n```
+worked!
+```
 
 Cool!

@@ -23,7 +23,8 @@ function Add-AcceptMessagesOnlyFromDLMembers
     $arr += ($(Get-ADGroup $NameOfGroup -Properties CanonicalName).CanonicalName)
     set-mailContact $AppendTo -AcceptMessagesOnlyFromDLMembers:"$($arr)"
 }
-\n```
+
+```
 
 First things first, I declare the function named <strong>Add-AcceptMessagesOnlyFromDLMembers</strong> which is a bit more verbose than I'd usually like to make it, but I'm also a fan of descriptive function and cmdlet names.
 

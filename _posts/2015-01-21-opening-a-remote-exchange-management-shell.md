@@ -32,7 +32,8 @@ function gimme-exchange ()
             $success = $false
         }
     }
-}\n```
+}
+```
 
 On Line 1, we're declaring the function - no big deal. I'm naming mine "gimme-exchange" so once my profile loads, I can just type that to start the function.
 
@@ -68,6 +69,7 @@ ForEach ($connectionURI in $arrExchangeServersURI)
         $strError = "Error: ${strError}"
         $success = $false
     }
-}\n```
+}
+```
 
 &nbsp;

@@ -18,7 +18,8 @@ function Get-RandomPW
     $arrChars = 'abcdefghkmnprstuvwxyzABCDEFGHKLMNPRSTUVWXYZ123456789!@#$%^&amp;*()-=_+'.ToCharArray()
     $sRandomString = -join $(1..$Length | Foreach-Object { Get-Random -InputObject $arrChars })
     return $sRandomString
-}\n```
+}
+```
 
 On line 1, you can see I named my function <strong>Get-RandomPW </strong>which I did because I like following the standard Verb-Noun naming scheme that PowerShell functions and cmdlets are supposed to follow. On lines 3 through 6, I'm declaring my only parameter, $Length. $Length is an integer which will represent the length of the password we want. By default, I create a 16 character password.
 
@@ -48,6 +49,7 @@ RhEHAamX
 mTfYV2cB
 @h)GR1kb
 %tUb^KZD
-sxb^bZ)&amp;\n```
+sxb^bZ)&amp;
+```
 
 &nbsp;

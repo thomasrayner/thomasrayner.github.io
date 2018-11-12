@@ -21,18 +21,21 @@ It was nice to see you.
 
 Stop by again soon.
 
-Thanks!'\n```
+Thanks!'
+```
 
 It's just a multi-line string with blank lines in between each of the lines with content. Now, what if I wanted to keep each of the content lines on it's own line while removing all the lines that are blank? Well, since $Body is one big multi-line string, I can split it on "new line". Using escape characters in PowerShell, to denote a new line we just type:
 
 ```
-`r`n\n```
+`r`n
+```
 
 So can I do this?
 
 ```
 Write-Host 'Using single quotes' -ForegroundColor Green
-$Body.split('`r`n') | % { if (-not [string]::IsNullOrWhiteSpace($_)) { $_ } }\n```
+$Body.split('`r`n') | % { if (-not [string]::IsNullOrWhiteSpace($_)) { $_ } }
+```
 
 I'm splitting $Body on each new line, and for each line, if it is not null or white space (<a href="http://www.workingsysadmin.com/quick-tip-strip-empty-lines-out-of-a-file/" target="_blank">using some of the information from this post</a>), I write it. I'm using single quotes to wrap the new line marker to split up $Body. Well, unfortunately, the output looks like this.
 
@@ -42,7 +45,8 @@ Well, that's not exactly what I was hoping for. Instead of splitting $Body on a 
 
 ```
 Write-Host 'Using double quotes' -ForegroundColor Green
-$Body.split("`r`n") | % { if (-not [string]::IsNullOrWhiteSpace($_)) { $_ } }\n```
+$Body.split("`r`n") | % { if (-not [string]::IsNullOrWhiteSpace($_)) { $_ } }
+```
 
 The only difference is the value in the split command. Instead of single quotes I've got double quotes wrapping the new line marker. Now the output looks like this.
 

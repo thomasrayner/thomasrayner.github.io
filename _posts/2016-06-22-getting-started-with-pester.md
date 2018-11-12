@@ -18,7 +18,8 @@ function Write-SomeMath
         [int]$Second
     )
     return $First + $Second
-}\n```
+}
+```
 
 I guess that will work. <strong>Write-SomeMath</strong> takes two integers and returns their sum. Hardly a breathtaking display of complexity and function but it will do just fine for this example.
 
@@ -26,14 +27,16 @@ Now I need to install Pester. The easiest way to do this is using the <strong>P
 
 ```
 Install-Module Pester -Scope CurrentUser -Force
-Import-Module Pester\n```
+Import-Module Pester
+```
 
 The next thing I need is a <em>Describe</em> block.
 
 ```
 Describe 'GoofingWithPester.ps1' {
 
-}\n```
+}
+```
 
 This <em>Describe</em> block will contain and - you guessed it - describe the tests (I just used my filename) and provide a unique TestDrive (check out the getting started link).
 
@@ -44,7 +47,8 @@ Describe 'GoofingWithPester.ps1' {
     Context 'Write-SomeMath' {
         
     }
-}\n```
+}
+```
 
 I'm further grouping my tests by creating a <em>Context</em> here for my <strong>Write-SomeMath</strong> function. This could have been named anything.
 
@@ -75,7 +79,8 @@ Describe 'GoofingWithPester.ps1' {
         )
 
     }
-}\n```
+}
+```
 
 All I did was define an array called <em>$testcases</em> which holds an array of hash tables. It's got the first number, second number, expected result and a name of what we're testing. Now I can pass this entire array to a test rather than crafting different tests for all of them individually.
 
@@ -108,7 +113,8 @@ Describe 'GoofingWithPester.ps1' {
         }
 
     }
-}\n```
+}
+```
 
 This is an <em>It</em> block which is what Pester calls a test. I've named it "Can add &lt;test&gt;" and it will pull the "test" value from the hashtable and fill it in. Cool! I'm using the <em>-TestCases</em> parameter to pass my array of test cases to the <em>It</em> block. Then I've got parameters inside the test for my first value, second value and expected outcome. I execute <strong>Write-SomeMath</strong> with the values pulled from my test cases and pipe the result to "<strong>Should Be</strong>" to compare the outcome to my expected outcome.
 
@@ -145,7 +151,8 @@ Describe 'GoofingWithPester.ps1' {
             {Write-SomeMath -First 9 -Second 'cat'} | Should throw
         }
     }
-}\n```
+}
+```
 
 Another <em>It</em> block for detecting wrong datatypes. I pipe the result into <strong>Should throw</strong> because my function should throw an error. For this to work properly, the code I'm testing has to be wrapped in a scriptblock, otherwise the thrown error will occur and be trapped in my function.
 

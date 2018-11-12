@@ -19,7 +19,8 @@ Id           : 1
 Name         : CimSession1
 InstanceId   : 110928f2
 ComputerName : computername
-Protocol     : WSMAN\n```
+Protocol     : WSMAN
+```
 
 Then you can pass that CIM session to <strong>Get-SmbShare</strong>.
 
@@ -34,7 +35,8 @@ D$       *         D:\                               Default share   comp
 IPC$     *                                           Remote IPC      comp
 print$   *         C:\windows\system32\spool\drivers Printer Drivers comp
 Profiles *         D:\Profiles                                       comp
-Transfer *         C:\Shares\Transfer                                comp\n```
+Transfer *         C:\Shares\Transfer                                comp
+```
 
 But what if the server is (heaven forbid!) older than Windows Server 2012R2? Well, you'd get an error telling you "<em>get-cimclass : The WS-Management service cannot process the request. The CIM namespace win32_share is invalid.</em>". That won't do.
 
@@ -49,6 +51,7 @@ Name         Path                                                  Description
 ADMIN$       C:\windows                                            Remote Admin
 C$           C:\                                                   Default share
 D$           D:\                                                   Default share
-IPC$                                                               Remote IPC\n```
+IPC$                                                               Remote IPC
+```
 
 &nbsp;

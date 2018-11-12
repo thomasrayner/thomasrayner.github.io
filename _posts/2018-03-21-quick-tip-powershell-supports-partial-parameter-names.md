@@ -14,8 +14,10 @@ Here are some examples.
 ```
 Get-ChildItem -Pa c:\temp
 # Pa is matching the Path parameter
-# Note if you just do P, you'll be told that the parameter can't be processed and a list of possible matches\n```
+# Note if you just do P, you'll be told that the parameter can't be processed and a list of possible matches
+```
 ```
 Get-CimInstance -Clas win32_operatingsystem
-# Clas is part of the ClassName parameter\n```
+# Clas is part of the ClassName parameter
+```
 Obviously this isn't something that you should be running wild with and using in all your production code, but maybe it'll explain how some random code you found on the internet works.

@@ -21,7 +21,8 @@ PS&gt; Get-ChildItem c:\temp\demo
 
 Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----
--a----         6/5/2017   8:40 AM        1519200 thing.txt\n```
+-a----         6/5/2017   8:40 AM        1519200 thing.txt
+```
 
 One of the items is Length, which tells you the size of the file in bytes. What if I wanted that in kilobytes, though? Well, it's not too hard. We're going to use a calculated property, using <strong>Select-Object</strong>.
 
@@ -30,7 +31,8 @@ PS&gt; Get-ChildItem c:\temp\demo | Select-Object -Property Name, @{label = 'Fil
 
 Name        FileSize
 ----        --------
-thing.txt 1483.59375\n```
+thing.txt 1483.59375
+```
 
 So I'm selecting two properties. One is Name, and the other is a calculated property. A calculated property is basically a hashtable with two items in it: a label, which is the name of our calculated property, and expression, which is the scriptblock that defines our calculation.
 

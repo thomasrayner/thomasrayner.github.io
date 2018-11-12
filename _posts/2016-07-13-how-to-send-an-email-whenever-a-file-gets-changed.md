@@ -18,7 +18,8 @@ $watcher.EnableRaisingEvents = $true
 
 $changed = Register-ObjectEvent $watcher 'Changed' -Action {
    write-output "Changed: $($eventArgs.FullPath)"
-}\n```
+}
+```
 
 First, we create the watcher, which is just a FileSystemWatcher object. Technically the watcher watches the whole directory for changes (the path), which is why we add a filter.
 
@@ -27,6 +28,7 @@ Then we register an ObjectEvent, so that whenever the watcher sees a change even
 To get rid of the ObjectEvent, just run the following.
 
 ```
-Unregister-Event $changed.Id\n```
+Unregister-Event $changed.Id
+```
 
 It's just that easy!

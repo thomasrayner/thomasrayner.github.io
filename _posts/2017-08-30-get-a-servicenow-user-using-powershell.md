@@ -30,7 +30,8 @@ $headers.Add('Accept','application/json')
 $uri = "https://$SubscriptionSubDomain.service-now.com/api/now/v1/table/sys_user?sysparm_query=user_name=$Username"
 
 $response = Invoke-WebRequest -Headers $headers -Method "GET" -Uri $uri 
-$result = ($response.Content | ConvertFrom-Json).Result\n```
+$result = ($response.Content | ConvertFrom-Json).Result
+```
 
 First, I'm compiling the authentication information and header info as per the ServiceNow documentation. This isn't my favorite way of handling credentials, but it's what the ServiceNow documentation recommends and, well, it works.
 

@@ -55,7 +55,8 @@ Install-Module -Name PSScriptAnalyzer -Scope CurrentUser -Force -Confirm:$false
 Import-Module Pester
 Import-Module PSScriptAnalyzer
 Invoke-Pester -OutputFile 'PesterResults.xml' -OutputFormat 'NUnitXml' -Script '.\Tests\Set-E.tests.ps1'
-Invoke-Pester -OutputFile 'PSSAResults.xml' -OutputFormat 'NUnitXml' -Script '.\Tests\PSSA.tests.ps1'\n```
+Invoke-Pester -OutputFile 'PSSAResults.xml' -OutputFormat 'NUnitXml' -Script '.\Tests\PSSA.tests.ps1'
+```
 
 Broken down line by line, the script performs the following tasks.
 
@@ -106,7 +107,8 @@ Describe 'Testing against PSSA rules' {
             }
         }
     }
-}\n```
+}
+```
 
 The basic logic of this Pester test is that it performs an <em>Invoke-ScriptAnalyzer</em> on the script we are interested in testing (this may need to be adjusted for your purposes to include all of the files associated with a module, etc.), and examines the results. The script gets a list of all of the PSScriptAnalyzer rules, writes a test for each rule, and if the analysis contains any of the rules, the test for that specific rule is violated. Running the tests this way allows us to export granular results that indicates which PSScriptAnalyzer rule was broken from within VSTS.
 

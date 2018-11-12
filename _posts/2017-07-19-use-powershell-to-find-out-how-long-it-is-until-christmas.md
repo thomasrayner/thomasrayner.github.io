@@ -24,6 +24,7 @@ TotalDays         : 202.628632043564
 TotalHours        : 4863.08716904553
 TotalMinutes      : 291785.230142732
 TotalSeconds      : 17507113.8085639
-TotalMilliseconds : 17507113808.5639\n```
+TotalMilliseconds : 17507113808.5639
+```
 
 Only 17507113808.5639 more milliseconds until Christmas!

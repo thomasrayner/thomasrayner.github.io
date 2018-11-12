@@ -16,7 +16,8 @@ Looking at the <strong>Get-Clipboard</strong> syntax, it's quickly apparent tha
 
 ```
 PS C:\&gt; Get-Clipboard
-I copied this text to my clipboard.\n```
+I copied this text to my clipboard.
+```
 
 Not exactly mind blowing. Similarly, you can use the <strong>Set-Clipboard</strong> cmdlet to put text on the clipboard.
 
@@ -24,7 +25,8 @@ Not exactly mind blowing. Similarly, you can use the <strong>Set-Clipboard</str
 PS C:\&gt; "This text was put on the clipboard using new cmdlets." | Set-Clipboard
 
 PS C:\&gt; Get-Clipboard
-This text was put on the clipboard using new cmdlets.\n```
+This text was put on the clipboard using new cmdlets.
+```
 
 I'm probably not blowing your mind with this one either. Where this gets fun is when you consider the possibilities the using the <em>-Format</em> parameter. I can put more than just text on my clipboard, right? Let's see what I get when I copy three files in my c:\temp directory to my clipboard. If I try to just use <strong>Get-Clipboard</strong> without any additional parameters or info like I did in the above examples, I won't get anything returned, but what I can do is this.
 
@@ -39,7 +41,8 @@ Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----                                                                                                                 
 -a----         5/1/2015   8:02 AM             30 file1.txt                                                                                                            
 -a----         5/1/2015   8:02 AM             18 file2.txt                                                                                                            
--a----         5/1/2015   8:02 AM             11 file3.txt\n```
+-a----         5/1/2015   8:02 AM             11 file3.txt
+```
 
 Now we're doing cool things. And what kind of objects are these?
 
@@ -48,7 +51,8 @@ PS C:\&gt; (Get-Clipboard -Format FileDropList)[0].GetType()
 
 IsPublic IsSerial Name                                     BaseType                                                                                                   
 -------- -------- ----                                     --------                                                                                                   
-True     True     FileInfo                                 System.IO.FileSystemInfo\n```
+True     True     FileInfo                                 System.IO.FileSystemInfo
+```
 
 FileInfo! We can do all the same things with this array of files that we would do to the results of a <strong>Get-ChildItem</strong> command. This means we can go the other way too and use the <strong>Set-Clipboard</strong> cmdlet to put a bunch of files onto the clipboard.
 
@@ -65,7 +69,8 @@ Mode                LastWriteTime         Length Name
 ----                -------------         ------ ----                                                                                                                 
 -a----         5/1/2015   8:02 AM             30 file1.txt                                                                                                            
 -a----         5/1/2015   8:02 AM             18 file2.txt                                                                                                            
--a----         5/1/2015   8:02 AM             11 file3.txt\n```
+-a----         5/1/2015   8:02 AM             11 file3.txt
+```
 
 Note with all of the above examples, you can use the <em>-Append</em> parameter to simply add on to whatever is already on the clipboard.
 
@@ -76,6 +81,7 @@ PS C:\&gt; $null | Set-Clipboard
 
 PS C:\&gt; Get-Clipboard
 
-PS C:\&gt;\n```
+PS C:\&gt;
+```
 
 I'm not going to cover every new cmdlet that comes out with PowerShell 5.0 but this one is very accessible and I think I'll be able to use it all over the place.

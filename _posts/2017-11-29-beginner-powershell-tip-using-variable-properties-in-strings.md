@@ -9,24 +9,28 @@ categories: [active directory, beginner series, beginner series, PowerShell, pow
 If you're just getting started in PowerShell, it's possible that you haven't bumped into this specific issue yet. Say you've got a variable named <em>$user</em> and this is how you assigned a value to it.
 
 ```
-$user = Get-AdUser ThmsRynr\n```
+$user = Get-AdUser ThmsRynr
+```
 
 Using the Active Directory module, you got a specific user. Now, you want to report two properties back to the end user: SamAccountName and Enabled. The desired output looks like this:
 
 ```
-The account ThmsRynr has enabled status of True.\n```
+The account ThmsRynr has enabled status of True.
+```
 
 <!--more-->
 
 So, you try something like this.
 
 ```
-Write-Output "The account $user.SamAccountName has the enabled status of $user.Enabled"\n```
+Write-Output "The account $user.SamAccountName has the enabled status of $user.Enabled"
+```
 
 And you'll get something totally unexpected!
 
 ```
-The account CN=ThmsRynr,OU=Users,DC=domain,DC=tld.SamAccountName has the enabled status of CN=ThmsRynr,OU=Users,DC=domain,DC=tld.Enabled\n```
+The account CN=ThmsRynr,OU=Users,DC=domain,DC=tld.SamAccountName has the enabled status of CN=ThmsRynr,OU=Users,DC=domain,DC=tld.Enabled
+```
 
 Whaaaat? That's not what we want. What happened? It looks like I got the distinguished name of the user and then literally ".SamAccountName" and ".Enabled". Doesn't PowerShell know that I actually want the SamAccountName and Enabled properties?
 
@@ -35,6 +39,7 @@ Well, the short answer is no, PowerShell doesn't know that. What if you had a va
 So what do we do? We'll use some brackets.
 
 ```
-Write-Output "The account $($user.SamAccountName) has the enabled status of $($user.Enabled)"\n```
+Write-Output "The account $($user.SamAccountName) has the enabled status of $($user.Enabled)"
+```
 
 This will give the desired output. What we've done is use <strong>$( )</strong> to tell PowerShell that we want to evaluate the entire expression wrapped in those brackets, and use that in our string.
