@@ -9,7 +9,7 @@ categories: [meta]
 
 This is really just an obligatory post to announce that I've moved my blogging habits from [workingsysadmin.com](http://workingsysadmin.com) to this URL, [thomasrayner.ca](https://thomasrayner.ca). Why? Well I'll tell you why.
 
-Previously, my blog was a Wordpress install hosted in Azure. Before that, it was a Wordpress install hosted in some shared hosting I've had since before there was time. Now, it's hosted on GitHug Pages ([proof](https://github.com/thomasrayner/thomasrayner.github.io)). I'm still working out my workflow, and there's lots of bugs I'm still working out from the conversion, so if you see broken images or links, please file an issue on the GitHub repo.
+Previously, my blog was a Wordpress install hosted in Azure. Before that, it was a Wordpress install hosted in some shared hosting I've had since before there was time. Now, it's hosted on GitHub Pages ([proof](https://github.com/thomasrayner/thomasrayner.github.io)). I'm still working out my workflow, and there's lots of bugs I'm still working out from the conversion, so if you see broken images or links, please file an issue on the GitHub repo.
 
 So why move? There's really three reasons.
 
