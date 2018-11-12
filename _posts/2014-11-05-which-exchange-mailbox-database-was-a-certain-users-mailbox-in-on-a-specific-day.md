@@ -16,7 +16,7 @@ For automation, I am using <a title="SMA" href="http://technet.microsoft.com/en-
 
 First things first, I need to declare my workflow and stick a Try Catch block in it:
 
-<pre class="wrap:true lang:ps decode:true">workflow ExchangeMailboxDBList
+```workflow ExchangeMailboxDBList
 {
     try
     {
@@ -30,13 +30,13 @@ First things first, I need to declare my workflow and stick a Try Catch block in
         $body = "Could not connect to my server"
         send-mailmessage -to $emailaddress -From "your_service_account@domain.com" -Subject $smtpSubject -SMTPServer $smtpserver -body $body
     }
-}</pre>
+}```
 
 We're already running into something funny. What is <strong>Get-AutomationVariable -Name 'SMTPServer'</strong>? In SMA, you can store variables for any of your runbooks to use. This cmdlet is retrieving the previously stored value for my SMTP server. This is nice because if I change SMTP servers, I can update the single SMA asset instead of updating all my scripts individually.
 
 Great! Now let's actually write the part of the script that does something useful. Let's start by initializing some variables:
 
-<pre class="wrap:true lang:ps mark:5-8 decode:true">workflow ExchangeMailboxDBList
+```workflow ExchangeMailboxDBList
 {
     try
     {
@@ -53,7 +53,7 @@ Great! Now let's actually write the part of the script that does something usefu
         $body = "Could not connect to my server"
         send-mailmessage -to $emailaddress -From "your_service_account@domain.com" -Subject $smtpSubject -SMTPServer $smtpserver -body $body
     }
-}</pre>
+}```
 
 A couple new lines in the Try block! $connectionURI is pretty straight forward. You're going to make a remote session to the Exchange Management Shell on your Exchange Server so your script needs to know where that is. $getMBXconn is a new PSSession to the URI you specified. Notice that I'm not passing any credentials specifically to this one. The service account that's running this SMA runbook has the rights it needs to do this. You can either do the same or you can pass specific credentials from an SMA asset or stored elsewhere.
 
@@ -61,7 +61,7 @@ What is it all wrapped in, though? Some inlinescript block? Like I mentioned abo
 
 We have our connection, now we need to actually go get some data:
 
-<pre class="wrap:true lang:ps mark:9-30 decode:true ">workflow ExchangeMailboxDBList
+```workflow ExchangeMailboxDBList
 {
     try
     {
@@ -101,7 +101,7 @@ We have our connection, now we need to actually go get some data:
         send-mailmessage -to $emailaddress -From "your_service_account@domain.com" -Subject $smtpSubject -SMTPServer $smtpserver -body $body
     }
 }
-</pre>
+```
 
 Alright that looks like a lot of stuff at once, but it wasn't actually too crazy. Let's break down what we added.
 
