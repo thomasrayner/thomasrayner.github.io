@@ -33,7 +33,7 @@ I recently had a need to add a bunch of random users to a specific OU in Active 
     LASTEDIT: 04/15/2016
     KEYWORDS:
     .Link
-    {{ site.baseurl }}
+    {{ site.url }}
 #&gt;
 
 [CmdletBinding()]
