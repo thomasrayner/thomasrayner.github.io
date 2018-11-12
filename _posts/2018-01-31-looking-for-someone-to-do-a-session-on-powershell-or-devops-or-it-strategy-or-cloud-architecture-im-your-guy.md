@@ -8,7 +8,7 @@ categories: [mvp, mvp, speaking]
 ---
 Are you a user group leader or event organizer who's looking for speakers? I'd love to connect. I do my best to keep my eye out for CFPs and other speaker solicitations, but it doesn't hurt to advertise my availability. Most of the dates I'm available to travel for speaking events in 2018 are taken, but I still have a bunch of dates I'm available to do virtual and remote events.
 
-Here's a list of sessions and their abstracts that I've got prepared and would love to present. If you see one you like, I'm best reached by email at <a href="mailto:thmsrynr@outlook.com" target="_blank" rel="noopener">thmsrynr@outlook.com</a> or on Twitter at <a href="http://twitter.com/MrThomasRayner" target="_blank" rel="noopener">@MrThomasRayner</a>. My bio is on the <a href="http://workingsysadmin.com/about/" target="_blank" rel="noopener">About page</a> of this blog. If you like me but don't see a session your attendees would love, I hope you'll reach out anyway and we can see what I can come up with specifically for your event.
+Here's a list of sessions and their abstracts that I've got prepared and would love to present. If you see one you like, I'm best reached by email at <a href="mailto:thmsrynr@outlook.com" target="_blank" rel="noopener">thmsrynr@outlook.com</a> or on Twitter at <a href="http://twitter.com/MrThomasRayner" target="_blank" rel="noopener">@MrThomasRayner</a>. My bio is on the <a href="{{ site.baseurl }}/about/" target="_blank" rel="noopener">About page</a> of this blog. If you like me but don't see a session your attendees would love, I hope you'll reach out anyway and we can see what I can come up with specifically for your event.
 
 <!--more-->
 

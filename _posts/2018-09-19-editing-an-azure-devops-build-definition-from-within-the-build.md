@@ -6,7 +6,7 @@ author: thmsrynr
 comments: true
 categories: [Automation, Azure, azure, azure devops, azure devops, DevOps, devops, PowerShell, powershell, VSTS, vsts]
 ---
-It's been a little while since I've managed to get a blog post out! Not to worry, though, as <a href="https://workingsysadmin.com/i-was-re-awarded-as-a-microsoft-mvp-but-im-leaving-the-program/" target="_blank" rel="noopener">I've been nice and busy</a>. One of the things I've been working on lately is writing a VSTS- I mean Azure DevOps extension.
+It's been a little while since I've managed to get a blog post out! Not to worry, though, as <a href="{{ site.baseurl }}/i-was-re-awarded-as-a-microsoft-mvp-but-im-leaving-the-program/" target="_blank" rel="noopener">I've been nice and busy</a>. One of the things I've been working on lately is writing a VSTS- I mean Azure DevOps extension.
 
 The extension I'm working on will, among other things, need to update the build definition of the build that it's currently building. Why? Because I'm incrementing a version number that's stored in a build variable, which is part of the build definition. Here's how I'm doing it.
 

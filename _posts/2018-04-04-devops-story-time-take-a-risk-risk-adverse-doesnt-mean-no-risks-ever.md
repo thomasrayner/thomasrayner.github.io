@@ -6,7 +6,7 @@ author: thmsrynr
 comments: true
 categories: [DevOps, devops, risk, story time, story time]
 ---
-After the modest success of my last <a href="https://workingsysadmin.com/devops-story-time-get-out-of-your-own-way/" target="_blank" rel="noopener">DevOps Story Time post</a> on getting out of your own way, I feel like it's time for another. This time, on the value of taking risks, and taking away a win even when you realize one of the risks you were afraid of.
+After the modest success of my last <a href="{{ site.baseurl }}/devops-story-time-get-out-of-your-own-way/" target="_blank" rel="noopener">DevOps Story Time post</a> on getting out of your own way, I feel like it's time for another. This time, on the value of taking risks, and taking away a win even when you realize one of the risks you were afraid of.
 
 <!--more-->
 
