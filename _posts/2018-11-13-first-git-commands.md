@@ -7,7 +7,7 @@ comments: true
 categories: [learning, git]
 ---
 
-So let me say first, there are WAY more than 6 git commands you should know if you're working with a project that uses git. However, when you're first getting started, there are 6 git commands that you can't get away with knowing. Here they are.
+So let me say first, there are WAY more than 6 git commands you should know if you're working with a project that uses git. However, when you're first getting started, there are 6 git commands that you can't get away without knowing. Here they are.
 
 This "guide" assumes that you're working with GitHub or Azure DevOps Repos or something and are creating your repos through the web-based GUI they offer, or the repos are already created. You're on your own there.
 
