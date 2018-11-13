@@ -50,6 +50,7 @@ url: https://thomasrayner.ca
 baseurl: ""
 
 future: false
+timezone: America/Los_Angeles
 
 #
 # !! You don't need to change any of the configuration flags below !!
