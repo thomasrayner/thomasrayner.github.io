@@ -8,7 +8,7 @@ categories: [powershell, powershell summit, summit, pshsummit]
 ---
 ## Important Update
 
-The below post was based off of conversations that occurred in the community, and what can only be considered at best to be incomplete information. It's important to me that I'm part of a solution the miscommunication problems that got us to this point.
+The below post was based off of conversations that occurred in the community, and what can only be considered at best to be incomplete information. It's important to me that I'm part of a solution to the miscommunication problems that got us to this point.
 
 James Petty, who is the CEO of the DevOps Collective just issued [a post on this subject](https://powershell.org/2019/10/conference-recordings-you-spoke-we-listened/) that clears up a lot of the misconceptions and miscommunications. It's pretty short, so I'll reproduce it here to make sure you definitely see it before looking at the rest of this post.
 
