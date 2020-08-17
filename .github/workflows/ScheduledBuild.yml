@@ -15,5 +15,5 @@ jobs:
       run: |
         curl --request POST \
         --url https://api.github.com/repos/${{ github.repository }}/pages/builds \
-        --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+        --header 'authorization: Bearer ${{ secrets.DEPLOY_PAT }}' \
         --header 'content-type: application/json'
