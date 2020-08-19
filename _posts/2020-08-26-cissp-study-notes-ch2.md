@@ -8,15 +8,15 @@ categories: [cissp, security, certifications]
 ---
 Last summer I spent about a month studying for and getting my Certified Information Systems Security Professional (CISSP) certification from ISC2. I went about studying for the test a few ways:
 
-* I used the PocketPrep app - check your phone's app store. I paid for it ($40 at the time) and did all of the questions. I found it was a great way to study in smaller durations of free time.
-* I attended a study bootcamp - my employer had a bunch of us going through the process of studying for the CISSP exam at the same time, and hired a professional to put us through a week long bootcamp. I found it super helpful to get "insider" tips on how the exam is constructed, and to hear tales of the test from someone who has written and passed it many times.
-* I did a bunch of practice tests - these came with my book.
+* I used the PocketPrep app
+* I attended a study bootcamp
+* I did a bunch of practice tests
 
 And finally...
 
 * I got the ISC2 CISSP official study guide - I read it cover to cover, and highlighted and annotated the entire thing.
 
-I took to [Twitter (@MrThomasRayner)](https://twitter.com/mrthomasrayner) to find out if there was interest in seeing my notes, and there was. So, here we go! Welcome to my 21 part series on the takeaways and crucial points from each chapter in the ISC2 CISSP official study guide. To be clear, this isn't a replacement for all those other study methods I mentioned above. This is just a supplement. This also isn't *everything* you need to know for the test. This is just what I feel are the most important points.
+[Twitter (@MrThomasRayner)](https://twitter.com/mrthomasrayner) told me there is interest in seeing my study notes. So, here we go! Welcome to my 21 part series on the takeaways and crucial points from each chapter in the ISC2 CISSP official study guide. To be clear, this isn't a replacement for all those other study methods I mentioned above. This is just a supplement. This also isn't *everything* you need to know for the test. This is just what I feel are the most important points.
 
 > It's important to remember that while many of these terms and phrases have different meanings in different contexts, the definitions I'm providing below are the ones that are relevant in the CISSP exam. Your own training or experience may tell you that a definition is incorrect or invalid, but if you want to get the exam questions right, you'll have to know them as they're defined in the books and study material.
 
