@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CISSP Study Notes Chapter 1
+title: CISSP Study Notes Chapter 2 - Personnel Security and Risk Management Concepts
 date: 2020-08-26 07:30
 author: thmsrynr
 comments: true

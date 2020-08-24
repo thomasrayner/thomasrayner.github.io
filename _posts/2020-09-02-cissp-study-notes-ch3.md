@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CISSP Study Notes Chapter 1
+title: CISSP Study Notes Chapter 3 - Business Continuity Planning
 date: 2020-09-02 07:30
 author: thmsrynr
 comments: true

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CISSP Study Notes Chapter 1
+title: CISSP Study Notes Chapter 1 - Security Governance Through Principles and Policies
 date: 2020-08-19 07:30
 author: thmsrynr
 comments: true

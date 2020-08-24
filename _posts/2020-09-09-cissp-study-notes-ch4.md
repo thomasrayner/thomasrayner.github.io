@@ -1,6 +1,6 @@
 ---
 layout: post
-title: CISSP Study Notes Chapter 1
+title: CISSP Study Notes Chapter 4 - Laws, Regulations, and Compliance
 date: 2020-09-09 07:30
 author: thmsrynr
 comments: true
@@ -36,7 +36,7 @@ Chapter 4 covers a variety of topics related to determining compliance requireme
 
 ### My key takeaways and crucial points
 
-#### Categores of Laws
+#### Categories of Laws
 
 * *Criminal law* - Police and other law enforcement agencies are concerned with
   * Penalties include community service, fines, deprivation of civil liberties (prison time)
@@ -163,7 +163,6 @@ Chapter 4 covers a variety of topics related to determining compliance requireme
   * Exceptions from Department of Commerce's Bureau of Industry and Security
   * Exceptions based on nuclear threat
   * Exceptions that need permission are currently Cuba, Iran, North Korea, Sudan, and Syria
-
 
 #### Privacy
 
