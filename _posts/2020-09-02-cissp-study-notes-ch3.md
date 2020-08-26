@@ -24,8 +24,8 @@ The CISSP exam is often said to be "a mile wide but only an inch deep" which mea
 
 ## Previous Chapters
 
-* [Chapter 1: Security Governance Through Principles and Policies](.\2020-08-19-cissp-study-notes-ch1.md)
-* [Chapter 2: Personnel Security and Risk Management Concepts](.\2020-08-26-cissp-study-notes-ch2.md)
+* [Chapter 1: Security Governance Through Principles and Policies](/cissp-study-notes-ch1)
+* [Chapter 2: Personnel Security and Risk Management Concepts](/cissp-study-notes-ch2)
 
 ## Chapter 3: Business Continuity Planning
 
