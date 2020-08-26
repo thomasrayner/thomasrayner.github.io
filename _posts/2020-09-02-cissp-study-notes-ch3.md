@@ -6,6 +6,8 @@ author: thmsrynr
 comments: true
 categories: [cissp, security, certifications]
 ---
+This chapter discusses how to identify, analyze, and prioritize business continuity requirements, including developing the scope and the plan. It also talks about business impact analysis, and how to participate in BC planning and exercises.
+
 Last summer I spent about a month studying for and getting my Certified Information Systems Security Professional (CISSP) certification from ISC2. I went about studying for the test a few ways:
 
 * I used the PocketPrep app
@@ -28,10 +30,6 @@ The CISSP exam is often said to be "a mile wide but only an inch deep" which mea
 * [Chapter 2: Personnel Security and Risk Management Concepts](/cissp-study-notes-ch2)
 
 ## Chapter 3: Business Continuity Planning
-
-### What this chapter is about
-
-This chapter discusses how to identify, analyze, and prioritize business continuity requirements, including developing the scope and the plan. It also talks about business impact analysis, and how to participate in BC planning and exercises.
 
 ### My key takeaways and crucial points
 

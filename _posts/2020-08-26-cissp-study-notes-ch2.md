@@ -6,6 +6,8 @@ author: thmsrynr
 comments: true
 categories: [cissp, security, certifications]
 ---
+This chapter is about working with risk. Human weaknesses are discussed at the beginning and end of the chapter in the form of job descriptions, and then about training. This chapter also discusses how to think about risk, define risks correctly, and how to think about countermeasures and other responses to risk.
+
 Last summer I spent about a month studying for and getting my Certified Information Systems Security Professional (CISSP) certification from ISC2. I went about studying for the test a few ways:
 
 * I used the PocketPrep app
@@ -27,10 +29,6 @@ The CISSP exam is often said to be "a mile wide but only an inch deep" which mea
 * [Chapter 1: Security Governance Through Principles and Policies](/cissp-study-notes-ch1)
 
 ## Chapter 2: Personnel Security and Risk Management Concepts
-
-### What this chapter is about
-
-This chapter is about working with risk. Human weaknesses are discussed at the beginning and end of the chapter in the form of job descriptions, and then about training. This chapter also discusses how to think about risk, define risks correctly, and how to think about countermeasures and other responses to risk.
 
 ### My key takeaways and crucial points
 

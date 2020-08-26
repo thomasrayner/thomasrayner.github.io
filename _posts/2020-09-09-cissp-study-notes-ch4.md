@@ -6,6 +6,8 @@ author: thmsrynr
 comments: true
 categories: [cissp, security, certifications]
 ---
+Chapter 4 covers a variety of topics related to determining compliance requirements, contractual and legal standards, and privacy requirements. It also includes information to help you understand legal and regulatory issues that relate to information security in a global context like data breaches, licensing requirements, and privacy.
+
 Last summer I spent about a month studying for and getting my Certified Information Systems Security Professional (CISSP) certification from ISC2. I went about studying for the test a few ways:
 
 * I used the PocketPrep app
@@ -29,10 +31,6 @@ The CISSP exam is often said to be "a mile wide but only an inch deep" which mea
 * [Chapter 3: Business Continuity Planning](/cissp-study-notes-ch3)
 
 ## Chapter 4: Laws, Regulations, and Compliance
-
-### What this chapter is about
-
-Chapter 4 covers a variety of topics related to determining compliance requirements, contractual and legal standards, and privacy requirements. It also includes information to help you understand legal and regulatory issues that relate to information security in a global context like data breaches, licensing requirements, and privacy.
 
 ### My key takeaways and crucial points
 

@@ -6,6 +6,8 @@ author: thmsrynr
 comments: true
 categories: [cissp, security, certifications]
 ---
+Chapter 5 is concerned with asset security. It discusses identifying and classifying information and assets, as well as determining how to maintain assets and identify asset owners. Chapter 5 also talks about protecting privacy, ensuring proper asset retention, determining data security controls, and establishing information and asset handling requirements.
+
 Last summer I spent about a month studying for and getting my Certified Information Systems Security Professional (CISSP) certification from ISC2. I went about studying for the test a few ways:
 
 * I used the PocketPrep app
@@ -30,10 +32,6 @@ The CISSP exam is often said to be "a mile wide but only an inch deep" which mea
 * [Chapter 4: Laws, Regulations, and Compliance](/cissp-study-notes-ch4)
 
 ## Chapter 5: Protecting Security of Assets
-
-### What this chapter is about
-
-Chapter 5 is concerned with asset security. It discusses identifying and classifying information and assets, as well as determining how to maintain assets and identify asset owners. Chapter 5 also talks about protecting privacy, ensuring proper asset retention, determining data security controls, and establishing information and asset handling requirements.
 
 ### My key takeaways and crucial points
 
