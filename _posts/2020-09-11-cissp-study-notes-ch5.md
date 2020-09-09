@@ -1,7 +1,7 @@
 ---
 layout: post
 title: CISSP Study Notes Chapter 5 - Protecting Security of Assets
-date: 2020-09-16 07:30
+date: 2020-09-11 07:30
 author: thmsrynr
 comments: true
 categories: [cissp, security, certifications]
