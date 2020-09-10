@@ -146,3 +146,109 @@ The CISSP exam is often said to be "a mile wide but only an inch deep" which mea
     * Verify the cert by checking the CA's digital signature using the CA's public key
     * Make sure it was not revoked (Certificate Revocation List - CRL)
       * Or Online Certificate Status Protocol (OCSP)
+    * A certificate is valid if:
+      * The digital signature of the CA is authentic
+      * You trust the CA
+      * The certificate is not listed on a CRL
+      * The certificate contains the data you are trusting
+  * Revocation
+    * Revoking a certificate declares it invalid before it's natural expiry
+    * Certificate Revocation Lists (CRLs) contain serial numbers of certs that a CA revoked along with when they were revoked
+    * Online Certificate Status Protocol (OCSP) eliminates latency with CRLs by providing a real-time check
+
+#### Asymmetric Key Management
+
+* Choose an encryption system whose algo is in the public domain
+* Use a key length that balances security requirements with performance
+* Keep private key secret
+* Retire keys when they're done being useful
+* Back up your key
+* *Hardware security modules* - HSMs. Store and manage encryption keys in a secure manner
+  * Yubikey is an example
+
+#### Applied Cryptography
+
+* Portable devices
+  * Windows includes BitLocker and Encrypting File System (EFS)
+  * Mac has FileVault
+  * Linux has VeraCrypt
+  * All for disk encryption of mobile devices like laptops
+* *Trusted Platform Module* - TPM. A chip on the motherboard that stores and manages keys used for full disk encryption.
+* Email
+  * For confidentiality, encrypt the message
+  * For integrity, hash the message
+  * For authentication, integrity, and/or nonrepudiation, digitally sign the message
+  * For confidentiality, integrity, authentication, and nonrepudiation, encrypt and sign the message
+  * Always the responsibility of the sender
+  * *Pretty Good Privacy* - PGP
+    * "web of trust"
+    * Secure email system
+  * *Secure/Multipurpose Internet Mail Extensions* - S/MIME
+    * Uses X.509 certificates for exchanging crypto keys
+* Web Applications
+  * SSL and TLS (Secure Sockets Layer, and Transport Layer Security)
+  * HTTPS (Hypertext Transfer Protocol Secure) uses port 443 to negotiate encrypted communications between web servers and clients
+  * Depends on the exchange of server digital certificates
+    * When a user accesses a website, the browser gets the web server's cert and extracts the public key from it
+    * The browser creates a random symmetric key, uses the server's public key to encrypt it, and sends the encrypted symmetric key to the server
+    * The server decrypts the symmetric key using it's private key, and the two systems exchange future messages using symmetric encryption/key
+  * Padding Oracle On Downgraded Legacy Encryption (POODLE) is a downgrade attack - forcing a system to use an older/vulnerable version of TLS or SSL instead of an up to date version
+* Steganography and Watermarking
+  * *Steganography* - Using crypto techniques to embed secret messages within another message
+  * Ex: Adding digital watermarks to documents to protect intellectual property
+* *Digital Rights Management* - DRM
+  * Using encryption to enforce copyright restrictions on digital media
+  * *High-Bandwidth Digital Content Protection* - HDCP. Provides protection over digital connections like HDMI
+  * *Advanced Access Content System* - AACS. Protects Blu-Ray
+  * Video games increasingly depend on having an internet connection
+  * Document DRM may want to control permissions like who can read, modify, remove watermarks, download/save, print, take a screenshot
+
+#### Networking
+
+* IPSec and Internet Security Association and Key Management Protocol (ISAKMP)
+* Circuit Encryption
+  * *Link encryption* - Protects entire communication circuits by creating a secure tunnel
+  * *End-to-end encryption* - Protects communications between two parties
+  * The difference between the above is that link encryption, all data including headers, trailers, address, routing data is also encrypted
+  * When encryption happens at higher OSI layers, it's usually end-to-end
+  * *Secure Shell* - SSH. End-to-end encryption
+* IPSec
+  * Could be any two entities - servers, routers, gateway, a combo
+  * Uses public key crypto to provide encryption, access control, nonrepudiation, message authentication
+  * VPNs use IPSec
+  * *Authentication Header* - AH. provides message integrity and nonrepudiation
+  * *Encapsulating Security Payload* - ESP. Provides confidentiality and integrity of packet contents
+  * Transport mode - only the packet payload is encrypted
+  * Tunnel mode - entire packet, including header, is encrypted
+  * Set up a session with a *security association* (SA)
+    * Represents the communication session and records configuration and status
+    * Need two SAs, one for each direction
+    * If using both AH and ESP bi-directional, you need four SAs
+* ISAKMP
+  * Used by IPSec for negotiating, establishing, modifying, deleting SAs
+* Wireless networking
+  * *Wired Equivalent Privacy* - WEP. 64 bit and 128 bit encryption for IEEE 802.11
+    * A lot of flaws exist here, not considered secure - should never be used
+  * *WiFi Protected Access* - WPA. Improves WEP by adding *Temporal Key Integrity Protocol* (TKIP)
+    * WPA2 adds AES crypto
+    * Does not provide end-to-end encryption
+  * 802.11x - authentication and key management framework for both wired and wireless networks
+    * Client runs software called a *supplicant*
+
+#### Cryptographic Attacks
+
+* *Analytic Attack* - Using math to reduce complexity of algo
+* *Implementation Attack* - Exploits weaknesses in the implementation of a crypto system
+* *Statistical Attack* - Using math to find patterns, floating-point errors, inability to find truly random numbers
+* *Brute Force* - Trying every possible combination for key and password
+  * Key length is critical for defending brute force
+  * *Rainbow tables* - precomputed values for crypto hashes, commonly for cracking passwords
+* *Salt* - A random value added to the end of the password before it is hashed
+* *Frequency analysis* - Counting the number of times each letter appears in the ciphertext
+* *Known Plaintext* - Attacker has a copy of the encrypted message, along with plaintext, can be used to determine the key
+* *Chosen Ciphertext* - Attacker has ability to decrypt portions of the ciphertext
+* *Chosen Plaintext* - Attacker has ability to encrypt plaintext messages of their choosing
+* *Meet in the Middle* - Known plaintext message
+* *Man in the Middle* - A malicious individual sits between two communicating parties and intercepts communications
+* *Birthday* - AKA *collision attack*, finding flaws in hashing functions where two inputs generate the same output
+* *Replay* - A system lacks temporal protections, a message can be sent more than once at different times
