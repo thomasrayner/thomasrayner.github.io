@@ -37,7 +37,7 @@ The CISSP exam is often said to be "a mile wide but only an inch deep" which mea
 * [Chapter 9: Security Vulnerabilities, Threats, and Countermeasures](/cissp-study-notes-ch9)
 * [Chapter 10: Physical Security Requirements](/cissp-study-notes-ch10)
 
-## Chapter 10: Physical Security Requirements
+## Chapter 11: Secure Network Architecture and Securing Network Components
 
 ### My key takeaways and crucial points
 
