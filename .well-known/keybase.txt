@@ -1,0 +1,56 @@
+==================================================================
+https://keybase.io/mrthomasrayner
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of https://thomasrayner.ca
+  * I am mrthomasrayner (https://keybase.io/mrthomasrayner) on keybase.
+  * I have a public key ASCAv3uoc7TNonQ5H0dVugQ0aVrmFI9TAQTs6593LxRSXAo
+
+To do so, I am signing this object:
+
+{
+  "body": {
+    "key": {
+      "eldest_kid": "012080bf7ba873b4cda274391f4755ba0434695ae6148f530104eceb9f772f14525c0a",
+      "host": "keybase.io",
+      "kid": "012080bf7ba873b4cda274391f4755ba0434695ae6148f530104eceb9f772f14525c0a",
+      "uid": "fa6adcb28fa1c899db6d455fe677af19",
+      "username": "mrthomasrayner"
+    },
+    "merkle_root": {
+      "ctime": 1624131186,
+      "hash": "c316344ad133986d1d37b202a4c53a99ecc7505d20c707be0ab51297f9ab272cd1fd5de3c7084f4768b473afb31a2371edca30ac95be3766c386a4f3ba859917",
+      "hash_meta": "33fd5d7a92a669c7cb4f43f042148493d119895208934e2eb41fc0f14ef7cdfb",
+      "seqno": 20217338
+    },
+    "service": {
+      "entropy": "sWjpxrfOj3829t8zpgs3V4A9",
+      "hostname": "thomasrayner.ca",
+      "protocol": "https:"
+    },
+    "type": "web_service_binding",
+    "version": 2
+  },
+  "client": {
+    "name": "keybase.io go client",
+    "version": "5.6.0"
+  },
+  "ctime": 1624131194,
+  "expire_in": 504576000,
+  "prev": "eabae67f95332ae373045540220f1fd66bda1957c2771b8d85b8e6c7d97a4d56",
+  "seqno": 20,
+  "tag": "signature"
+}
+
+which yields the signature:
+
+hKRib2R5hqhkZXRhY2hlZMOpaGFzaF90eXBlCqNrZXnEIwEggL97qHO0zaJ0OR9HVboENGla5hSPUwEE7Oufdy8UUlwKp3BheWxvYWTESpcCFMQg6rrmf5UzKuNzBFVAIg8f1mvaGVfCdxuNhbjmx9l6TVbEILG7z4fawYXbsTMPCspJhgjA42SnzzdvvmG83GeoMnfBAgHCo3NpZ8RA7Soer4pzShAFBVvDzcayQc5q+NvRfjkRX3b1vIOGbU64aECwpKWCoOfwqN2WThsFMQwnbZ3Lqf9e/l7U1tJ5CKhzaWdfdHlwZSCkaGFzaIKkdHlwZQildmFsdWXEIGXBLhGT9LDi5D6iQq97iUuu+nrqdBg8WXL3+M/fX7zlo3RhZ80CAqd2ZXJzaW9uAQ==
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/mrthomasrayner
+
+==================================================================
