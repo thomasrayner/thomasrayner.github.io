@@ -43,7 +43,7 @@ The CISSP exam is often said to be "a mile wide but only an inch deep" which mea
 * [Chapter 15: Security Assessment and Testing](/cissp-study-notes-ch15)
 * [Chapter 16: Managing Security Operations](/cissp-study-notes-ch16)
 
-## Chapter 16: Managing Security Operations
+## Chapter 17 - Preventing and Responding to Incidents
 
 ### My key takeaways and crucial points
 
