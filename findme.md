@@ -4,7 +4,7 @@ title: Find Me
 permalink: /findme/
 ---
 
-I am a Senior Engineer with over 15 years of software development experience, specializing in development with TypeScript, C# and other object-oriented languages, secure software supply chain, infrastructure as code, cloud architecture, and helping my teammates grow and succeed.
+I am a Senior Developer with over 15 years of software development experience, specializing in development with TypeScript, C# and other object-oriented languages, secure software supply chain, infrastructure as code, cloud architecture, and helping my teammates grow and succeed.
 
 ## Here is a list of ways to connect with me online
 
