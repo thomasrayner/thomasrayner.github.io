@@ -11,7 +11,7 @@ I am a Senior Developer with over 15 years of software development experience, s
 * Email: [thmsrynr@outlook.com](mailto:thmsrynr@outlook.com)
 * Twitter: [@MrThomasRayner](https://twitter.com/mrthomasrayner)
 * LinkedIn: [linkedin.com/in/thomasrayner](https://linkedin.com/in/thomasrayner)
-* Discord: [tray](https://discordapp.com/users/497792454393593876)
+* Discord: [traytraytray](https://discordapp.com/users/497792454393593876)
 * Mastodon: [@thomasrayner@infosec.exchange](https://infosec.exchange/@thomasrayner)
 * Blog (this site): [thomasrayner.ca](https://thomasrayner.ca)
 * Github: [github.com/thomasrayner](https://github.com/thomasrayner)
