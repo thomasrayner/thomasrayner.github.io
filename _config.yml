@@ -9,7 +9,7 @@ name: Thomas Rayner
 description: Writing and deploying secure code
 
 # URL of your avatar or profile pic (you could use your GitHub profile pic)
-avatar: https://pbs.twimg.com/profile_images/1337270021853118466/a5kehlcr_400x400.jpg
+avatar: https://avatars.githubusercontent.com/u/13203965?v=4
 
 #
 # Flags below are optional
@@ -37,7 +37,7 @@ footer-links:
 disqus:
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics: UA-129093662-1
+google_analytics: G-814SK5D4VJ
 
 # Your website URL (e.g. http://barryclark.github.io or http://www.barryclark.co)
 # Used for Sitemap.xml and your RSS feed
