@@ -4,7 +4,7 @@ title: Find Me
 permalink: /findme/
 ---
 
-I'm a software developer with over 20 years of experience in languages like C#, TypeScript, Go and a bunch of other object-oriented languages, identity (authn/authz), certificates and secret management, secure software supply chain, cloud architecture, and helping my teammates grow and succeed.
+I'm a software developer with over 20 years of experience in languages (most recently in C#, TypeScript, Go, KQL), identity (authn/authz), certificates and secret management, secure software supply chain, cloud architecture, and helping my teammates grow and succeed.
 
 ## Here is a list of ways to connect with me online
 
