@@ -31,6 +31,7 @@ I'm posting these simply to verify my ownership of these wallets for various onl
 * Bitcoin (BTC): `bc1qfgsp7a7sap93xuy4acfwm0y89rcxa465k7ryx3`
 * Ethereum (ETH): `0xe91C4c52f02d8648Cadba2AAf3d6d96D387dcD56`
 * Solana (SOL): `HwL7cL5DZhaeNSqRrg4NHbTUEpaL1mpe1oDcVZEu5HKq`
+* XRPL/Ripple (XRP): `rssd6pyx8FDBCUwoTYv8GAGivrqQLMsZq3`
 * Dogecoin (DOGE): `DFWWbv3DKCYnoDrEaH6iBwedGH6Fuq18rz`
 * Monero (XMR): `49JEXdyNHkx15zLbKQXVpRjSFkHGGa79ahRFyGYX2iAgFmTKYnvXawJLpuuGDAXwwdhUejA6DjQNKjKkTTnTTcmNEtffATS`
 
