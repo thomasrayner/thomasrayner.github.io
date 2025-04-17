@@ -6,15 +6,14 @@ permalink: /findme/
 
 I'm a software developer with over 20 years of experience in languages (most recently in C#, TypeScript, Go, KQL), identity (authn/authz), certificates and secret management, secure software supply chain, cloud architecture, and helping my teammates grow and succeed.
 
-## Here is a list of ways to connect with me online
+## Here is a list of ways to connect with me online
+
+I'm online in more places than these, but these are the best ways to actually reach me. If you want to reach out, please do so via one of these methods.
 
 * Email: [thmsrynr@outlook.com](mailto:thmsrynr@outlook.com)
-* Twitter: [@MrThomasRayner](https://twitter.com/mrthomasrayner)
 * Discord: [@traytraytray](https://discordapp.com/users/497792454393593876)
-* Bluesky: [@thomasrayner.bsky.social](https://bsky.app/profile/thomasrayner.bsky.social)
-* Teams: [thomas.rayner@microsoft.com](https://www.microsoft.com/en-us/microsoft-teams/download-app)
+* Teams: [thomas.rayner@microsoft.com](https://www.microsoft.com/en-us/microsoft-teams/download-app)
 * LinkedIn: [linkedin.com/in/thomasrayner](https://linkedin.com/in/thomasrayner)
-* Facebook: [Thomas Rayner](https://www.facebook.com/share/18ZnyAxMc5/)
 * Github: [github.com/thomasrayner](https://github.com/thomasrayner)
 
 ## Crypto Wallet Addresses
@@ -31,6 +30,8 @@ I'm posting these simply to verify my ownership of these wallets for various onl
 * Monero (XMR): `49JEXdyNHkx15zLbKQXVpRjSFkHGGa79ahRFyGYX2iAgFmTKYnvXawJLpuuGDAXwwdhUejA6DjQNKjKkTTnTTcmNEtffATS`
 
 ## PGP Key
+
+For if you really need it...
 
 ```
 -----BEGIN PGP PUBLIC KEY BLOCK-----

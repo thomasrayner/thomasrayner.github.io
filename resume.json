@@ -1,0 +1,338 @@
+{
+    "$schema": "https://raw.githubusercontent.com/jsonresume/resume-schema/v1.0.0/schema.json",
+    "basics": {
+        "name": "Thomas Rayner",
+        "label": "Senior Security Software Engineer at Microsoft, CISSP",
+        "image": "https://avatars.githubusercontent.com/u/13203965?v=4",
+        "email": "thmsrynr@outlook.com",
+        "phone": "",
+        "url": "https://thomasrayner.ca/findme",
+        "summary": "I'm a software developer with over 20 years of experience in languages (most recently in C#, TypeScript, Go, KQL), identity (authn/authz), x509 certificates and secret management, secure software supply chain, cloud architecture, and helping my teammates grow and succeed.\n\nI am a prominent speaker, best-selling author, and teacher. I am very active within the technical community and a variety of Microsoft technical and strategic teams.",
+        "location": {
+            "countryCode": "US",
+            "region": "Washington",
+            "city": "Redmond",
+            "postalCode": "98052"
+        },
+        "profiles": [
+            {
+                "network": "LinkedIn",
+                "username": "thomasrayner",
+                "url": "https://www.linkedin.com/in/thomasrayner/"
+            },
+            {
+                "network": "GitHub",
+                "username": "thomasrayner",
+                "url": "https://github.com/thomasrayner"
+            }
+        ]
+    },
+    "work": [
+        {
+            "name": "Microsoft",
+            "position": "Senior Security Software Engineer",
+            "startDate": "2018-07-31",
+            "summary": "2021-Present - IC3 \nCentrally remediate security issues for and provide horizontal support for 100+ teams responsible for the Microsoft Teams backend microservices.\n2018-2021 (PRSS)\nSoftware development, deployment, change management, and automation subject matter expert on Gaming Crypto Services team in the Edge & Security Services organization.",
+            "highlights": [
+                "(IC3) x509 certificate management, authentication & authorization (authn/authz) subject matter expert.",
+                "(IC3) Mentor and educate teammates regarding software development, x509 certificates, authn/authz, and other areas of subject matter expertise.",
+                "(IC3) Lead high impact security change campaigns across the 2000 person organization, delivering value to millions of monthly active customers and hundreds of peers.",
+                "(IC3) Empower peers and leaders to make informed, data-driven security decisions by creating concise dashboards and reports based on extremely large, disparate datasets.",
+                "(IC3) Inner-source contributions to a variety of Microsoft security products and services.",
+                "(PRSS) Responsible for continuous integration and delivery (CI/CD) platform servicing high security (HBI) environments.",
+                "(PRSS) Mentor and educate teammates regarding software development and other areas of subject matter expertise.",
+                "(PRSS) Led cultural change from traditional ops to DevOps, achieving goals of delivering more quickly, consistently, and making this paradigm more accessible for every teammate."
+            ],
+            "url": "https://www.linkedin.com/company/microsoft/",
+            "location": "Redmond, Washington"
+        },
+        {
+            "name": "PCL Construction",
+            "position": "Software Developer",
+            "startDate": "2016-11-30",
+            "endDate": "2018-06-30",
+            "summary": "Orchestrated robust CI/CD pipelines, automated scalable deployments, and built monitoring tools to streamline operations and elevate cross-team productivity.",
+            "highlights": [
+                "Created and led strategies for continuous integration and delivery (CI/CD) to both on-premises and cloud-based infrastructure.",
+                "Developed automated dynamic environments and deployment strategies for existing and new services.",
+                "Developed and maintained tools and monitoring systems to improve workflows of other teams."
+            ],
+            "url": "https://www.linkedin.com/company/pcl-construction/",
+            "location": "Edmonton, Alberta, Canada"
+        },
+        {
+            "name": "Pluralsight",
+            "position": "Author",
+            "startDate": "2017-05-31",
+            "endDate": "2018-04-30",
+            "summary": "Contract author, solely responsible for creating and delivering online learning content.",
+            "highlights": [
+                "Created learning paths for technology students.",
+                "Developed, recorded, edited, and distributed courses."
+            ],
+            "url": "https://www.linkedin.com/company/pluralsight/",
+            "location": "Edmonton, Alberta, Canada"
+        },
+        {
+            "name": "NAIT",
+            "position": "Instructor",
+            "startDate": "2013-12-31",
+            "endDate": "2018-04-30",
+            "summary": "Undergraduate program instructor covering topics including leadership, network protocols, software development, server operating systems, project management.",
+            "url": "https://www.linkedin.com/school/nait/",
+            "location": "Edmonton, Alberta, Canada"
+        },
+        {
+            "name": "Alberta Blue Cross",
+            "position": "Senior Systems Administrator",
+            "startDate": "2013-12-31",
+            "endDate": "2016-11-30",
+            "summary": "Pioneer cultural and workflow changes related to systems administration, software development, and incident response.",
+            "highlights": [
+                "Led development and automation efforts, saving organization tens of thousands of hours annually.",
+                "Mentored team, led and participated in escalation and major incident handling, key advisor in hiring and technology strategy decisions."
+            ],
+            "url": "https://www.linkedin.com/company/alberta-blue-cross/",
+            "location": "Edmonton, Alberta, Canada"
+        },
+        {
+            "name": "Kastom Media",
+            "position": "Principal Software Developer",
+            "startDate": "2009-12-31",
+            "endDate": "2015-12-31",
+            "summary": "Technical lead, software developer, and business development lead for a small web development company.",
+            "highlights": [
+                "Designed and built diverse and varied web services for contract clients, predominantly on Linux, Apache, MySQL, PHP (LAMP stack), and JavaScript.",
+                "Perform contracted business development, process improvement, marketing strategy, and research activities."
+            ],
+            "location": "Edmonton, Alberta, Canada"
+        },
+        {
+            "name": "Edmonton Public Schools",
+            "position": "Software Analyst",
+            "startDate": "2011-05-31",
+            "endDate": "2013-12-31",
+            "summary": "Deliver special projects and provide support for the Districtâ€™s software development team.",
+            "highlights": [
+                "Managed complex projects, worked with users to troubleshoot line of business applications and a variety of Microsoft enterprise products.",
+                "Created and delivered training materials for District move to Google Mail/Apps from Exchange."
+            ],
+            "url": "https://www.linkedin.com/company/edmonton-public-schools/",
+            "location": "Edmonton, Alberta, Canada"
+        },
+        {
+            "name": "Aslan Computer Systems, Bolt Security Systems, Shaw Cablesystems",
+            "position": "Other Positions, Internships",
+            "startDate": "2007-12-31",
+            "endDate": "2010-12-31",
+            "highlights": [],
+            "summary": "Built, troubleshot and maintained applications and systems, remotely programmed client systems, worked with customers to resolve specific issues.",
+            "location": "Edmonton, Alberta, Canada"
+        }
+    ],
+    "volunteer": [],
+    "education": [
+        {
+            "institution": "NAIT",
+            "area": "Technology Management",
+            "studyType": "Bachelor of Technology",
+            "startDate": "2011-12-31",
+            "endDate": "2013-12-31",
+            "score": "",
+            "courses": []
+        },
+        {
+            "institution": "NAIT",
+            "area": "Network Management",
+            "studyType": "Bachelor of Applied Information Systems Technology",
+            "startDate": "2010-12-31",
+            "endDate": "2011-12-31",
+            "score": "",
+            "courses": []
+        },
+        {
+            "institution": "NAIT",
+            "area": "Information Technology",
+            "studyType": "Network Engineering Technology",
+            "startDate": "2008-12-31",
+            "endDate": "2010-12-31",
+            "score": "",
+            "courses": []
+        }
+    ],
+    "awards": [
+        {
+            "title": "Microsoft MVP",
+            "date": "2018-07-01",
+            "awarder": "Microsoft",
+            "summary": "Awarded Microsoft MVP award for fourth consecutive year. Last award because I joined Microsoft and employees are ineligible for this award."
+        },
+        {
+            "title": "Microsoft MVP",
+            "date": "2017-07-01",
+            "awarder": "Microsoft",
+            "summary": "Awarded Microsoft MVP award for third consecutive year."
+        },
+        {
+            "title": "Honorary Scripting Guy",
+            "date": "2017-02-28",
+            "awarder": "Hey, Scripting Guy! - Microsoft",
+            "summary": "From the Honorary Scripting Guy award announcement: What does it take to become an official Honorary Scripting Guy? It takes an extreme commitment to the scripting community, a remarkable dedication that helps to spread the good word about Windows PowerShell, and a relentless pursuit of excellence in producing exceptional content."
+        },
+        {
+            "title": "Microsoft MVP",
+            "date": "2016-04-30",
+            "awarder": "Microsoft",
+            "summary": "Awarded Microsoft MVP award for second consecutive year."
+        },
+        {
+            "title": "Microsoft MVP",
+            "date": "2015-04-30",
+            "awarder": "Microsoft",
+            "summary": "For more than two decades, Microsoft has recognized exceptional, independent community leaders who share their passion, technical expertise, and real-world knowledge of Microsoft products with others. It is part of Microsoftâ€™s commitment to supporting and enriching technical communities.\n \nMicrosoft Most Valuable Professionals, or MVPs are exceptional community leaders who actively share their high-quality, real-world deep technical expertise with the community and with Microsoft. They are committed to helping others get the most out of their experience with Microsoft products and technologies."
+        }
+    ],
+    "certificates": [
+        {
+            "name": "Certified Information Systems Security Professional (CISSP)",
+            "issuer": "(ISC)Â²"
+        }
+    ],
+    "publications": [
+        {
+            "name": "Master PowerShell Tricks: Volume 3",
+            "publisher": "MVP Days Publishing",
+            "releaseDate": "2017-01-20",
+            "url": "https://www.amazon.com/Master-PowerShell-Tricks-Dave-Kawula/dp/1979733139"
+        },
+        {
+            "name": "Master PowerShell Tricks: Volume 2",
+            "publisher": "MVP Days Publishing",
+            "releaseDate": "2017-01-20",
+            "url": "https://www.amazon.com/Master-PowerShell-Tricks-Dave-Kawula/dp/1542677963/ref=asap_bc?ie=UTF8"
+        },
+        {
+            "name": "Master Storage Spaces Direct (Volume 1)",
+            "publisher": "MVP Days Publishing",
+            "releaseDate": "2017-01-14",
+            "url": "https://www.amazon.com/Master-Storage-Spaces-Direct-Book-ebook/dp/B01MZA3B2G/ref=asap_bc?ie=UTF8"
+        },
+        {
+            "name": "Master PowerShell Tricks (Volume 1)",
+            "publisher": "MVP Days Publishing",
+            "releaseDate": "2016-12-18",
+            "url": "https://www.amazon.com/Master-PowerShell-tricks-Dave-Kawula-ebook/dp/B01MXZSW7M/ref=asap_bc?ie=UTF8"
+        },
+        {
+            "name": "thomasrayner.ca",
+            "publisher": "Personal Blog",
+            "summary": "Discussions and posts on software development and information security.",
+            "url": "http://thomasrayner.ca"
+        }
+    ],
+    "skills": [
+        {
+            "name": "Information Security",
+            "level": "Expert",
+            "keywords": [
+                "x509 Certificates/Public Key Infrastructure (PKI)",
+                "Public Key Cryptography",
+                "Authentication (authn)",
+                "Authorization (authz)",
+                "Secure Software Development",
+                "Internet Security",
+                "Identity and Access Management (IAM)",
+                "Multi-factor Authentication (MFA)"
+            ]
+        },
+        {
+            "name": "Software Development",
+            "level": "Expert",
+            "keywords": [
+                "C#",
+                "TypeScript",
+                "Golang",
+                "KQL",
+                "PowerShell",
+                "Python",
+                ".NET",
+                "JavaScript",
+                "Code Review"
+            ]
+        },
+        {
+            "name": "Cloud Architecture",
+            "level": "Expert",
+            "keywords": [
+                "Azure",
+                "AWS (Intermediate)"
+            ]
+        },
+        {
+            "name": "DevOps",
+            "level": "Expert",
+            "keywords": [
+                "Continuous Integration (CI)",
+                "Continuous Delivery (CD)",
+                "Infrastructure as Code (IaC)",
+                "Configuration Management",
+                "Github Actions",
+                "Open Source",
+                "Azure DevOps",
+                "Monitoring"
+            ]
+        },
+        {
+            "name": "Leadership",
+            "level": "Expert",
+            "keywords": [
+                "Mentoring",
+                "Coaching",
+                "Teaching",
+                "Public Speaking"
+            ]
+        },
+        {
+            "name": "Enterprise Tools",
+            "level": "Expert",
+            "keywords": [
+                "Git",
+                "Github",
+                "Azure DevOps",
+                "Productivity Tools/Applications"
+            ]
+        }
+    ],
+    "languages": [
+        {
+            "language": "English",
+            "fluency": "Native Speaker"
+        }
+    ],
+    "interests": [
+        {
+            "name": "Personal Time",
+            "keywords": [
+                "Hiking",
+                "Wine",
+                "Marksmanship",
+                "Cats"
+            ]
+        },
+        {
+            "name": "Personal Study",
+            "keywords": [
+                "Data Science",
+                "AI/Machine Learning",
+                "Trying new languages"
+            ]
+        }
+    ],
+    "references": [],
+    "projects": [],
+    "meta": {
+        "version": "v1.0.0",
+        "theme": "kendall",
+        "canonical": "https://github.com/jsonresume/resume-schema/blob/v1.0.0/schema.json"
+    }
+}

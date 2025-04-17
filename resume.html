@@ -9,7 +9,7 @@
     <!-- <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"> -->
     <!-- <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"> -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" rel="stylesheet">
     <style type="text/css">
     @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800);
 @charset "utf-8";
@@ -57,13 +57,13 @@ blockquote {
   padding: 0;
   font-size: 1.5em;
   font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: -1px;
 }
 #text-header h1::first-line{
   font-size: 1.5em;
   font-weight: 800;
   line-height: 1.5em;
-  text-transform: uppercase;
 }
 #text-header h1 span{
   color: #334960;
@@ -92,25 +92,6 @@ blockquote {
   text-transform: uppercase;
 }
 
-#section_about p{
-  margin-left: 1.2em;
-}
-#section_about h1{
-  margin-left: 1.0em;
-  font-size: 1.2em;
-  font-weight: 600;
-}
-/*#section_work_experience{}*/
-/*#section_awards{}*/
-/*#section_volunteer{}*/
-/*#section_projects{}*/
-/*#section_contact{}*/
-/*#section_skills{}*/
-/*#section_publications{}*/
-/*#section_languages{}*/
-/*#section_hobbies{}*/
-/*#section_education{}*/
-
 #awards,
 #education{
   margin-top: 20px;
@@ -128,7 +109,14 @@ blockquote {
   top: 0;
   content: ' ';
   display: block;
-  background: none;
+  background: #32475c;
+  background: -moz-linear-gradient(top,  #ffffff 0%, #32475c 7%, #32475c 89%, #ffffff 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(7%,#32475c), color-stop(89%,#32475c), color-stop(100%,#ffffff));
+  background: -webkit-linear-gradient(top,  #ffffff 0%,#32475c 7%,#32475c 89%,#ffffff 100%);
+  background: -o-linear-gradient(top,  #ffffff 0%,#32475c 7%,#32475c 89%,#ffffff 100%);
+  background: -ms-linear-gradient(top,  #ffffff 0%,#32475c 7%,#32475c 89%,#ffffff 100%);
+  background: linear-gradient(to bottom,  #ffffff 0%,#32475c 7%,#32475c 89%,#ffffff 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=0 );
 }
 #awards li,
 #education li{
@@ -158,7 +146,7 @@ blockquote {
 }
 #awards .description:after,
 #education .description:after {
-  content: none;
+  content: '';
   position: absolute;
   top: 15px;
   right: 0;
@@ -300,39 +288,6 @@ blockquote {
   border-bottom: 1px solid #eee;
 }
 
-.list-group {
-  /*/ No need to set list-style: none; since .list-group-item is block level /*/
-  margin-bottom: 20px;
-  padding-left: 0; /*/ reset padding because ul and ol /*/
-}
-
-
-/*/ Individual list items //
-//
-// Use on `li`s or `div`s within the `.list-group` parent. /*/
-
-.list-group-item {
-  position: relative;
-  display: list-item;
-  padding: 0px;
-  /*/ Place the border on the list items and negative margin up for better styling /*/
-  margin: 0px 0px -1px 20px;
-  border: none;
-  /*
-  background-color: @list-group-bg;
-  border: 1px solid @list-group-border;
-
-  // Round the first and last items //
-  &:first-child {
-    .border-top-radius(@list-group-border-radius);
-  }
-  &:last-child {
-    margin-bottom: 0;
-    .border-bottom-radius(@list-group-border-radius);
-  }
-  */
-}
-
     </style>
     <style type="text/css" media="print">
     body {
@@ -355,7 +310,6 @@ a[href]:after {
 blockquote,
 #education,
 #awards,
-.avoid-break,
 .contact-item,
 .publication,
 .skills,
@@ -393,9 +347,6 @@ blockquote,
 .job .details {
   border: 1px solid #eee;
 }
-.job {
-  margin: 0px;
-}
 .publication,
 .publication .panel-heading,
 .publication .name{
@@ -408,25 +359,17 @@ blockquote,
   margin: 0;
 }
 
-.panel-default {
-  margin-top: 10px;
-}
-
 .badge {
   margin: 0;
 }
 
-.list-group {
-  margin-bottom: 8px;
-  padding-left: 0;
-}
 .list-group-item{
   border: none;
-  padding: 0px;
-  margin: 0px 0px -1px 20px;
+  margin: 0;
+  padding: 5px 15px;
 }
 .list-group-item:after{
-  content: none;
+  content: '';
   position: absolute;
   top: 8px;
   right: 0;
@@ -459,13 +402,14 @@ blockquote,
       <div class="row">
         <div class="col-xs-12 col-sm-7">
           <!-- ABOUT ME -->
-          <div class="box" id="section_about">
+          <div class="box">
             <h2><i class="fas fa-user ico"></i> About</h2>
-            <p><p>I’m a software developer with over 20 years of experience in languages (most recently in C#, TypeScript, Go, KQL), identity (authn/authz), x509 certificates and secret management, secure software supply chain, cloud architecture, and helping my teammates grow and succeed.</p>
-<p>I am a prominent speaker, best-selling author, and teacher. I am very active within the technical community and a variety of Microsoft technical and strategic teams.</p></p>
+            <p>I'm a software developer with over 20 years of experience in languages (most recently in C#, TypeScript, Go, KQL), identity (authn/authz), x509 certificates and secret management, secure software supply chain, cloud architecture, and helping my teammates grow and succeed.
+
+I am a prominent speaker, best-selling author, and teacher. I am very active within the technical community and a variety of Microsoft technical and strategic teams.</p>
           </div>
           <!-- WORK EXPERIENCE -->
-          <div class="box" id="section_work_experience">
+          <div class="box">
             <h2><i class= "fas fa-suitcase ico"></i> Work Experience</h2>
               <div class="job clearfix">
                 <div class="row">
@@ -479,7 +423,7 @@ blockquote,
                     <div class="address">
                       <a href="https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;microsoft&#x2F;" target= "_blank"><i class="fas fa-globe ico"></i> https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;microsoft&#x2F;</a>
                     </div>
-                    <div class="year">2018 – Present</div>
+                    <div class="year">July 2018 – Present</div>
                   </div>
                 </div>
                 <div class="row">
@@ -490,6 +434,7 @@ blockquote,
 Centrally remediate security issues for and provide horizontal support for 100+ teams responsible for the Microsoft Teams backend microservices.
 2018-2021 (PRSS)
 Software development, deployment, change management, and automation subject matter expert on Gaming Crypto Services team in the Edge & Security Services organization.
+                      <div class="highlights">Highlights</div>
                       <ul class="list-group">
                         <li class="list-group-item">(IC3) x509 certificate management, authentication & authorization (authn/authz) subject matter expert.</li>
                         <li class="list-group-item">(IC3) Mentor and educate teammates regarding software development, x509 certificates, authn/authz, and other areas of subject matter expertise.</li>
@@ -516,7 +461,7 @@ Software development, deployment, change management, and automation subject matt
                     <div class="address">
                       <a href="https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;pcl-construction&#x2F;" target= "_blank"><i class="fas fa-globe ico"></i> https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;pcl-construction&#x2F;</a>
                     </div>
-                    <div class="year">2016 – 2018</div>
+                    <div class="year">November 2016 – June 2018</div>
                   </div>
                 </div>
                 <div class="row">
@@ -524,6 +469,7 @@ Software development, deployment, change management, and automation subject matt
                     <div class="profession">Software Developer</div>
                     <div class="description">
                       Orchestrated robust CI/CD pipelines, automated scalable deployments, and built monitoring tools to streamline operations and elevate cross-team productivity.
+                      <div class="highlights">Highlights</div>
                       <ul class="list-group">
                         <li class="list-group-item">Created and led strategies for continuous integration and delivery (CI/CD) to both on-premises and cloud-based infrastructure.</li>
                         <li class="list-group-item">Developed automated dynamic environments and deployment strategies for existing and new services.</li>
@@ -545,7 +491,7 @@ Software development, deployment, change management, and automation subject matt
                     <div class="address">
                       <a href="https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;pluralsight&#x2F;" target= "_blank"><i class="fas fa-globe ico"></i> https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;pluralsight&#x2F;</a>
                     </div>
-                    <div class="year">2017 – 2018</div>
+                    <div class="year">May 2017 – April 2018</div>
                   </div>
                 </div>
                 <div class="row">
@@ -553,6 +499,7 @@ Software development, deployment, change management, and automation subject matt
                     <div class="profession">Author</div>
                     <div class="description">
                       Contract author, solely responsible for creating and delivering online learning content.
+                      <div class="highlights">Highlights</div>
                       <ul class="list-group">
                         <li class="list-group-item">Created learning paths for technology students.</li>
                         <li class="list-group-item">Developed, recorded, edited, and distributed courses.</li>
@@ -573,7 +520,7 @@ Software development, deployment, change management, and automation subject matt
                     <div class="address">
                       <a href="https:&#x2F;&#x2F;www.linkedin.com&#x2F;school&#x2F;nait&#x2F;" target= "_blank"><i class="fas fa-globe ico"></i> https:&#x2F;&#x2F;www.linkedin.com&#x2F;school&#x2F;nait&#x2F;</a>
                     </div>
-                    <div class="year">2013 – 2018</div>
+                    <div class="year">December 2013 – April 2018</div>
                   </div>
                 </div>
                 <div class="row">
@@ -597,7 +544,7 @@ Software development, deployment, change management, and automation subject matt
                     <div class="address">
                       <a href="https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;alberta-blue-cross&#x2F;" target= "_blank"><i class="fas fa-globe ico"></i> https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;alberta-blue-cross&#x2F;</a>
                     </div>
-                    <div class="year">2013 – 2016</div>
+                    <div class="year">December 2013 – November 2016</div>
                   </div>
                 </div>
                 <div class="row">
@@ -605,6 +552,7 @@ Software development, deployment, change management, and automation subject matt
                     <div class="profession">Senior Systems Administrator</div>
                     <div class="description">
                       Pioneer cultural and workflow changes related to systems administration, software development, and incident response.
+                      <div class="highlights">Highlights</div>
                       <ul class="list-group">
                         <li class="list-group-item">Led development and automation efforts, saving organization tens of thousands of hours annually.</li>
                         <li class="list-group-item">Mentored team, led and participated in escalation and major incident handling, key advisor in hiring and technology strategy decisions.</li>
@@ -622,7 +570,7 @@ Software development, deployment, change management, and automation subject matt
                         Edmonton, Alberta, Canada
                       </div>
                     </div>
-                    <div class="year">2009 – 2015</div>
+                    <div class="year">December 2009 – December 2015</div>
                   </div>
                 </div>
                 <div class="row">
@@ -630,6 +578,7 @@ Software development, deployment, change management, and automation subject matt
                     <div class="profession">Principal Software Developer</div>
                     <div class="description">
                       Technical lead, software developer, and business development lead for a small web development company.
+                      <div class="highlights">Highlights</div>
                       <ul class="list-group">
                         <li class="list-group-item">Designed and built diverse and varied web services for contract clients, predominantly on Linux, Apache, MySQL, PHP (LAMP stack), and JavaScript.</li>
                         <li class="list-group-item">Perform contracted business development, process improvement, marketing strategy, and research activities.</li>
@@ -650,14 +599,15 @@ Software development, deployment, change management, and automation subject matt
                     <div class="address">
                       <a href="https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;edmonton-public-schools&#x2F;" target= "_blank"><i class="fas fa-globe ico"></i> https:&#x2F;&#x2F;www.linkedin.com&#x2F;company&#x2F;edmonton-public-schools&#x2F;</a>
                     </div>
-                    <div class="year">2011 – 2013</div>
+                    <div class="year">May 2011 – December 2013</div>
                   </div>
                 </div>
                 <div class="row">
                   <div class="job-details col-xs-11">
                     <div class="profession">Software Analyst</div>
                     <div class="description">
-                      Deliver special projects and provide support for the District’s software development team.
+                      Deliver special projects and provide support for the Districtâ€™s software development team.
+                      <div class="highlights">Highlights</div>
                       <ul class="list-group">
                         <li class="list-group-item">Managed complex projects, worked with users to troubleshoot line of business applications and a variety of Microsoft enterprise products.</li>
                         <li class="list-group-item">Created and delivered training materials for District move to Google Mail/Apps from Exchange.</li>
@@ -675,7 +625,7 @@ Software development, deployment, change management, and automation subject matt
                         Edmonton, Alberta, Canada
                       </div>
                     </div>
-                    <div class="year">2007 – 2010</div>
+                    <div class="year">December 2007 – December 2010</div>
                   </div>
                 </div>
                 <div class="row">
@@ -689,7 +639,7 @@ Software development, deployment, change management, and automation subject matt
               </div>
           </div>
           <!-- AWARDS -->
-          <div class="box" id="section_awards">
+          <div class="box">
             <h2><i class="fas fa-certificate ico"></i> Awards</h2>
             <ul id="awards" class="clearfix">
               <li>
@@ -729,7 +679,7 @@ Software development, deployment, change management, and automation subject matt
                 <div class="description pull-right">
                   <h3>Microsoft</h3>
                   <p><i class="fas fa-trophy ico"></i> Microsoft MVP</p>
-                  <p>For more than two decades, Microsoft has recognized exceptional, independent community leaders who share their passion, technical expertise, and real-world knowledge of Microsoft products with others. It is part of Microsoft’s commitment to supporting and enriching technical communities.
+                  <p>For more than two decades, Microsoft has recognized exceptional, independent community leaders who share their passion, technical expertise, and real-world knowledge of Microsoft products with others. It is part of Microsoftâ€™s commitment to supporting and enriching technical communities.
  
 Microsoft Most Valuable Professionals, or MVPs are exceptional community leaders who actively share their high-quality, real-world deep technical expertise with the community and with Microsoft. They are committed to helping others get the most out of their experience with Microsoft products and technologies.</p>
                 </div>
@@ -739,7 +689,7 @@ Microsoft Most Valuable Professionals, or MVPs are exceptional community leaders
         </div>
         <div class="col-xs-12 col-sm-5">
           <!-- CONTACT -->
-          <div class="box clearfix" id="section_contact">
+          <div class="box clearfix">
             <h2><i class="fas fa-bullseye ico"></i> Contact</h2>
             <div class="contact-item">
               <div class="icon pull-left text-center"><span class="fas fa-map-marker fa-fw"></span></div>
@@ -764,19 +714,42 @@ Microsoft Most Valuable Professionals, or MVPs are exceptional community leaders
               <div class="title pull-right">GitHub</div>
               <div class="description pull-right"><a href="https:&#x2F;&#x2F;github.com&#x2F;thomasrayner" target="_blank">thomasrayner</a></div>
             </div>
-            <div class="contact-item">
-              <div class="icon pull-left text-center"><span class="fab fa-x-twitter fa-fw"></span></div>
-              <div class="title pull-right">Twitter</div>
-              <div class="description pull-right"><a href="https:&#x2F;&#x2F;twitter.com&#x2F;MrThomasRayner" target="_blank">thomasrayner</a></div>
-            </div>
-            <div class="contact-item">
-              <div class="icon pull-left text-center"><span class="fab fa-bluesky fa-fw"></span></div>
-              <div class="title pull-right">Bluesky</div>
-              <div class="description pull-right"><a href="https:&#x2F;&#x2F;bsky.app&#x2F;profile&#x2F;thomasrayner.bsky.social" target="_blank">thomasrayner</a></div>
-            </div>
+          </div>
+          <!-- EDUCATION -->
+          <div class="box">
+            <h2><i class="fas fa-university ico"></i> Education</h2>
+            <ul id="education" class="clearfix">
+              <li>
+                <div class="year pull-left">2011 2013</div>
+                <div class="description pull-right">
+                  <h3>NAIT</h3>
+                  <div class="where"></div>
+                  <p><i class= "fas fa-graduation-cap ico"></i> Bachelor of Technology</p>
+                  <p>Technology Management</p>
+                </div>
+              </li>
+              <li>
+                <div class="year pull-left">2010 2011</div>
+                <div class="description pull-right">
+                  <h3>NAIT</h3>
+                  <div class="where"></div>
+                  <p><i class= "fas fa-graduation-cap ico"></i> Bachelor of Applied Information Systems Technology</p>
+                  <p>Network Management</p>
+                </div>
+              </li>
+              <li>
+                <div class="year pull-left">2008 2010</div>
+                <div class="description pull-right">
+                  <h3>NAIT</h3>
+                  <div class="where"></div>
+                  <p><i class= "fas fa-graduation-cap ico"></i> Network Engineering Technology</p>
+                  <p>Information Technology</p>
+                </div>
+              </li>
+            </ul>
           </div>
           <!-- SKILLS -->
-          <div class="box" id="section_skills">
+          <div class="box">
             <h2><i class="fas fa-tasks ico"></i> Skills</h2>
             <div class="skills clearfix">
               <div class="item-skills">
@@ -863,7 +836,7 @@ Microsoft Most Valuable Professionals, or MVPs are exceptional community leaders
             </div>
           </div>
           <!-- PUBLICATIONS -->
-          <div class="box" id="section_publications">
+          <div class="box">
             <h2><i class="fas fa-book ico"></i> Publications</h2>
             <div class="publication panel panel-default">
               <div class="panel-heading">
@@ -927,15 +900,8 @@ Microsoft Most Valuable Professionals, or MVPs are exceptional community leaders
               </div>
             </div>
           </div>
-          <!-- LANGUAGES -->
-          <div class="box" id="section_languages">
-            <h2><i class="fas fa-language ico"></i> Languages</h2>
-            <ul class="list-group">
-              <li class=" list-group-item">English<span class="skill badge pull-right">Native Speaker</span></li>
-            </ul>
-          </div>
           <!-- HOBBIES -->
-          <div class="box" id="section_hobbies">
+          <div class="box">
             <h2><i class="fas fa-heart ico"></i> Interests</h2>
             <div class="interests clearfix">
               <div class="item-interests">
@@ -958,39 +924,6 @@ Microsoft Most Valuable Professionals, or MVPs are exceptional community leaders
                 <span class= "interest badge">Trying new languages</span>
               </div>
             </div>
-          </div>
-          <!-- EDUCATION -->
-          <div class="box" id="section_education">
-            <h2><i class="fas fa-university ico"></i> Education</h2>
-            <ul id="education" class="clearfix">
-              <li>
-                <div class="year pull-left">2011 – 2013</div>
-                <div class="description pull-right">
-                  <h3>NAIT</h3>
-                  <div class="where"></div>
-                  <p><i class= "fas fa-graduation-cap ico"></i> Bachelor of Technology</p>
-                  <p>Technology Management</p>
-                </div>
-              </li>
-              <li>
-                <div class="year pull-left">2010 – 2011</div>
-                <div class="description pull-right">
-                  <h3>NAIT</h3>
-                  <div class="where"></div>
-                  <p><i class= "fas fa-graduation-cap ico"></i> Bachelor of Applied Information Systems Technology</p>
-                  <p>Network Management</p>
-                </div>
-              </li>
-              <li>
-                <div class="year pull-left">2008 – 2010</div>
-                <div class="description pull-right">
-                  <h3>NAIT</h3>
-                  <div class="where"></div>
-                  <p><i class= "fas fa-graduation-cap ico"></i> Network Engineering Technology</p>
-                  <p>Information Technology</p>
-                </div>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
